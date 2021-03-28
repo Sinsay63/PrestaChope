@@ -93,18 +93,6 @@ CREATE TABLE Clients(
 )ENGINE=InnoDB;
 
 
-#------------------------------------------------------------
-# Table: Commandes
-#------------------------------------------------------------
-
-CREATE TABLE Commandes(
-        Id         Int  Auto_increment  NOT NULL ,
-        Id_Clients Int NOT NULL
-	,CONSTRAINT Commandes_PK PRIMARY KEY (Id)
-
-	,CONSTRAINT Commandes_Clients_FK FOREIGN KEY (Id_Clients) REFERENCES Clients(Id)
-)ENGINE=InnoDB;
-
 
 #------------------------------------------------------------
 # Table: Factures
@@ -112,12 +100,28 @@ CREATE TABLE Commandes(
 
 CREATE TABLE Factures(
         Id            Int  Auto_increment  NOT NULL ,
-        Id_Tresorerie Int NOT NULL,
-	Id_Commandes  Int NOT NULL
+        Id_Tresorerie Int NOT NULL
 	,CONSTRAINT Factures_PK PRIMARY KEY (Id)
-	,CONSTRAINT Factures_Commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES Commandes(Id)
 	,CONSTRAINT Factures_Tresorerie_FK FOREIGN KEY (Id_Tresorerie) REFERENCES Tresorerie(Id)
 )ENGINE=InnoDB;
+
+
+
+
+
+#------------------------------------------------------------
+# Table: Commandes
+#------------------------------------------------------------
+
+CREATE TABLE Commandes(
+        Id          Int  Auto_increment  NOT NULL ,
+        Id_Clients  Int NOT NULL,
+	Id_Factures Int NOT NULL
+	,CONSTRAINT Commandes_PK PRIMARY KEY (Id)
+	,CONSTRAINT Commandes_Factures_FK FOREIGN KEY (Id_Factures) REFERENCES Factures(Id)
+	,CONSTRAINT Commandes_Clients_FK FOREIGN KEY (Id_Clients) REFERENCES Clients(Id)
+)ENGINE=InnoDB;
+
 
 
 #------------------------------------------------------------
