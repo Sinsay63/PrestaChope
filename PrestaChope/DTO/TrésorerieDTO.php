@@ -1,9 +1,9 @@
 <?php
 
-Class TrésorerieDTO{
-    
+Class TrésorerieDTO {
+
     private $total;
-    
+
     function getTotal() {
         return $this->total;
     }
@@ -11,6 +11,5 @@ Class TrésorerieDTO{
     function setTotal($total): void {
         $this->total = $total;
     }
-
 
 }

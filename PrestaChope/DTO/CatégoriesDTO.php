@@ -1,12 +1,12 @@
 <?php
 
-Class CatégoriesDTO{
-    
+Class CatégoriesDTO {
+
     private $id;
     private $nom;
     private $description;
-    private $souscatégories=[];
-    
+    private $souscatégories = [];
+
     function getId() {
         return $this->id;
     }
@@ -17,6 +17,10 @@ Class CatégoriesDTO{
 
     function getDescription() {
         return $this->description;
+    }
+
+    function getSouscatégories() {
+        return $this->souscatégories;
     }
 
     function setId($id): void {
@@ -30,4 +34,9 @@ Class CatégoriesDTO{
     function setDescription($description): void {
         $this->description = $description;
     }
+
+    function setSouscatégories($souscatégories): void {
+        $this->souscatégories[] = $souscatégories;
+    }
+
 }

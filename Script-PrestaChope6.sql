@@ -6,29 +6,17 @@ DROP DATABASE IF EXISTS prestachope_bdd6;
 CREATE DATABASE prestachope_bdd6;
 USE prestachope_bdd6;
 
-#------------------------------------------------------------
-# Table: Produits
-#------------------------------------------------------------
-
-CREATE TABLE Produits(
-        Id          Int  Auto_increment  NOT NULL ,
-        nom         Varchar (50) NOT NULL ,
-        description Varchar (50) NOT NULL ,
-        prix        Float NOT NULL ,
-        stock       Int NOT NULL
-	,CONSTRAINT Produits_PK PRIMARY KEY (Id)
-)ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
 # Table: Categories
 #------------------------------------------------------------
 
-CREATE TABLE Categories(
+CREATE TABLE categories(
         Id          Int  Auto_increment  NOT NULL ,
         nom         Varchar (50) NOT NULL ,
         description Varchar (50) NOT NULL
-	,CONSTRAINT Categories_PK PRIMARY KEY (Id)
+	,CONSTRAINT categories_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
 
@@ -36,13 +24,29 @@ CREATE TABLE Categories(
 # Table: SousCategories
 #------------------------------------------------------------
 
-CREATE TABLE SousCategories(
+CREATE TABLE souscategories(
         Id            Int  Auto_increment  NOT NULL ,
         nom           Varchar (50) NOT NULL ,
         Id_Categories Int NOT NULL
-	,CONSTRAINT SousCategories_PK PRIMARY KEY (Id)
+	,CONSTRAINT souscategories_PK PRIMARY KEY (Id)
+	,CONSTRAINT souscategories_categories_FK FOREIGN KEY (Id_Categories) REFERENCES categories(Id)
+)ENGINE=InnoDB;
 
-	,CONSTRAINT SousCategories_Categories_FK FOREIGN KEY (Id_Categories) REFERENCES Categories(Id)
+#------------------------------------------------------------
+# Table: Produits
+#------------------------------------------------------------
+
+CREATE TABLE produits(
+        Id                Int  Auto_increment  NOT NULL ,
+        nom               Varchar (50) NOT NULL ,
+        description       Varchar (50) NOT NULL ,
+        prix              Float NOT NULL ,
+        stock             Int NOT NULL,
+        Id_Catégories     Int NOT NULL,
+        Id_SousCatégories INT NOT NULL
+	,CONSTRAINT produits_PK PRIMARY KEY (Id)
+        ,CONSTRAINT produits_categories_FK FOREIGN KEY (Id_Catégories) REFERENCES categories(Id)
+        ,CONSTRAINT produits_souscategories_FK FOREIGN KEY (Id_SousCatégories) REFERENCES souscategories(Id)
 )ENGINE=InnoDB;
 
 
@@ -50,10 +54,10 @@ CREATE TABLE SousCategories(
 # Table: Tresorerie
 #------------------------------------------------------------
 
-CREATE TABLE Tresorerie(
+CREATE TABLE tresorerie(
         Id    Int  Auto_increment  NOT NULL ,
-        Total Float NOT NULL
-	,CONSTRAINT Tresorerie_PK PRIMARY KEY (Id)
+        total Float NOT NULL 
+	,CONSTRAINT tresorerie_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
 
@@ -61,7 +65,7 @@ CREATE TABLE Tresorerie(
 # Table: Users
 #------------------------------------------------------------
 
-CREATE TABLE Users(
+CREATE TABLE users(
         Id       Int  Auto_increment  NOT NULL ,
         nom      Varchar (50) NOT NULL ,
         prenom   Varchar (50) NOT NULL ,
@@ -71,7 +75,7 @@ CREATE TABLE Users(
         age      Int NOT NULL ,
         cagnotte Float NOT NULL ,
         isAdmin  Int NOT NULL
-	,CONSTRAINT Users_PK PRIMARY KEY (Id)
+	,CONSTRAINT users_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
 
@@ -79,17 +83,15 @@ CREATE TABLE Users(
 # Table: Clients
 #------------------------------------------------------------
 
-CREATE TABLE Clients(
+CREATE TABLE clients(
         Id        Int  Auto_increment  NOT NULL ,
         adresse   Varchar (50) NOT NULL ,
         telephone Varchar (50) NOT NULL ,
         Id_Users  Int NOT NULL
-	,CONSTRAINT Clients_PK PRIMARY KEY (Id)
-
-	,CONSTRAINT Clients_Users_FK FOREIGN KEY (Id_Users) REFERENCES Users(Id)
-	,CONSTRAINT Clients_Users_AK UNIQUE (Id_Users)
+	,CONSTRAINT clients_PK PRIMARY KEY (Id)
+	,CONSTRAINT clients_users_FK FOREIGN KEY (Id_Users) REFERENCES users(Id)
+	,CONSTRAINT clients_users_AK UNIQUE (Id_Users)
 )ENGINE=InnoDB;
-
 
 
 
@@ -99,11 +101,11 @@ CREATE TABLE Clients(
 # Table: Commandes
 #------------------------------------------------------------
 
-CREATE TABLE Commandes(
+CREATE TABLE commandes(
         Id          Int  Auto_increment  NOT NULL ,
         Id_Clients  Int NOT NULL
-	,CONSTRAINT Commandes_PK PRIMARY KEY (Id)
-	,CONSTRAINT Commandes_Clients_FK FOREIGN KEY (Id_Clients) REFERENCES Clients(Id)
+	,CONSTRAINT commandes_PK PRIMARY KEY (Id)
+	,CONSTRAINT commandes_clients_FK FOREIGN KEY (Id_Clients) REFERENCES clients(Id)
 )ENGINE=InnoDB;
 
 
@@ -112,42 +114,27 @@ CREATE TABLE Commandes(
 # Table: Factures
 #------------------------------------------------------------
 
-CREATE TABLE Factures(
+CREATE TABLE factures(
         Id            Int  Auto_increment  NOT NULL ,
-        Id_Tresorerie Int NOT NULL,
-        Id_Commandes  Int NOT NULL
-	,CONSTRAINT Factures_PK PRIMARY KEY (Id)
-        ,CONSTRAINT Factures_Commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES Commandes(Id)
-	,CONSTRAINT Factures_Tresorerie_FK FOREIGN KEY (Id_Tresorerie) REFERENCES Tresorerie(Id)
+        Id_Commandes  Int NOT NULL,
+        montant       Int NOT NULL  
+	,CONSTRAINT factures_PK PRIMARY KEY (Id)
+        ,CONSTRAINT factures_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
 )ENGINE=InnoDB;
 
 
-
-#------------------------------------------------------------
-# Table: Produits_Categories
-#------------------------------------------------------------
-
-CREATE TABLE Produits_Categories(
-        Id_Produits   Int NOT NULL ,
-        Id_Categories Int NOT NULL
-	
-	,CONSTRAINT Produits_Categories_PK PRIMARY KEY (Id_Produits,Id_Categories)
-
-	,CONSTRAINT Produits_Categories_Produits_FK FOREIGN KEY (Id_Produits) REFERENCES Produits(Id)
-	,CONSTRAINT Produits_Categories_Categories_FK FOREIGN KEY (Id_Categories) REFERENCES Categories(Id)
-)ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
 # Table: Quantites_Produits
 #------------------------------------------------------------
 
-CREATE TABLE Produits_Commandes(
+CREATE TABLE produits_commandes(
         Id_Produits  Int NOT NULL ,
         Id_Commandes Int NOT NULL,
         quantites    INT NOT NULL
-	,CONSTRAINT Produits_PK PRIMARY KEY (Id_Produits,Id_Commandes)
-        ,CONSTRAINT Produits_Commandes_Produits_FK FOREIGN KEY (Id_Produits) REFERENCES Produits(Id)
-        ,CONSTRAINT Produits_Commandes_Commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES Commandes(Id)
+	,CONSTRAINT produits_PK PRIMARY KEY (Id_Produits,Id_Commandes)
+        ,CONSTRAINT produits_commandes_produits_FK FOREIGN KEY (Id_Produits) REFERENCES produits(Id)
+        ,CONSTRAINT produits_commandes_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
 	
 )ENGINE=InnoDB;

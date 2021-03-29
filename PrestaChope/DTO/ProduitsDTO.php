@@ -1,13 +1,13 @@
 <?php
 
-class ProduitsDTO{
+class ProduitsDTO {
+
     private $id;
     private $nom;
     private $description;
     private $prix;
     private $stock;
-    
-    
+
     function getId() {
         return $this->id;
     }
@@ -47,4 +47,5 @@ class ProduitsDTO{
     function setStock($stock): void {
         $this->stock = $stock;
     }
+
 }
