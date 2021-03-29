@@ -5,6 +5,7 @@ Class CatégoriesDTO{
     private $id;
     private $nom;
     private $description;
+    private $souscatégories=[];
     
     function getId() {
         return $this->id;
@@ -29,10 +30,4 @@ Class CatégoriesDTO{
     function setDescription($description): void {
         $this->description = $description;
     }
-
-
-    
-    
-    
-    
 }
