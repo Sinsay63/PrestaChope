@@ -49,18 +49,6 @@ CREATE TABLE produits(
         ,CONSTRAINT produits_souscategories_FK FOREIGN KEY (Id_SousCatégories) REFERENCES souscategories(Id)
 )ENGINE=InnoDB;
 
-
-#------------------------------------------------------------
-# Table: Tresorerie
-#------------------------------------------------------------
-
-CREATE TABLE tresorerie(
-        Id    Int  Auto_increment  NOT NULL ,
-        total Float NOT NULL 
-	,CONSTRAINT tresorerie_PK PRIMARY KEY (Id)
-)ENGINE=InnoDB;
-
-
 #------------------------------------------------------------
 # Table: Users
 #------------------------------------------------------------
