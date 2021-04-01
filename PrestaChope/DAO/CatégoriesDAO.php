@@ -23,26 +23,56 @@ Class CatégoriesDAO {
                 $cate->setId($value['Id']);
                 $cate->setNom($value['nom']);
                 $cate->setDescription($value['description']);
-
-                $reponse = $bdd->prepare('Select * from souscategories where Id_Categories = ?');
-                $reponse->execute(array($value['Id']));
-                $scat = $reponse->fetchAll();
-
-                    foreach ($scat as $sous_caté){
-                        $souscat = new SousCatégoriesDTO();
-
-                        $souscat->setId($sous_caté['Id']);
-                        $souscat->setNom($sous_caté['nom']);
-                        
-                        $cate->setSouscatégories($souscat);
-                    }
+                $scaté = self::SousCatégories($value['Id']);
+                $cate->setSouscatégories($scaté);
                 $tab[] = $cate;
             }
             return $tab;
-        } 
-        else {
+        } else {
             return null;
         }
     }
 
+    function SousCatégories($id) {
+        $bdd = DataBaseLinker::getConnexion();
+
+        $reponse = $bdd->prepare('Select * from souscategories where Id_Categories = ?');
+        $reponse->execute(array($id));
+        $scat = $reponse->fetchAll();
+
+        if ($scat) {
+            foreach ($scat as $sous_caté) {
+                $souscat = new SousCatégoriesDTO();
+
+                $souscat->setId($sous_caté['Id']);
+                $souscat->setNom($sous_caté['nom']);
+            }
+            return $souscat;
+        } else {
+            return null;
+        }
+    }
+
+    static function SearchSousCatégories($id) {
+        $bdd = DataBaseLinker::getConnexion();
+
+        $reponse = $bdd->prepare('Select * from souscategories where Id_Categories = ?');
+        $reponse->execute(array($id));
+        $scat = $reponse->fetchAll();
+
+        if ($scat) {
+            $tab = [];
+            foreach ($scat as $sous_caté) {
+                $souscat = new SousCatégoriesDTO();
+
+                $souscat->setId($sous_caté['Id']);
+                $souscat->setNom($sous_caté['nom']);
+
+                $tab[] = $souscat;
+            }
+            return $tab;
+        } else {
+            return null;
+        }
+    }
 }

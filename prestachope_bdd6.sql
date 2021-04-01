@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 30 mars 2021 à 01:25
+-- Généré le : jeu. 01 avr. 2021 à 02:11
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.11
 
@@ -113,6 +113,7 @@ CREATE TABLE `produits` (
   `description` varchar(50) NOT NULL,
   `prix` float NOT NULL,
   `stock` int(11) NOT NULL,
+  `image` varchar(60) DEFAULT NULL,
   `Id_Catégories` int(11) NOT NULL,
   `Id_SousCatégories` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -121,10 +122,10 @@ CREATE TABLE `produits` (
 -- Déchargement des données de la table `produits`
 --
 
-INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `Id_Catégories`, `Id_SousCatégories`) VALUES
-(1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 1, 1),
-(2, 'Chateauneuf du pâpe', 'bouteille d\'1L ', 25.5, 20, 2, 3),
-(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, 1, 1);
+INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Catégories`, `Id_SousCatégories`) VALUES
+(1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 1, 1),
+(2, 'Chateauneuf du pâpe', 'bouteille d\'1L ', 25.5, 20, NULL, 2, 3),
+(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 1, 2);
 
 -- --------------------------------------------------------
 

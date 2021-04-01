@@ -1,6 +1,6 @@
 <?php
 
-Class ClientsDTO{
+Class ClientsDTO extends UsersDTO{
     
     private $id;
     private $adresse;

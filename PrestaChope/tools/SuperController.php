@@ -16,10 +16,16 @@ Class SuperController {
                     }
                 }
                 break;
+
             case "accueil":
                 require_once('pages/contact/ControllerContact.php');
                 $contact = new ControllerContact();
                 $contact->includeViewContact();
+                break;
+
+            case "catalogue":
+                require_once('pages/catalogue/ControllerCatalogue.php');
+                ControllerCatalogue::includeViewCatalogue();
         }
     }
 

@@ -7,6 +7,7 @@ class ProduitsDTO {
     private $description;
     private $prix;
     private $stock;
+    private $image;
 
     function getId() {
         return $this->id;
@@ -28,6 +29,10 @@ class ProduitsDTO {
         return $this->stock;
     }
 
+    function getImage() {
+        return $this->image;
+    }
+
     function setId($id): void {
         $this->id = $id;
     }
@@ -46,6 +51,10 @@ class ProduitsDTO {
 
     function setStock($stock): void {
         $this->stock = $stock;
+    }
+
+    function setImage($image): void {
+        $this->image = $image;
     }
 
 }

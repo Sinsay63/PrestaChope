@@ -7,7 +7,7 @@ Class ProduitsDAO {
     static function searchAllProducts() {
 
         $bdd = DataBaseLinker::getConnexion();
-        $state = $bdd->prepare('Select * from produits');
+        $state = $bdd->prepare('Select * from produits order by Id_Catégories ASC');
         $state->execute();
         $products = $state->fetchAll();
 
@@ -21,6 +21,7 @@ Class ProduitsDAO {
                 $produit->setDescription($prod['description']);
                 $produit->setPrix($prod['prix']);
                 $produit->setStock($prod['stock']);
+                $produit->setImage($prod['image']);
 
                 $tab[] = $produit;
             }
@@ -47,6 +48,7 @@ Class ProduitsDAO {
                 $produit->setDescription($prod['description']);
                 $produit->setPrix($prod['prix']);
                 $produit->setStock($prod['stock']);
+                $produit->setImage($prod['image']);
 
                 $tab[] = $produit;
             }
@@ -72,6 +74,7 @@ Class ProduitsDAO {
                 $produit->setDescription($prod['description']);
                 $produit->setPrix($prod['prix']);
                 $produit->setStock($prod['stock']);
+                $produit->setImage($prod['image']);
 
                 $tab[] = $produit;
             }
