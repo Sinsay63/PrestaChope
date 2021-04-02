@@ -4,7 +4,7 @@
         <title>contact</title>
     </head>
     <body>
-        <h1>PAGE D'ACCUEIL/CONTACT</h1>
+        <h1>PAGE DE CONTACT</h1>
     </body>
 </html>
 
