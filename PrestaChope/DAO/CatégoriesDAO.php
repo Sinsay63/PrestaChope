@@ -14,6 +14,8 @@ Class CatégoriesDAO {
         $reponse->execute();
         $rep = $reponse->fetchAll();
 
+        var_dump($rep);
+
         if (!empty($rep)) {
             $tab = [];
             foreach ($rep as $value) {
@@ -33,7 +35,7 @@ Class CatégoriesDAO {
         }
     }
 
-    function SousCatégories($id) {
+  static function SousCatégories($id) {
         $bdd = DataBaseLinker::getConnexion();
 
         $reponse = $bdd->prepare('Select * from souscategories where Id_Categories = ?');
