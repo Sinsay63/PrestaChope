@@ -1,11 +1,10 @@
 <?php
 
 require_once('DAO/ProduitsDAO.php');
-
+require_once ('DAO/CatégoriesDAO.php');
 class ControllerCatalogue {
 
     static function includeViewCatalogue() {
-        require('DAO/CatégoriesDAO.php');
         require_once('Catalogue.php');
     }
 
@@ -24,4 +23,12 @@ class ControllerCatalogue {
         return $produit;
     }
 
+    static function searchCatégoriesSousCatégories(){
+        $caté= CatégoriesDAO::SearchAllCatégories_SousCatégories();
+        return $caté;
+    }
+    static function searchSousCatégories($id) {
+        $sous_caté= CatégoriesDAO::SearchSousCatégories($id);
+        return $sous_caté;
+    }
 }

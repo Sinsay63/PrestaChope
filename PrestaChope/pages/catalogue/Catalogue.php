@@ -30,7 +30,7 @@
 
                         <?php
                     }
-                    $cat = CatégoriesDAO::SearchAllCatégories_SousCatégories();
+                    $cat = ControllerCatalogue::searchCatégoriesSousCatégories();
                     if ($cat != null) {
                         foreach ($cat as $caté) {
                             ?>
@@ -42,7 +42,7 @@
                 </select>
                 <?php
                 if (!empty($_GET['cat'])) {
-                    $scat = CatégoriesDAO::SearchSousCatégories($_GET['cat']);
+                    $scat = ControllerCatalogue::searchSousCatégories($_GET['cat']);
                     if ($scat != null) {
                         ?>
                         <script>

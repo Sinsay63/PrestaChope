@@ -18,9 +18,9 @@ Class SuperController {
                 break;
 
             case "accueil":
-                require_once('pages/contact/ControllerContact.php');
-                $contact = new ControllerContact();
-                $contact->includeViewContact();
+                require_once('pages/contact/ControllerAccueil.php');
+                $accueil = new ControllerAccueil();
+                $accueil->includeViewAccueil();
                 break;
 
             case "catalogue":
