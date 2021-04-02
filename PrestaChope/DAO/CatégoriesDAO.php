@@ -35,7 +35,7 @@ Class CatégoriesDAO {
         }
     }
 
-  static function SousCatégories($id) {
+    static function SousCatégories($id) {
         $bdd = DataBaseLinker::getConnexion();
 
         $reponse = $bdd->prepare('Select * from souscategories where Id_Categories = ?');

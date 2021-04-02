@@ -19,6 +19,10 @@ CREATE TABLE categories(
 	,CONSTRAINT categories_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
+INSERT INTO `categories` (`Id`, `nom`, `description`) VALUES
+(1, 'bières', 'description bières'),
+(2, 'Vins', 'description vins');
+
 
 #------------------------------------------------------------
 # Table: SousCategories
@@ -32,6 +36,12 @@ CREATE TABLE souscategories(
 	,CONSTRAINT souscategories_categories_FK FOREIGN KEY (Id_Categories) REFERENCES categories(Id)
 )ENGINE=InnoDB;
 
+INSERT INTO `souscategories` (`Id`, `nom`, `Id_Categories`) VALUES
+(1, 'blonde', 1),
+(2, 'brune', 1),
+(3, 'rouge', 2),
+(4, 'rosé', 2);
+
 #------------------------------------------------------------
 # Table: Produits
 #------------------------------------------------------------
@@ -42,12 +52,19 @@ CREATE TABLE produits(
         description       Varchar (50) NOT NULL ,
         prix              Float NOT NULL ,
         stock             Int NOT NULL,
+    	image			  Varchar (50) NOT NULL,
         Id_Catégories     Int NOT NULL,
         Id_SousCatégories INT NOT NULL
 	,CONSTRAINT produits_PK PRIMARY KEY (Id)
         ,CONSTRAINT produits_categories_FK FOREIGN KEY (Id_Catégories) REFERENCES categories(Id)
         ,CONSTRAINT produits_souscategories_FK FOREIGN KEY (Id_SousCatégories) REFERENCES souscategories(Id)
 )ENGINE=InnoDB;
+
+INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Catégories`, `Id_SousCatégories`) VALUES
+(1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 1, 1),
+(2, 'Chateauneuf du pâpe', 'bouteille 1L ', 25.5, 20, NULL, 2, 3),
+(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 1, 2);
+
 
 #------------------------------------------------------------
 # Table: Users
@@ -66,6 +83,9 @@ CREATE TABLE users(
 	,CONSTRAINT users_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
+INSERT INTO `users` (`Id`, `nom`, `prenom`, `pseudo`, `password`, `email`, `age`, `cagnotte`, `isAdmin`) VALUES
+(1, 'HOUDIER', 'Yanis', 'Sinsay', 'Sinsay', 'yanis.houdier@gmail.com', 19, 152.3, 1),
+(2, 'RICHARD', 'Nathim', 'Nath', 'Nath', 'nath@gmail.com', 22, 35.5, 0);
 
 #------------------------------------------------------------
 # Table: Clients
@@ -81,7 +101,9 @@ CREATE TABLE clients(
 	,CONSTRAINT clients_users_AK UNIQUE (Id_Users)
 )ENGINE=InnoDB;
 
-
+INSERT INTO `clients` (`Id`, `adresse`, `telephone`, `Id_Users`) VALUES
+(1, '5 allée des jardins Aubière - Aubière 63170', '0750253428', 1),
+(2, '10 rue des prés - Vichy 03000', '0670303413', 2);
 
 
 
@@ -96,7 +118,9 @@ CREATE TABLE commandes(
 	,CONSTRAINT commandes_clients_FK FOREIGN KEY (Id_Clients) REFERENCES clients(Id)
 )ENGINE=InnoDB;
 
-
+INSERT INTO `commandes` (`Id`, `Id_Clients`) VALUES
+(1, 1),
+(2, 2);
 
 #------------------------------------------------------------
 # Table: Factures
@@ -110,7 +134,9 @@ CREATE TABLE factures(
         ,CONSTRAINT factures_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
 )ENGINE=InnoDB;
 
-
+INSERT INTO `factures` (`Id`, `Id_Commandes`, `montant`) VALUES
+(1, 1, 0),
+(2, 2, 0);
 
 
 #------------------------------------------------------------
@@ -126,3 +152,7 @@ CREATE TABLE produits_commandes(
         ,CONSTRAINT produits_commandes_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
 	
 )ENGINE=InnoDB;
+
+INSERT INTO `produits_commandes` (`Id_Produits`, `Id_Commandes`, `quantites`) VALUES
+(1, 1, 20),
+(2, 1, 5);
