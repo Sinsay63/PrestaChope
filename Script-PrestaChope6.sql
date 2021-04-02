@@ -111,6 +111,17 @@ INSERT INTO `clients` (`Id`, `adresse`, `telephone`, `Id_Users`) VALUES
 # Table: Commandes
 #------------------------------------------------------------
 
+CREATE TABLE contact(
+        Id          Int Auto_increment NOT NULL , 
+        contenu    longtext NOT NULL,
+        type_demande Varchar (30) NOT NULL,
+        is_viewed Int NOT NULL,
+        Id_Clients Int NOT NULL
+        ,CONSTRAINT contact_PK PRIMARY KEY(Id)
+        ,CONSTRAINT contact_clients_FK FOREIGN KEY (Id_CLients) REFERENCES clients(Id)
+)ENGINE=InnoDB;
+
+
 CREATE TABLE commandes(
         Id          Int  Auto_increment  NOT NULL ,
         Id_Clients  Int NOT NULL

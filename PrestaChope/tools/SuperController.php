@@ -26,7 +26,18 @@ Class SuperController {
             case "catalogue":
                 require_once('pages/catalogue/ControllerCatalogue.php');
                 ControllerCatalogue::includeViewCatalogue();
+                break;
+            
+            case "contact":
+                require_once('pages/contact/ControllerContact.php');
+            
+                $contact = new ControllerContact();
+                $contact->includeViewContact();
+                
+                if(!empty($_POST['contenu']) && !empty($_POST['type']) && !empty($_POST['idclient'])){
+                    $insert=$contact->insertContactDemande($_POST['contenu'], $_POST['type'], $_POST['idclient']);
+                    $contact->redirect($insert);
+                }
         }
     }
-
 }
