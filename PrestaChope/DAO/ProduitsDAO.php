@@ -2,6 +2,7 @@
 
 require_once ('tools/DataBaseLinker.php');
 require_once('DTO/ProduitsDTO.php');
+
 Class ProduitsDAO {
 
     static function searchAllProducts() {
@@ -27,6 +28,30 @@ Class ProduitsDAO {
             }
             return $tab;
         } else {
+            return null;
+        }
+    }
+
+    static function searchProductsById($id) {
+        $bdd = DataBaseLinker::getConnexion();
+
+        $state = $bdd->prepare('Select * from produits where Id = ?');
+        $state->execute(array($id));
+        $prod = $state->fetch();
+
+        if ($prod) {
+            $produit = new ProduitsDTO();
+
+            $produit->setId($prod['Id']);
+            $produit->setNom($prod['nom']);
+            $produit->setDescription($prod['description']);
+            $produit->setPrix($prod['prix']);
+            $produit->setStock($prod['stock']);
+            $produit->setImage($prod['image']);
+
+            return $produit;
+        } 
+        else {
             return null;
         }
     }
@@ -57,6 +82,7 @@ Class ProduitsDAO {
             return null;
         }
     }
+
     static function searchProductsByIdSousCatégories($id_souscatégorie) {
         $bdd = DataBaseLinker::getConnexion();
 
@@ -82,6 +108,15 @@ Class ProduitsDAO {
         } else {
             return null;
         }
+    }
+
+    static function modifProduit($id, $modif, $typemodif) {
+
+        $bdd = DataBaseLinker::getConnexion();
+
+        $state = $bdd->prepare('UPDATE produits SET ');
+        $state->execute(array());
+        $products = $state->fetchAll();
     }
 
 }

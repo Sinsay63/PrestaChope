@@ -74,10 +74,13 @@
                 if ($produits != null) {
                     foreach ($produits as $produit) {
                         ?>
+
                         <div class="box_produit">
-                            <div class="img_prod">
-                                <img class="img_prod"src="<?php echo $produit->getImage(); ?>" alt="photo produit"/>
-                            </div>
+                            <a href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
+                                <div class="img_prod">
+                                    <img class="img_prod"src="<?php echo $produit->getImage(); ?>" alt="photo produit"/>
+                                </div>
+                            </a>
                             <div class="nom_prod">
                                 <p><?php echo $produit->getNom(); ?></p>
                             </div>
@@ -86,10 +89,10 @@
                                 <p> <?php echo 'Prix: ' . $produit->getPrix() . '€'; ?></p>
                             </div>
                         </div>
+
                         <?php
                     }
-                }
-                else{
+                } else {
                     echo 'Aucun produit n\'a été trouvé.';
                 }
                 ?>

@@ -14,8 +14,7 @@ class ContactDAO{
         
         $state=$bdd->prepare('INSERT INTO contact(contenu,type_demande,Id_Clients) VALUES (?,?,?)');
         $state->execute(array($contenu,$type,$idclient));
-        $rep=$state->fetch();
-        if($rep){
+        if($state){
             $insert=true;
         }
         return $insert;

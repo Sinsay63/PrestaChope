@@ -23,7 +23,7 @@
                 <option value="suggestion">Suggestion</option>
             </select>
             <textarea  name="contenu" rows="5" cols="50" placeholder="Saississez votre demande..."></textarea>
-            <input type="hidden" name="idclient" value="<?php echo $_SESSION['Id']; ?>">
+            <input type="hidden" name="idclient" value="<?php echo $_SESSION['ID']; ?>">
             <input type="submit" value="Envoyer">
         </form>
     </body>

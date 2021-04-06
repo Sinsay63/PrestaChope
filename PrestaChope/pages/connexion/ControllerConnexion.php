@@ -12,7 +12,7 @@ Class ControllerConnexion {
         $user = UsersDAO::CheckUsers($pseudo, $password);
         if ($user != null) {
             $_SESSION['ID'] = $user->getId();
-            $_SESSION['IsAdmin']=$user->getIsAdmin();
+            $_SESSION['IsAdmin'] = $user->getIsAdmin();
             return true;
         } else {
             return false;

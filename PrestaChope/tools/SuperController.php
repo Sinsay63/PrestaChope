@@ -4,6 +4,19 @@ Class SuperController {
 
     static function callPage($page) {
         switch ($page) {
+            case 'inscription':
+                require_once('pages/inscription/ControllerInscription.php');
+                $register = new ControllerInscription();
+
+                $register->includeViewInscription();
+
+                if (!empty($_POST['nom']) && !empty($_POST['prénom']) && !empty($_POST['pseudo']) && !empty($_POST['password']) && !empty($_POST['confirm_password']) && !empty($_POST['email']) && !empty($_POST['age'])) {
+                    $error = $register->registerUser($_POST['nom'], $_POST['prénom'], $_POST['email'], $_POST['age'], $_POST['pseudo'], $_POST['password'], $_POST['confirm_password']);
+                    $register->redirect($error);
+                }
+                break;
+
+
             case "connexion" :
                 require_once("pages/connexion/ControllerConnexion.php");
 
@@ -16,6 +29,22 @@ Class SuperController {
                     }
                 }
                 break;
+                
+                
+            case "deconnexion":
+                require_once('DAO/DéconnexionDAO.php');
+                $deconnexion = new DéconnexionDAO();
+                if (!empty($_SESSION['ID'])) {
+
+                    $déco = $deconnexion->déconnexion();
+                    if ($déco) {
+                        $deconnexion->redirect();
+                    }
+                } else {
+                    $deconnexion::redirect();
+                }
+                break;
+
 
             case "accueil":
                 require_once('pages/accueil/ControllerAccueil.php');
@@ -23,21 +52,40 @@ Class SuperController {
                 $accueil->includeViewAccueil();
                 break;
 
+
             case "catalogue":
                 require_once('pages/catalogue/ControllerCatalogue.php');
-                ControllerCatalogue::includeViewCatalogue();
+                $catalogue = new ControllerCatalogue();
+                $catalogue->includeViewCatalogue();
                 break;
-            
+
+
             case "contact":
                 require_once('pages/contact/ControllerContact.php');
-            
-                $contact = new ControllerContact();
-                $contact->includeViewContact();
-                
-                if(!empty($_POST['contenu']) && !empty($_POST['type']) && !empty($_POST['idclient'])){
-                    $insert=$contact->insertContactDemande($_POST['contenu'], $_POST['type'], $_POST['idclient']);
-                    $contact->redirect($insert);
+
+                $contacter = new ControllerContact();
+                $contacter->includeViewContact();
+
+                if (!empty($_POST['contenu']) && !empty($_POST['type']) && !empty($_POST['idclient'])) {
+                    $contact = new ContactDTO();
+                    $contact->setContenu($_POST['contenu']);
+                    $contact->setTypeDemande($_POST['type']);
+                    $contact->setIdClients($_POST['idclient']);
+
+                    $insert = $contacter->insertContactDemande($contact);
+                    $contacter->redirect($insert);
                 }
+                break;
+
+
+            case 'produits':
+                require_once('pages/produits/ControllerProduits.php');
+                $produits = new ControllerProduits();
+                if(!empty($_GET['prod'])){
+                    $produits->includeViewProduits();
+                }
+                break;
         }
     }
+
 }

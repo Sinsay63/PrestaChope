@@ -8,13 +8,7 @@ class ControllerContact{
         require_once('Contact.php');
     }
     
-    function insertContactDemande($contenu,$type,$idclient) {
-        
-        $contact= new ContactDTO();
-        $contact->setContenu($contenu);
-        $contact->setTypeDemande($type);
-        $contact->setIdClients($idclient);
-        
+    function insertContactDemande($contact) {
         $insert= ContactDAO::insertContactDemande($contact);
         return $insert;
     }

@@ -4,7 +4,7 @@ require_once('DAO/ProduitsDAO.php');
 require_once ('DAO/CatégoriesDAO.php');
 class ControllerCatalogue {
 
-    static function includeViewCatalogue() {
+    function includeViewCatalogue() {
         require_once('Catalogue.php');
     }
 

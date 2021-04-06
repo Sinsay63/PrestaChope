@@ -2,21 +2,34 @@
     <head>
         <title>Accueil</title>
 
-        <link rel="stylesheet" type="text/css" href="assets/css/accueil.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/deaher.css">
     </head>
     <body>
+        <?php
+        if (!empty($_SESSION['ID'])) {
+            require_once('DAO/UsersDAO.php');
+            $user = UsersDAO::GetUserInfo($_SESSION['ID']);
 
-    	<div class="titre">
+            echo 'Salut ' . $user->getPseudo();
+            ?>
+            <a href="index.php?page=deconnexion">Déconnexion</a>
 
-        	<h1>PrestaChope</h1>
+            <?php
+        } else {
+            ?>
+            <a href="index.php?page=connexion"> <input type="button" value="Connexion" />  </a>
+            <a href="index.php?page=inscription"> <input type="button" value="Inscription" />  </a>
+            <?php
+        }
+        ?>
+        <div class="titre">
+            <h1>PrestaChope</h1>
+        </div>
 
-    	</div>
-
-    	<div class="nav">
-
-    	<p>Accueil Catalogue Contact</p>
-
-    	</div>
-
-        </body>
+        <div class="nav">
+            <a href="index.php?page=accueil">Accueil</a>
+            <a href="index.php?page=catalogue">Catalogue</a>
+            <a href="index.php?page=contact">Contact</a>
+        </div>
+    </body>
 </html>
