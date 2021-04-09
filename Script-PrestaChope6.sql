@@ -78,8 +78,8 @@ CREATE TABLE users(
         password Varchar (50) NOT NULL ,
         email    Varchar (50) NOT NULL ,
         age      Int NOT NULL ,
-        cagnotte Float NOT NULL ,
-        isAdmin  Int NOT NULL
+        cagnotte Float NOT NULL DEFAULT 0,
+        isAdmin  Int NOT NULL DEFAULT 0
 	,CONSTRAINT users_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
