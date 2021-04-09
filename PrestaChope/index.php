@@ -1,8 +1,8 @@
-    <?php
+<?php
     session_name("Sinsay");
     session_start();
 
-require_once("tools/SuperController.php");
+    require_once("tools/SuperController.php");
     require_once('header.php');
     $page="connexion";
     if(!empty($_GET['page'])) {
@@ -10,4 +10,4 @@ require_once("tools/SuperController.php");
     }
     SuperController::callPage($page);
         
-    ?>		
+?>		

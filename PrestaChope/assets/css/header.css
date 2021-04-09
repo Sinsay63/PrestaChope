@@ -1,3 +1,84 @@
-.titre {
-    text-align: center;
+html{
+    margin: 0;
 }
+
+body{
+    margin: 0;
+}
+
+h1{
+    margin: 0;
+}
+
+.header {
+    display: flex;
+    background-color: rgb(234, 223, 208);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+    border-bottom: solid 2px rgb(230, 126, 34);
+}
+
+.logo{
+    width: 18%;
+    height: 100%;
+}
+
+#img-logo{
+    width: auto;
+    height: 100%;
+}
+
+.titre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#titre-txt{
+    margin: 10px;
+}
+
+.boutton-log{
+    width: 18%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bouton-R{
+    height: 60px;
+    width: 100px;
+    border: 2px solid rgb(230, 126, 34);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bouton-L{
+    height: 60px;
+    width: 100px;
+    background-color: rgb(230, 126, 34);
+    border: 2px solid rgb(230, 126, 34);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.txt-bouton-log{
+    font-size: 25px;
+}
+
+#connect{
+    text-decoration: none;
+}
+
+
+
