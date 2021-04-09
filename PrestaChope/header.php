@@ -15,10 +15,6 @@
             </div>
             <?php
             if (!empty($_SESSION['ID'])) {
-                require_once('DAO/UsersDAO.php');
-                $user = UsersDAO::GetUserInfo($_SESSION['ID']);
-
-                echo 'Salut ' . $user->getPseudo();
                 ?>
                 <a href="index.php?page=deconnexion">Déconnexion</a>
 
