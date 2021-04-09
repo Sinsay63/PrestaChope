@@ -2,6 +2,7 @@
 
 require_once('tools/DataBaseLinker.php');
 require_once('DTO/UsersDTO.php');
+require_once ('DTO/ClientsDTO.php');
 
 Class UsersDAO {
 
@@ -80,6 +81,30 @@ Class UsersDAO {
 
             return $user;
         }
+    }
+
+    static function GetInfoClient($id) {
+        $bdd = DataBaseLinker::getConnexion();
+
+        $reponse = $bdd->prepare("SELECT * from clients where Id_Users = ? ");
+        $reponse->execute(array($id));
+        $clients = $reponse->fetch();
+
+        if ($clients) {
+            $client = new ClientsDTO();
+
+            $client->setAdresse($clients['adresse']);
+            $client->setTelephone($clients['telephone']);
+
+            return $client;
+        }
+    }
+
+    static function deleteUser($id) {
+        $bdd = DataBaseLinker::getConnexion();
+
+        $reponse = $bdd->prepare("DELETE from users where Id= ? ");
+        $reponse->execute(array($id));
     }
 
 }

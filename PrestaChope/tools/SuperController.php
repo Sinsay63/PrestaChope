@@ -8,11 +8,11 @@ Class SuperController {
                 require_once('pages/inscription/ControllerInscription.php');
                 $register = new ControllerInscription();
 
-                $register->includeViewInscription();
-
                 if (!empty($_POST['nom']) && !empty($_POST['prénom']) && !empty($_POST['pseudo']) && !empty($_POST['password']) && !empty($_POST['confirm_password']) && !empty($_POST['email']) && !empty($_POST['age'])) {
                     $error = $register->registerUser($_POST['nom'], $_POST['prénom'], $_POST['email'], $_POST['age'], $_POST['pseudo'], $_POST['password'], $_POST['confirm_password']);
                     $register->redirect($error);
+                } else {
+                    $register->includeViewInscription();
                 }
                 break;
 
@@ -29,8 +29,8 @@ Class SuperController {
                     }
                 }
                 break;
-                
-                
+
+
             case "deconnexion":
                 require_once('DAO/DéconnexionDAO.php');
                 $deconnexion = new DéconnexionDAO();
@@ -41,7 +41,7 @@ Class SuperController {
                         $deconnexion->redirect();
                     }
                 } else {
-                    $deconnexion::redirect();
+                    $deconnexion->redirect();
                 }
                 break;
 
@@ -81,11 +81,25 @@ Class SuperController {
             case 'produits':
                 require_once('pages/produits/ControllerProduits.php');
                 $produits = new ControllerProduits();
-                if(!empty($_GET['prod'])){
+                if (!empty($_GET['prod'])) {
                     $produits->includeViewProduits();
+                }
+                break;
+
+            case 'profil':
+                if (!empty($_SESSION['ID'])) {
+                    require_once('pages/profil/ControllerProfil.php');
+                    $profil = new ControllerProfil();
+                    $profil->viewProfil();
+
+                    if (!empty($_GET['delete'])) {
+                        $profil->deleteUser($_SESSION['ID']);
+                        $profil->redirect();
+                    }
+                } else {
+                    header('location: index.php?page=accueil');
                 }
                 break;
         }
     }
-
 }

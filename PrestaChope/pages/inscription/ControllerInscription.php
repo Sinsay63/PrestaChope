@@ -14,17 +14,9 @@ class ControllerInscription {
 
     function redirect($error) {
         if ($error == 0) {
-            ?>
-            <script language="Javascript">
-                document.location.replace("index.php?page=connexion");
-            </script>
-            <?php
+                header("location: index.php?page=connexion");
         } else {
-            ?>
-            <script language="Javascript">
-                document.location.replace("index.php?page=inscription&error=<?php echo $error; ?>");
-            </script>
-            <?php
+            header("location: index.php?page=inscription&error=$error");
         }
     }
 
