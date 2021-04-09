@@ -8,11 +8,13 @@ main{
     width: 15%;
     height: 100%;
     border-right: solid 2px rgb(230, 126, 34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-nav{
-    width: 100%;
-    height: auto;
-    margin: 15px;
+    width: 95%;
+    height: 98%;
     background-color: red;
 }
