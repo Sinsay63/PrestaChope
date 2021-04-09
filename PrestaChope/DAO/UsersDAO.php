@@ -63,7 +63,7 @@ Class UsersDAO {
 
         $bdd = DataBaseLinker::getConnexion();
 
-        $reponse = $bdd->prepare("SELECT * from users ");
+        $reponse = $bdd->prepare("SELECT * from users where Id = ?");
         $reponse->execute(array($id));
         $users = $reponse->fetch();
 
