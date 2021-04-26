@@ -1,0 +1,10 @@
+#form1,#form2,#form3{
+    display:none;
+}
+img{
+    height: 100px;
+}
+p{
+    padding:0px;
+    margin:10px;
+}

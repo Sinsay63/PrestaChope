@@ -94,6 +94,8 @@ Class UsersDAO {
             $client = new ClientsDTO();
 
             $client->setAdresse($clients['adresse']);
+            $client->setVille($clients['ville']);
+            $client->setCp($clients['code_postal']);
             $client->setTelephone($clients['telephone']);
 
             return $client;
@@ -105,6 +107,23 @@ Class UsersDAO {
 
         $reponse = $bdd->prepare("DELETE from users where Id= ? ");
         $reponse->execute(array($id));
+    }
+
+    static function modifProfil($idUser, $info, $quoi) {
+        $bdd = DataBaseLinker::getConnexion();
+        if ($quoi == 'adresse') {
+            $state = $bdd->prepare("UPDATE clients SET adresse = ?, ville = ?,code_postal =? where Id_Users = ?");
+            $state->execute(array($info[0], $info[1], $info[2], $idUser));
+        } 
+        else if ($quoi == 'telephone') {
+            $state = $bdd->prepare("UPDATE clients SET telephone=? where Id_Users = ?");
+            $state->execute(array($info, $idUser));
+        } 
+        else {
+            $state = $bdd->prepare("UPDATE users SET $quoi = ? where Id = ?");
+            print_r($state);
+            $state->execute(array($info, $idUser));
+        }
     }
 
 }

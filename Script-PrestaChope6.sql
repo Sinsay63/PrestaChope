@@ -92,18 +92,20 @@ INSERT INTO `users` (`Id`, `nom`, `prenom`, `pseudo`, `password`, `email`, `age`
 #------------------------------------------------------------
 
 CREATE TABLE clients(
-        Id        Int  Auto_increment  NOT NULL ,
-        adresse   Varchar (50) NOT NULL ,
-        telephone Varchar (50) NOT NULL ,
-        Id_Users  Int NOT NULL
+        Id           Int  Auto_increment  NOT NULL ,
+        adresse      Varchar (50) NOT NULL ,
+        ville        Varchar (50) NOT NULL ,
+        code_postal  Int (5) NOT NULL ,
+        telephone    Varchar (50) NOT NULL ,
+        Id_Users     Int NOT NULL
 	,CONSTRAINT clients_PK PRIMARY KEY (Id)
 	,CONSTRAINT clients_users_FK FOREIGN KEY (Id_Users) REFERENCES users(Id)
 	,CONSTRAINT clients_users_AK UNIQUE (Id_Users)
 )ENGINE=InnoDB;
 
-INSERT INTO `clients` (`Id`, `adresse`, `telephone`, `Id_Users`) VALUES
-(1, '5 allée des jardins Aubière - Aubière 63170', '0750253428', 1),
-(2, '10 rue des prés - Vichy 03000', '0670303413', 2);
+INSERT INTO `clients` (`Id`, `adresse`,`ville`,`code_postal`, `telephone`, `Id_Users`) VALUES
+(1, '5 allée des jardins Aubière','Aubière' ,'63170', '0750253428', 1),
+(2, '10 rue des prés ','Vichy','03000', '0670303413', 2);
 
 
 

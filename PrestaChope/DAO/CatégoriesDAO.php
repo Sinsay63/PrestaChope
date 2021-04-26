@@ -1,6 +1,6 @@
 <?php
 
-require_once ('tools/DataBaseLinker.php');
+require_once('tools/DataBaseLinker.php');
 require_once('DTO/CatégoriesDTO.php');
 require_once('DTO/SousCatégoriesDTO.php');
 

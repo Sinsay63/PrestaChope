@@ -12,17 +12,20 @@ class ControllerProfil {
         $user = UsersDAO::GetUserInfo($id);
         return $user;
     }
-    
-    static function GetInfoClient($id){
-        $client= UsersDAO::GetInfoClient($id);
+
+    static function GetInfoClient($id) {
+        $client = UsersDAO::GetInfoClient($id);
         return $client;
-        
     }
-    function deleteUser($id){
+
+    function deleteUser($id) {
         UsersDAO::deleteUser($id);
-    } 
-    function redirect(){
         header('location: index.php?page=accueil');
     }
 
+
+    function modifProfil($idUser, $info, $quoi) {
+        UsersDAO::modifProfil($idUser, $info, $quoi);
+        header('location: index.php?page=profil');
+    }
 }

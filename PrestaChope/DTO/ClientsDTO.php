@@ -1,19 +1,28 @@
 <?php
 
-Class ClientsDTO extends UsersDTO{
-    
+Class ClientsDTO extends UsersDTO {
+
     private $id;
     private $adresse;
+    private $ville;
+    private $cp;
     private $telephone;
     private $idUsers;
-    
-    
+
     function getId() {
         return $this->id;
     }
 
     function getAdresse() {
         return $this->adresse;
+    }
+
+    function getVille() {
+        return $this->ville;
+    }
+
+    function getCp() {
+        return $this->cp;
     }
 
     function getTelephone() {
@@ -32,6 +41,14 @@ Class ClientsDTO extends UsersDTO{
         $this->adresse = $adresse;
     }
 
+    function setVille($ville): void {
+        $this->ville = $ville;
+    }
+
+    function setCp($cp): void {
+        $this->cp = $cp;
+    }
+
     function setTelephone($telephone): void {
         $this->telephone = $telephone;
     }
@@ -40,10 +57,4 @@ Class ClientsDTO extends UsersDTO{
         $this->idUsers = $idUsers;
     }
 
-
-    
-    
-    
-    
-    
 }

@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/css/nav.css</file>
-            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/pages/accueil/Accueil.php</file>
-            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/css/accueil.css</file>
-            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/css/header.css</file>
+            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/catalogue/ControllerCatalogue.php</file>
+            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/tools/SuperController.php</file>
+            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/catalogue/Catalogue.php</file>
+            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/index.php</file>
+            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/produits/ControllerProduits.php</file>
+            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/produits/Produits.php</file>
         </group>
     </open-files>
 </project-private>

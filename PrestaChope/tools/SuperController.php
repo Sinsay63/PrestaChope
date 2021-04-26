@@ -83,6 +83,15 @@ Class SuperController {
                 $produits = new ControllerProduits();
                 if (!empty($_GET['prod'])) {
                     $produits->includeViewProduits();
+                    if (!empty($_FILES['image'])) {
+                        $produits->modifImgProduit($_FILES['image']);
+                    }
+                    if (!empty($_POST['info']) && !empty($_POST['quoi'])) {
+                        $produits->modifProduit($_POST['info'], $_POST['quoi']);
+                    }
+                }
+                if (!empty($_GET['delete'])) {
+                    $produits->deleteProduit();
                 }
                 break;
 
@@ -94,7 +103,9 @@ Class SuperController {
 
                     if (!empty($_GET['delete'])) {
                         $profil->deleteUser($_SESSION['ID']);
-                        $profil->redirect();
+                    }
+                    if (!empty($_POST['info']) && !empty($_POST['quoi'])) {
+                        $profil->modifProfil($_SESSION['ID'], $_POST['info'], $_POST['quoi']);
                     }
                 } else {
                     header('location: index.php?page=accueil');
@@ -102,4 +113,5 @@ Class SuperController {
                 break;
         }
     }
+
 }
