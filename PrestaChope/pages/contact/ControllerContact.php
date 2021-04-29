@@ -8,17 +8,8 @@ class ControllerContact{
         require_once('Contact.php');
     }
     
-    function insertContactDemande($contact) {
-        $insert= ContactDAO::insertContactDemande($contact);
+    function insertContactDemande($contenu,$type,$idclient) {
+        $insert= ContactDAO::insertContactDemande($contenu,$type,$idclient);
         return $insert;
-    }
-    
-    function redirect($insert){
-        if($insert){
-        header("location: index.php?page=contact&sent=yes");
-        }
-        else{
-            header("location: index.php?page=contact&sent=no");
-        }
     }
 }

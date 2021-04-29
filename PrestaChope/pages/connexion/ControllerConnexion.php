@@ -19,11 +19,6 @@ Class ControllerConnexion {
         }
     }
 
-    function redirectUser() {
-        header('location: index.php?page=accueil');
-        exit;
-    }
-
     static function GetUserInfo($id) {
         $user = UsersDAO::GetUserInfo($id);
         return $user;

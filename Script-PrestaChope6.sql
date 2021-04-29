@@ -66,6 +66,8 @@ INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `I
 (3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 1, 2);
 
 
+
+
 #------------------------------------------------------------
 # Table: Users
 #------------------------------------------------------------
@@ -86,6 +88,22 @@ CREATE TABLE users(
 INSERT INTO `users` (`Id`, `nom`, `prenom`, `pseudo`, `password`, `email`, `age`, `cagnotte`, `isAdmin`) VALUES
 (1, 'HOUDIER', 'Yanis', 'Sinsay', 'Sinsay', 'yanis.houdier@gmail.com', 19, 152.3, 1),
 (2, 'RICHARD', 'Nathim', 'Nath', 'Nath', 'nath@gmail.com', 22, 35.5, 0);
+
+
+#------------------------------------------------------------
+# Table: Panier
+#------------------------------------------------------------
+CREATE TABLE panier(
+        Id                Int  Auto_increment  NOT NULL ,
+        quantité        Int NOT NULL,
+        Id_Produits     Int NOT NULL,
+        Id_Users        Int NOT NULL
+	,CONSTRAINT panier_PK PRIMARY KEY (Id)
+        ,CONSTRAINT panier_produits_FK FOREIGN KEY (Id_Produits) REFERENCES produits(Id)
+        ,CONSTRAINT panier_users_FK FOREIGN KEY (Id_Users) REFERENCES users(Id)
+)ENGINE=InnoDB;
+
+
 
 #------------------------------------------------------------
 # Table: Clients

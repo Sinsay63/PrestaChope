@@ -15,10 +15,16 @@
             </div>
             <?php
             if (!empty($_SESSION['ID'])) {
+                require_once('DAO/UsersDAO.php');
+                require_once('DAO/FacturesDAO.php');
+                echo 'Trésorerie : '.FacturesDAO::TotalTresorerie().'€';
+                $user= new UsersDAO();
+                $us=$user->GetUserInfo($_SESSION['ID']);
                 ?>
                 <a href="index.php?page=deconnexion">Déconnexion</a>
 
                 <?php
+                echo 'Bonjour '.$us->getPseudo();
             } else {
                 ?>
                 <div class="boutton-log">

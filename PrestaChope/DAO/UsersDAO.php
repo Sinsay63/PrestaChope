@@ -121,7 +121,6 @@ Class UsersDAO {
         } 
         else {
             $state = $bdd->prepare("UPDATE users SET $quoi = ? where Id = ?");
-            print_r($state);
             $state->execute(array($info, $idUser));
         }
     }

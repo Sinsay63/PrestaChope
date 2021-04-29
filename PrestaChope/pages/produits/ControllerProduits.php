@@ -8,16 +8,22 @@ class ControllerProduits {
         require_once('Produits.php');
         
     }
-
-    function modifImgProduit($image) {
-        ProduitsDAO::modifImgProduit($image);
+    
+    function includeViewCréaProduit(){
+        require_once('CréationProduit.php');
     }
 
-    function modifProduit($info,$quoi) {
-        ProduitsDAO::modifProduit($info, $quoi);
-    }
-    function deleteProduit() {
-        ProduitsDAO::deleteProduit();
+    function  modifImgProduit($image,$id) {
+        ProduitsDAO::modifImgProduit($image,$id);
     }
 
+    function modifProduit($info,$quoi,$id) {
+        ProduitsDAO::modifProduit($info, $quoi,$id);
+    }
+    function deleteProduit($id) {
+        ProduitsDAO::deleteProduit($id);
+    }
+    function addProduit($image,$nom, $description, $prix, $stock){
+        ProduitsDAO::addProduit($image, $nom, $description, $prix, $stock);
+    }
 }

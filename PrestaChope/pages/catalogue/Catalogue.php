@@ -1,23 +1,17 @@
 <html>
     <head>
         <title>Catalogue</title>
-        <script>
-            function redirige(myvalue) {
-                if (myvalue > 0) {
-                    window.location.assign("index.php?page=catalogue&cat=" + myvalue);
-                } else {
-                    window.location.assign("index.php?page=catalogue");
-                }
-            }
-            function redirige2(myvalue, id) {
-                window.location.assign("index.php?page=catalogue&cat=" + id + "&souscat=" + myvalue);
-            }
-        </script>
+        <script src="assets/js/script.js" type="text/javascript"></script>
         <link rel="stylesheet" href="assets/css/catalogue.css"/>
     </head>
     <body>
         <h1>CATALOGUE</h1>
         <div class="cata_container">
+            <?php 
+            require_once('DAO/UsersDAO.php');
+            if(UsersDAO::GetUserInfo($_SESSION['ID'])->getId()==1){     ?>
+                <a href="index.php?page=créationProduit">Ajouter un produit</a>
+            <?php } ?>
             <div class="choix_cat">
                 <select class="cat_menu" name="cat_menu" onChange="redirige(this.value)" >
                     <option value="" hidden>Recherche de catégories</option>
@@ -27,7 +21,6 @@
                         <?php
                     } else {
                         ?>
-
                         <?php
                     }
                     $cat = ControllerCatalogue::searchCatégoriesSousCatégories();
@@ -70,7 +63,6 @@
                         $produits = ControllerCatalogue::searchProductsByIdSousCatégorie($_GET['souscat']);
                     }
                 }
-
                 if ($produits != null) {
                     foreach ($produits as $produit) {
                         ?>

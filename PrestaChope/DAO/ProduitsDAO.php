@@ -109,46 +109,55 @@ Class ProduitsDAO {
         }
     }
 
-    static function modifProduit($info, $quoi) {
+    static function modifProduit($info, $quoi, $idProduit) {
 
         $bdd = DataBaseLinker::getConnexion();
 
         $state = $bdd->prepare("UPDATE produits SET $quoi = ? where Id = ? ");
-        $state->execute(array($info,$_GET['prod']));
+        $state->execute(array($info, $idProduit));
     }
 
-    static function modifImgProduit($image) {
-        $bdd = DataBaseLinker::getConnexion();
+    static function imgProduit($image) {
         $_FILES['image'] = $image;
         $dossier = 'assets/images/';
         $file = basename($_FILES['image']['name']);
         $taille_maxi = 10000000;
         $taille = filesize($_FILES['image']['tmp_name']);
-        $extensions = array('.png', '.gif', '.jpg', '.jpeg');
+        $extensions = array('.png', '.jpg', '.jpeg');
         $extension = strrchr($_FILES['image']['name'], '.');
-        $erreur = 0;
-        if (!in_array($extension, $extensions)) {
-            
-        }
-        if ($taille > $taille_maxi) {
-            
-        }
-        if ($erreur == 0) {
-            $fich = strtr($file, 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
-            $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fich);
+        if (in_array($extension, $extensions)) {
+            if ($taille < $taille_maxi) {
+                $fich = strtr($file, 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+                $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fich);
 
-            if (move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) {
-                $upload = $bdd->prepare("UPDATE produits SET image = ? WHERE Id = ?");
-                $upload->execute(array($dossier . $fichier, $_GET['prod']));
-            } else {
-                
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) {
+                    return $dossier . $fichier;
+                }
             }
         }
     }
-    static function deleteProduit() {
+
+    static function ModifImgProduit($image, $idProduit) {
         $bdd = DataBaseLinker::getConnexion();
-        $state = $bdd->prepare("DELETE from produits where Id = ?");
-        $state->execute(array($_GET['delete']));
+        
+        $upload = $bdd->prepare("UPDATE produits SET image = ? WHERE Id = ?");
+        $img = self::imgProduit($image);
+        $upload->execute(array($img, $idProduit));
+    }
+
+    static function deleteProduit($idProduit) {
+        $bdd = DataBaseLinker::getConnexion();
+        $state = $bdd->prepare("DELETE from produits WHERE Id = ?");
+        $state->execute(array($idProduit));
+    }
+
+    static function addProduit($image, $nom, $description, $prix, $stock) {
+        $bdd = DataBaseLinker::getConnexion();
+
+        $img = self::imgProduit($image);
+        print_r($img);
+        $state = $bdd->prepare('INSERT INTO produits(nom,description,prix,stock,image,Id_Catégories,Id_SousCatégories) VALUES(?,?,?,?,?,?,?)');
+        $state->execute(array($nom, $description, $prix, $stock, $img,1,1));
     }
 
 }
