@@ -17,7 +17,9 @@
             if (!empty($_SESSION['ID'])) {
                 require_once('DAO/UsersDAO.php');
                 require_once('DAO/FacturesDAO.php');
-                echo 'Trésorerie : '.FacturesDAO::TotalTresorerie().'€';
+                if($_SESSION['IsAdmin']==1){
+                    echo 'Trésorerie : '.FacturesDAO::TotalTresorerie().'€';
+                }
                 $user= new UsersDAO();
                 $us=$user->GetUserInfo($_SESSION['ID']);
                 ?>
@@ -25,7 +27,9 @@
 
                 <?php
                 echo 'Bonjour '.$us->getPseudo();
-            } else {
+                
+            } 
+            else {
                 ?>
                 <div class="boutton-log">
                     <div class="bouton-register">

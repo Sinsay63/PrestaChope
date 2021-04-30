@@ -1,20 +1,19 @@
 <?php
 
 require_once ('tools/DataBaseLinker.php');
+require_once('pages/panier/ControllerPanier.php');
+require_once('DAO/UsersDAO.php');
 
 class CommandesDAO {
-
     static function createCommand($id) {
-        require_once('pages/panier/ControllerPanier.php');
-        require_once('DAO/UsersDAO.php');
         $bdd = DataBaseLinker::getConnexion();
         $pan = new ControllerPanier();
 
         $panier = $pan->getPanierByIdUser($id);
         if ($panier != null) {
             $montantPanier = $pan->getMontantPanier($id);
-            $cagnotte=UsersDAO::GetUserInfo($id)->getCagnotte();
-            if ($montantPanier < $cagnotte ) {
+            $cagnotte = UsersDAO::GetUserInfo($id)->getCagnotte();
+            if ($montantPanier < $cagnotte) {
                 $state = $bdd->prepare('INSERT INTO commandes(Id_Clients) VALUES(?) ');
                 $state->execute(array($id));
                 $lastId = $bdd->lastInsertId();
@@ -22,9 +21,16 @@ class CommandesDAO {
                 foreach ($panier as $value) {
                     $reponse = $bdd->prepare('INSERT INTO produits_commandes(Id_Produits,Id_Commandes,quantites) VALUES(?,?,?) ');
                     $reponse->execute(array($value->getIdproduit(), $lastId, $value->getQuantité()));
+                    
+                    $stat = $bdd->prepare('SELECT stock from produits where Id = ? ');
+                    $stat->execute($value->getIdproduit());
+                    $stock=$stat->fetch();
+                    
+                    $state = $bdd->prepare('UPDATE produits SET stock = ? WHERE Id = ? ');
+                    $state->execute(3,$value->getIdproduit());
                 }
 
-                $repons = $bdd->prepare('SELECT SUM(produits.prix * produits_commandes.quantites) as somme from produits_commandes,produits where produits.Id = produits_commandes.Id_Produits and Id_Commandes=? ');
+                $repons = $bdd->prepare('SELECT SUM(produits.prix * produits_commandes.quantites) from produits_commandes,produits WHERE produits.Id = produits_commandes.Id_Produits and Id_Commandes=? ');
                 $repons->execute(array($lastId));
                 $somme = $repons->fetch();
 
@@ -35,11 +41,11 @@ class CommandesDAO {
                 $repo->execute(array($id));
 
                 $rep = $bdd->prepare('UPDATE users SET cagnotte = ? where Id = ?');
-                $rep->execute(array($cagnotte-$montantPanier,$id));
-            }
-            else{
+                $rep->execute(array($cagnotte - $montantPanier, $id));
+            } else {
                 return false;
             }
         }
     }
+
 }

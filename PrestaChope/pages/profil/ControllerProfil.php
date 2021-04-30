@@ -8,13 +8,13 @@ class ControllerProfil {
         require_once ('Profil.php');
     }
 
-    static function GetInfoUser($id) {
-        $user = UsersDAO::GetUserInfo($id);
+    static function getInfoUser($id) {
+        $user = UsersDAO::getUserInfo($id);
         return $user;
     }
 
-    static function GetInfoClient($id) {
-        $client = UsersDAO::GetInfoClient($id);
+    static function getInfoClient($id) {
+        $client = UsersDAO::getInfoClient($id);
         return $client;
     }
 

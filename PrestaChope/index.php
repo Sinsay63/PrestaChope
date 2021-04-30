@@ -1,7 +1,9 @@
 <?php
 
-session_name("Sinsay");
-session_start();
+if (empty($_SESSION)) {
+    session_name("Prestachope_6");
+    session_start();
+}
 
 require_once("tools/SuperController.php");
 require_once('tools/Rooter.php');

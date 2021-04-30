@@ -33,7 +33,7 @@ Class UsersDAO {
             return 4;
         }
         if ($error == 0) {
-            $reponse = $bdd->prepare("INSERT INTO users(nom,prenom,pseudo,password,email,age) VALUES(?,?,?,?,?,?) ");
+            $reponse = $bdd->prepare("INSERT INTO users(nom,prenom,pseudo,sha1(password),email,age) VALUES(?,?,?,?,?,?) ");
             $reponse->execute(array($nom, $prénom, $pseudo, $password, $email, $age));
             return 0;
         }
@@ -41,25 +41,26 @@ Class UsersDAO {
 
     static function CheckUsers($pseudo, $password) {
 
-
         $bdd = DataBaseLinker::getConnexion();
 
-        $reponse = $bdd->prepare("SELECT * from users where pseudo = ? and password = ? ");
+        $reponse = $bdd->prepare("SELECT * from users where pseudo = ? and password = sha1(?) ");
         $reponse->execute(array($pseudo, $password));
         $users = $reponse->fetch();
 
         if ($users) {
-
             $user = new UsersDTO();
+            
             $user->setId($users['Id']);
+            $user->setIsAdmin($users['isAdmin']);
 
             return $user;
-        } else {
+        } 
+        else {
             return null;
         }
     }
 
-    static function GetUserInfo($id) {
+    static function getUserInfo($id) {
 
         $bdd = DataBaseLinker::getConnexion();
 
@@ -83,14 +84,14 @@ Class UsersDAO {
         }
     }
 
-    static function GetInfoClient($id) {
+    static function getInfoClient($id) {
         $bdd = DataBaseLinker::getConnexion();
 
         $reponse = $bdd->prepare("SELECT * from clients where Id_Users = ? ");
         $reponse->execute(array($id));
         $clients = $reponse->fetch();
 
-        if ($clients) {
+        if ($clients != null) {
             $client = new ClientsDTO();
 
             $client->setAdresse($clients['adresse']);
@@ -99,6 +100,8 @@ Class UsersDAO {
             $client->setTelephone($clients['telephone']);
 
             return $client;
+        } else {
+            return null;
         }
     }
 
@@ -114,15 +117,39 @@ Class UsersDAO {
         if ($quoi == 'adresse') {
             $state = $bdd->prepare("UPDATE clients SET adresse = ?, ville = ?,code_postal =? where Id_Users = ?");
             $state->execute(array($info[0], $info[1], $info[2], $idUser));
-        } 
-        else if ($quoi == 'telephone') {
+        } else if ($quoi == 'telephone') {
             $state = $bdd->prepare("UPDATE clients SET telephone=? where Id_Users = ?");
             $state->execute(array($info, $idUser));
-        } 
-        else {
+        } else {
             $state = $bdd->prepare("UPDATE users SET $quoi = ? where Id = ?");
             $state->execute(array($info, $idUser));
         }
+    }
+
+    static function getAllUsers() {
+        $bdd = DataBaseLinker::getConnexion();
+        $state = $bdd->prepare('SELECT *from users ');
+        $state->execute();
+        $users = $state->fetchAll();
+        $tab = [];
+        foreach ($users as $value) {
+            $user = new UsersDTO();
+
+            $user->setPrénom($value['prenom']);
+            $user->setNom($value['nom']);
+            $user->setPseudo($value['pseudo']);
+            $user->setId($value['Id']);
+            
+            $stat = $bdd->prepare('SELECT COUNT(Id_Clients) from commandes where Id_Clients = ?');
+            $stat->execute(array($value['Id']));
+            $cmd = $stat->fetchAll();
+            if($cmd==null){
+                $cmd[0]=0;
+            }
+            $tabi = [$user, $cmd[0]];
+            $tab[] = $tabi;
+        }
+        return $tab;
     }
 
 }

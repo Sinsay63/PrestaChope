@@ -19,7 +19,7 @@
     <body>
         <?php
         if (!empty($_SESSION['ID'])) {
-            $user = ControllerProfil::GetInfoUser($_SESSION['ID']);
+            $user = ControllerProfil::getInfoUser($_SESSION['ID']);
             ?>
             <div class="user_profil">
                 <div class="prénom">
@@ -61,7 +61,7 @@
 
                 <?php
                 if ($_SESSION['IsAdmin'] == 0) {
-                    $client = ControllerProfil::GetInfoClient($_SESSION['ID']);
+                    $client = ControllerProfil::getInfoClient($_SESSION['ID']);
                     if (!empty($client)) {
                         ?>
                         <div class="adresse">

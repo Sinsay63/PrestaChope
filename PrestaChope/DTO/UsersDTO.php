@@ -1,7 +1,7 @@
 <?php
 
-Class UsersDTO{
-    
+Class UsersDTO {
+
     private $id;
     private $nom;
     private $prénom;
@@ -11,7 +11,7 @@ Class UsersDTO{
     private $age;
     private $cagnotte;
     private $isAdmin;
-    
+
     function getId() {
         return $this->id;
     }
@@ -84,7 +84,4 @@ Class UsersDTO{
         $this->isAdmin = $isAdmin;
     }
 
-
-    
-    
 }

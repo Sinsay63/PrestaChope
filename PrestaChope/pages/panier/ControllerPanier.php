@@ -17,11 +17,12 @@ class ControllerPanier {
      function addPanier($quantité, $idprod, $iduser) {
         PanierDAO::addPanier($quantité, $idprod, $iduser);
     }
+    
     function deletePanier($id){
         PanierDAO::deletePanier($id);
     }
+    
     static function getMontantPanier($id){
         return PanierDAO::getMontantPanier($id);
     }
-
 }

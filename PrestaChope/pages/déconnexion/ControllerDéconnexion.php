@@ -1,9 +1,10 @@
 <?php
 
 class ControllerDéconnexion {
-    
-    public function déconnexion(){
+
+    public function déconnexion() {
         session_unset();
         session_destroy();
     }
+
 }

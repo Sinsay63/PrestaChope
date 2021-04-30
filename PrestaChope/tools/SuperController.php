@@ -4,8 +4,6 @@ Class SuperController {
 
     static function callPage($page) {
         switch ($page) {
-
-            
             case 'inscription':
                 require_once('pages/inscription/ControllerInscription.php');
                 $register = new ControllerInscription();
@@ -72,10 +70,15 @@ Class SuperController {
             case 'produits':
                 require_once('pages/produits/ControllerProduits.php');
                 $produits = new ControllerProduits();
-                $produits->includeViewProduits();
+                if (!empty($_GET['prod'])) {
+                    $produits->includeViewProduits();
+                } else {
+                    Rooter::redirectToPage('catalogue');
+                }
+
                 break;
 
-            
+
             case 'modifProduit':
                 require_once('pages/produits/ControllerProduits.php');
                 $produits = new ControllerProduits();
@@ -92,7 +95,7 @@ Class SuperController {
                 }
                 break;
 
-                
+
             case 'deleteProduit':
                 if (!empty($_GET['prod'])) {
                     require_once('pages/produits/ControllerProduits.php');
@@ -102,7 +105,7 @@ Class SuperController {
                 }
                 break;
 
-                
+
             case 'créationProduit':
                 require_once('pages/produits/ControllerProduits.php');
                 $produits = new ControllerProduits();
@@ -112,7 +115,6 @@ Class SuperController {
                     $produits->addProduit($_FILES['image'], $_POST['nom'], $_POST['description'], $_POST['prix'], $_POST['stock']);
                     Rooter::redirectToPage('catalogue');
                 }
-
                 break;
 
 
@@ -136,20 +138,21 @@ Class SuperController {
                 } else {
                     Rooter::redirectToPage('accueil');
                 }
-
                 break;
 
 
             case 'panier':
-                require_once ('pages/panier/ControllerPanier.php');
-                $panier = new ControllerPanier();
-
-                $panier->includePanier();
-
-
+                if ($_SESSION['IsAdmin']==0) {
+                    require_once ('pages/panier/ControllerPanier.php');
+                    $panier = new ControllerPanier();
+                    $panier->includePanier();
+                }
+                else{
+                    Rooter::redirectToPage('catalogue');
+                }
                 break;
 
-            
+
             case 'ajoutPanier':
                 if (!empty($_POST['quantité']) && !empty($_POST['produit']) && !empty($_SESSION['ID'])) {
                     require_once ('pages/panier/ControllerPanier.php');
@@ -159,8 +162,8 @@ Class SuperController {
                     Rooter::redirectToPage('catalogue');
                 }
                 break;
-                
-                
+
+
             case 'deletePanier':
                 if (!empty($_GET['del'])) {
                     require_once ('pages/panier/ControllerPanier.php');
@@ -169,7 +172,6 @@ Class SuperController {
                     $panier->deletePanier($_GET['del']);
                     Rooter::redirectToPage('panier');
                 }
-
                 break;
 
 
@@ -177,14 +179,30 @@ Class SuperController {
                 require_once ('pages/commandes/ControllerCommandes.php');
                 $commande = new CommandesDAO();
 
-                $success=$commande->createCommand($_SESSION['ID']);
-                if($sucess){
+                $success = $commande->createCommand($_SESSION['ID']);
+                if ($sucess) {
                     Rooter::redirectToPage('catalogue');
-                }
-                else{
+                } else {
                     Rooter::redirectToPage('panier&err=1');
                 }
-                
+                break;
+
+
+            case 'listeUtilisateurs':
+                require_once('pages/utilisateurs/ControllerUtilisateurs.php');
+                $listUsers = new ControllerUtilisateurs();
+                $listUsers->includeViewUtilisateur();
+                break;
+
+
+            case 'deleteUser':
+                require_once('pages/utilisateurs/ControllerUtilisateurs.php');
+                $listUsers = new ControllerUtilisateurs();
+
+                if (!empty($_GET['id'])) {
+                    $listUsers->deleteUser($_GET['id']);
+                    Rooter::redirectToPage('listeUtilisateurs');
+                }
                 break;
         }
     }

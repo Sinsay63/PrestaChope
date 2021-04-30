@@ -1,26 +1,26 @@
 <html>
     <head>
         <title>Catalogue</title>
-        <script src="assets/js/script.js" type="text/javascript"></script>
+        <script src="assets/js/script.js" type="text/javascript" async></script>
         <link rel="stylesheet" href="assets/css/catalogue.css"/>
     </head>
     <body>
         <h1>CATALOGUE</h1>
         <div class="cata_container">
-            <?php 
-            require_once('DAO/UsersDAO.php');
-            if(UsersDAO::GetUserInfo($_SESSION['ID'])->getId()==1){     ?>
-                <a href="index.php?page=créationProduit">Ajouter un produit</a>
-            <?php } ?>
+            <?php
+            if (!empty($_SESSION['ID'])) {
+
+                if ($_SESSION['IsAdmin'] == 1) {
+                    ?>
+                    <a href="index.php?page=créationProduit">Ajouter un produit</a>
+                <?php }
+            }
+            ?>
             <div class="choix_cat">
                 <select class="cat_menu" name="cat_menu" onChange="redirige(this.value)" >
                     <option value="" hidden>Recherche de catégories</option>
-                    <?php if (!empty($_GET['cat'])) {
-                        ?>
+                    <?php if (!empty($_GET['cat'])) { ?>
                         <option value="0" >Toutes les catégories</option>
-                        <?php
-                    } else {
-                        ?>
                         <?php
                     }
                     $cat = ControllerCatalogue::searchCatégoriesSousCatégories();
@@ -39,14 +39,13 @@
                     if ($scat != null) {
                         ?>
                         <script>
-                            let vari = <?php echo json_encode($_GET['cat']); ?>;
+                            let vars = <?php echo json_encode($_GET['cat']); ?>;
                         </script>
-                        <select onChange="redirige2(this.value, vari)">
+                        <select onChange="redirige2(this.value, vars)">
                             <option value="" hidden>Recherche de sous catégories</option>
                             <?php foreach ($scat as $sous_caté) { ?>
                                 <option value="<?php echo $sous_caté->getId(); ?>"><?php echo $sous_caté->getNom(); ?></option>
-                                <?php
-                            }
+                                <?php }
                             ?>
                         </select>
                         <?php
@@ -66,7 +65,6 @@
                 if ($produits != null) {
                     foreach ($produits as $produit) {
                         ?>
-
                         <div class="box_produit">
                             <a href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
                                 <div class="img_prod">
@@ -81,7 +79,6 @@
                                 <p> <?php echo 'Prix: ' . $produit->getPrix() . '€'; ?></p>
                             </div>
                         </div>
-
                         <?php
                     }
                 } else {

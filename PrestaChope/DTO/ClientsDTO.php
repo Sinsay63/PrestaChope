@@ -2,15 +2,15 @@
 
 Class ClientsDTO extends UsersDTO {
 
-    private $id;
+    private $idClient;
     private $adresse;
     private $ville;
     private $cp;
     private $telephone;
     private $idUsers;
 
-    function getId() {
-        return $this->id;
+    function getIdClient() {
+        return $this->idClient;
     }
 
     function getAdresse() {
@@ -33,8 +33,8 @@ Class ClientsDTO extends UsersDTO {
         return $this->idUsers;
     }
 
-    function setId($id): void {
-        $this->id = $id;
+    function setIdClient($idClient): void {
+        $this->idClient = $idClient;
     }
 
     function setAdresse($adresse): void {

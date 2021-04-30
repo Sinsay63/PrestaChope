@@ -7,5 +7,4 @@ class ControllerCommandes {
     function createCommand($id) {
         return CommandesDAO::createCommand($id);
     }
-
 }
