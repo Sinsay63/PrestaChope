@@ -33,8 +33,8 @@ Class UsersDAO {
             return 4;
         }
         if ($error == 0) {
-            $reponse = $bdd->prepare("INSERT INTO users(nom,prenom,pseudo,sha1(password),email,age) VALUES(?,?,?,?,?,?) ");
-            $reponse->execute(array($nom, $prénom, $pseudo, $password, $email, $age));
+            $reponse = $bdd->prepare("INSERT INTO users(nom,prenom,pseudo,password,email,age,cagnotte,IsAdmin) VALUES(?,?,?,?,?,?,?,?) ");
+            $reponse->execute(array($nom, $prénom, $pseudo, sha1($password), $email, $age,0,0));
             return 0;
         }
     }
@@ -43,8 +43,8 @@ Class UsersDAO {
 
         $bdd = DataBaseLinker::getConnexion();
 
-        $reponse = $bdd->prepare("SELECT * from users where pseudo = ? and password = sha1(?) ");
-        $reponse->execute(array($pseudo, $password));
+        $reponse = $bdd->prepare("SELECT * from users where pseudo = ? and password = ? ");
+        $reponse->execute(array($pseudo, sha1($password)));
         $users = $reponse->fetch();
 
         if ($users) {

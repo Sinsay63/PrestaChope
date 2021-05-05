@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/DAO/ProduitsDAO.php</file>
-            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/catalogue/ControllerCatalogue.php</file>
             <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/tools/SuperController.php</file>
-            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/produits/CréationProduit.php</file>
-            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/catalogue/Catalogue.php</file>
-            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/catégories/ControllerCatégories.php</file>
-            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/catégories/Catégories.php</file>
+            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/DAO/UsersDAO.php</file>
             <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/DAO/CatégoriesDAO.php</file>
+            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/inscription/ControllerInscription.php</file>
         </group>
     </open-files>
 </project-private>

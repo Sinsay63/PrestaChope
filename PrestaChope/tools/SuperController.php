@@ -10,7 +10,7 @@ Class SuperController {
 
                 if (!empty($_POST['nom']) && !empty($_POST['prénom']) && !empty($_POST['pseudo']) && !empty($_POST['password']) && !empty($_POST['confirm_password']) && !empty($_POST['email']) && !empty($_POST['age'])) {
                     $error = $register->registerUser($_POST['nom'], $_POST['prénom'], $_POST['email'], $_POST['age'], $_POST['pseudo'], $_POST['password'], $_POST['confirm_password']);
-                    Rooter::redirectToPage($error);
+                    Rooter::redirectToPage('inscription&err='.$error);
                 } else {
                     $register->includeViewInscription();
                 }
