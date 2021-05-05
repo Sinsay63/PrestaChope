@@ -20,8 +20,9 @@ CREATE TABLE categories(
 )ENGINE=InnoDB;
 
 INSERT INTO `categories` (`Id`, `nom`, `description`) VALUES
-(1, 'bières', 'description bières'),
-(2, 'Vins', 'description vins');
+(1, 'NONE', 'Catégorie de base'),
+(2, 'bières', 'description bières'),
+(3, 'Vins', 'description vins');
 
 
 #------------------------------------------------------------
@@ -37,10 +38,11 @@ CREATE TABLE souscategories(
 )ENGINE=InnoDB;
 
 INSERT INTO `souscategories` (`Id`, `nom`, `Id_Categories`) VALUES
-(1, 'blonde', 1),
-(2, 'brune', 1),
-(3, 'rouge', 2),
-(4, 'rosé', 2);
+(1, 'NONE', 1),
+(2, 'blonde', 2),
+(3, 'brune', 2),
+(4, 'rouge', 3),
+(5, 'rosé', 3);
 
 #------------------------------------------------------------
 # Table: Produits
@@ -61,9 +63,9 @@ CREATE TABLE produits(
 )ENGINE=InnoDB;
 
 INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Catégories`, `Id_SousCatégories`) VALUES
-(1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 1, 1),
-(2, 'Chateauneuf du pâpe', 'bouteille 1L ', 25.5, 20, NULL, 2, 3),
-(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 1, 2);
+(1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 2, 2),
+(2, 'Chateauneuf du pâpe', 'bouteille 1L ', 25.5, 20, NULL, 3, 4),
+(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 3, 3);
 
 
 
@@ -149,9 +151,6 @@ CREATE TABLE commandes(
 	,CONSTRAINT commandes_clients_FK FOREIGN KEY (Id_Clients) REFERENCES clients(Id)
 )ENGINE=InnoDB;
 
-INSERT INTO `commandes` (`Id`, `Id_Clients`) VALUES
-(1, 1),
-(2, 2);
 
 #------------------------------------------------------------
 # Table: Factures
@@ -165,9 +164,6 @@ CREATE TABLE factures(
         ,CONSTRAINT factures_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
 )ENGINE=InnoDB;
 
-INSERT INTO `factures` (`Id`, `Id_Commandes`, `montant`) VALUES
-(1, 1, 0),
-(2, 2, 0);
 
 
 #------------------------------------------------------------
@@ -183,7 +179,3 @@ CREATE TABLE produits_commandes(
         ,CONSTRAINT produits_commandes_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
 	
 )ENGINE=InnoDB;
-
-INSERT INTO `produits_commandes` (`Id_Produits`, `Id_Commandes`, `quantites`) VALUES
-(1, 1, 20),
-(2, 1, 5);

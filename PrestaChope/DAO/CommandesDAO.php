@@ -22,12 +22,8 @@ class CommandesDAO {
                     $reponse = $bdd->prepare('INSERT INTO produits_commandes(Id_Produits,Id_Commandes,quantites) VALUES(?,?,?) ');
                     $reponse->execute(array($value->getIdproduit(), $lastId, $value->getQuantité()));
                     
-                    $stat = $bdd->prepare('SELECT stock from produits where Id = ? ');
-                    $stat->execute($value->getIdproduit());
-                    $stock=$stat->fetch();
-                    
-                    $state = $bdd->prepare('UPDATE produits SET stock = ? WHERE Id = ? ');
-                    $state->execute(3,$value->getIdproduit());
+                    $state = $bdd->prepare('UPDATE produits SET stock = stock - ? WHERE Id = ? ');
+                    $state->execute(array($value->getQuantité(),$value->getIdproduit()));
                 }
 
                 $repons = $bdd->prepare('SELECT SUM(produits.prix * produits_commandes.quantites) from produits_commandes,produits WHERE produits.Id = produits_commandes.Id_Produits and Id_Commandes=? ');
@@ -42,6 +38,7 @@ class CommandesDAO {
 
                 $rep = $bdd->prepare('UPDATE users SET cagnotte = ? where Id = ?');
                 $rep->execute(array($cagnotte - $montantPanier, $id));
+                return true;
             } else {
                 return false;
             }

@@ -8,7 +8,7 @@ Class ProduitsDAO {
     static function searchAllProducts() {
 
         $bdd = DataBaseLinker::getConnexion();
-        $state = $bdd->prepare('Select * from produits order by Id_Catégories ASC');
+        $state = $bdd->prepare('Select * from produits where Id_Catégories > 1 and Id_SousCatégories > 1 order by Id_Catégories ASC');
         $state->execute();
         $products = $state->fetchAll();
 
@@ -125,24 +125,28 @@ Class ProduitsDAO {
         $taille = filesize($_FILES['image']['tmp_name']);
         $extensions = array('.png', '.jpg', '.jpeg');
         $extension = strrchr($_FILES['image']['name'], '.');
+        $success = false;
         if (in_array($extension, $extensions)) {
             if ($taille < $taille_maxi) {
                 $fich = strtr($file, 'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
                 $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fich);
-
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) {
-                    return $dossier . $fichier;
+                    $success = $dossier . $fichier;
                 }
             }
         }
+        return $success;
     }
 
     static function ModifImgProduit($image, $idProduit) {
         $bdd = DataBaseLinker::getConnexion();
-        
+
         $upload = $bdd->prepare("UPDATE produits SET image = ? WHERE Id = ?");
         $img = self::imgProduit($image);
-        $upload->execute(array($img, $idProduit));
+        if ($img) {
+
+            $upload->execute(array($img, $idProduit));
+        }
     }
 
     static function deleteProduit($idProduit) {
@@ -155,9 +159,10 @@ Class ProduitsDAO {
         $bdd = DataBaseLinker::getConnexion();
 
         $img = self::imgProduit($image);
-        print_r($img);
-        $state = $bdd->prepare('INSERT INTO produits(nom,description,prix,stock,image,Id_Catégories,Id_SousCatégories) VALUES(?,?,?,?,?,?,?)');
-        $state->execute(array($nom, $description, $prix, $stock, $img,1,1));
+        if ($img) {
+            $state = $bdd->prepare('INSERT INTO produits(nom,description,prix,stock,image,Id_Catégories,Id_SousCatégories) VALUES(?,?,?,?,?,?,?)');
+            $state->execute(array($nom, $description, $prix, $stock, $img, 1, 1));
+        }
     }
 
 }

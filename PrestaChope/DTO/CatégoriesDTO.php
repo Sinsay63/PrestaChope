@@ -36,7 +36,7 @@ Class CatégoriesDTO {
     }
 
     function setSouscatégories($souscatégories): void {
-        $this->souscatégories[] = $souscatégories;
+        $this->souscatégories = $souscatégories;
     }
 
 }

@@ -17,13 +17,13 @@
             </div>
             <div class="prix_prod">
                 Prix:
-                <input type="number" name="prix" required/>
+                <input type="number" name="prix" required min="1"/>
             </div>
             <div class="stock_prod">
                 Stock:
-                <input type="number" name="stock" required/>
+                <input type="number" name="stock" required min="0"/>
             </div>
-            <input type="submit" value="Créer l'article">
+            <input type="submit" value="Créer le produit">
         </form>
     </body>
 </html>

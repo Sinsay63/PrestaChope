@@ -9,10 +9,10 @@
         <div class="cata_container">
             <?php
             if (!empty($_SESSION['ID'])) {
-
                 if ($_SESSION['IsAdmin'] == 1) {
                     ?>
-                    <a href="index.php?page=créationProduit">Ajouter un produit</a>
+                    <a href="index.php?page=créationProduit">Ajouter un produit</a><br>
+                    <a href="index.php?page=catégories">Gestion des catégories</a>
                 <?php }
             }
             ?>
@@ -28,10 +28,9 @@
                         foreach ($cat as $caté) {
                             ?>
                             <option value="<?php echo $caté->getId(); ?>"><?php echo $caté->getNom(); ?></option>
-                            <?php
-                        }
-                    }
-                    ?>
+                    <?php }
+                }
+                ?>
                 </select>
                 <?php
                 if (!empty($_GET['cat'])) {
@@ -43,15 +42,13 @@
                         </script>
                         <select onChange="redirige2(this.value, vars)">
                             <option value="" hidden>Recherche de sous catégories</option>
-                            <?php foreach ($scat as $sous_caté) { ?>
+                        <?php 
+                        foreach ($scat as $sous_caté) { ?>
                                 <option value="<?php echo $sous_caté->getId(); ?>"><?php echo $sous_caté->getNom(); ?></option>
-                                <?php }
-                            ?>
+                        <?php } ?>
                         </select>
-                        <?php
-                    }
-                }
-                ?>
+        <?php   }
+            }   ?>
             </div>
             <div class="produits">
                 <?php
@@ -63,8 +60,7 @@
                     }
                 }
                 if ($produits != null) {
-                    foreach ($produits as $produit) {
-                        ?>
+                    foreach ($produits as $produit) { ?>
                         <div class="box_produit">
                             <a href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
                                 <div class="img_prod">
@@ -81,7 +77,8 @@
                         </div>
                         <?php
                     }
-                } else {
+                } 
+                else {
                     echo 'Aucun produit n\'a été trouvé.';
                 }
                 ?>
