@@ -13,12 +13,19 @@
                     ?>
                     <a href="index.php?page=créationProduit">Ajouter un produit</a><br>
                     <a href="index.php?page=catégories">Gestion des catégories</a>
-                <?php }
-            }
-            ?>
+                <?php
+                }
+            } ?>
             <div class="choix_cat">
-                <select class="cat_menu" name="cat_menu" onChange="redirige(this.value)" >
-                    <option value="" hidden>Recherche de catégories</option>
+                <select class="cat_menu" name="cat_menu" onChange="redirige(this.value)" > <?php
+                    if (!empty($_GET['cat'])) {
+                        $cat = ControllerCatalogue::SearchCatégoriesByIdAndSousCatégories($_GET['cat']);
+                        ?>
+                        <option value="" hidden><?php echo $cat->getNom(); ?></option>
+                    <?php } else {
+                        ?>
+                        <option value="" hidden>Recherche de catégories</option>
+                    <?php } ?>
                     <?php if (!empty($_GET['cat'])) { ?>
                         <option value="0" >Toutes les catégories</option>
                         <?php
@@ -35,20 +42,28 @@
                 <?php
                 if (!empty($_GET['cat'])) {
                     $scat = ControllerCatalogue::searchSousCatégories($_GET['cat']);
-                    if ($scat != null) {
-                        ?>
+                    if ($scat != null) { ?>
                         <script>
                             let vars = <?php echo json_encode($_GET['cat']); ?>;
                         </script>
                         <select onChange="redirige2(this.value, vars)">
-                            <option value="" hidden>Recherche de sous catégories</option>
-                        <?php 
-                        foreach ($scat as $sous_caté) { ?>
+                            <?php
+                            if (!empty($_GET['souscat'])) { 
+                            $souscaté= ControllerCatalogue::SearchSousCatégorieById($_GET['souscat']); ?>
+                            <option value="" hidden><?php echo $souscaté->getNom()  ; ?></option>
+                            <?php
+                            } 
+                            else { ?>
+                                <option value="" hidden>Recherche de sous catégories</option>
+                            <?php
+                            }
+                            foreach ($scat as $sous_caté) {
+                                ?>
                                 <option value="<?php echo $sous_caté->getId(); ?>"><?php echo $sous_caté->getNom(); ?></option>
-                        <?php } ?>
+                      <?php } ?>
                         </select>
-        <?php   }
-            }   ?>
+            <?php   }
+                } ?>
             </div>
             <div class="produits">
                 <?php
@@ -60,7 +75,8 @@
                     }
                 }
                 if ($produits != null) {
-                    foreach ($produits as $produit) { ?>
+                    foreach ($produits as $produit) {
+                        ?>
                         <div class="box_produit">
                             <div class ="lien_produit">
                                 <a href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
@@ -81,8 +97,7 @@
                         </div>
                         <?php
                     }
-                } 
-                else {
+                } else {
                     echo 'Aucun produit n\'a été trouvé.';
                 }
                 ?>

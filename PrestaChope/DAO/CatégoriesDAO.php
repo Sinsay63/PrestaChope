@@ -53,6 +53,20 @@ Class CatégoriesDAO {
         }
     }
 
+    static function SearchSousCatégorieById($id) {
+        $bdd = DataBaseLinker::getConnexion();
+
+        $state = $bdd->prepare('SELECT * from souscategories where Id= ?');
+        $state->execute(array($id));
+        $souscatégorie = $state->fetch();
+
+        $souscat = new SousCatégoriesDTO();
+
+        $souscat->setId($souscatégorie['Id']);
+        $souscat->setNom($souscatégorie['nom']);
+        return $souscat;
+    }
+
     static function SearchCatégoriesByIdAndSousCatégories($id) {
         $bdd = DataBaseLinker::getConnexion();
 
@@ -81,8 +95,7 @@ Class CatégoriesDAO {
             if ($idsouscaté[$i] == 0 && $souscaté[$i] != '') {
                 $state = $bdd->prepare('INSERT INTO souscategories(nom,Id_Categories) VALUES(?,?) ');
                 $state->execute(array($souscaté[$i], $idcaté));
-            } 
-            else if ($idsouscaté[$i] != 0 && $souscaté[$i] != '') {
+            } else if ($idsouscaté[$i] != 0 && $souscaté[$i] != '') {
                 $state = $bdd->prepare('UPDATE souscategories SET nom = ? where Id = ? ');
                 $state->execute(array($souscaté[$i], $idsouscaté[$i]));
             }

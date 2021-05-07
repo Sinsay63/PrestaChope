@@ -156,7 +156,8 @@ Class SuperController {
                     $panier = new ControllerPanier();
 
                     $panier->includePanier();
-                } else {
+                } 
+                else {
                     Rooter::redirectToPage('catalogue');
                 }
                 break;

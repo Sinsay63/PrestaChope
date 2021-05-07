@@ -88,8 +88,8 @@ CREATE TABLE users(
 )ENGINE=InnoDB;
 
 INSERT INTO `users` (`Id`, `nom`, `prenom`, `pseudo`, `password`, `email`, `age`, `cagnotte`, `isAdmin`) VALUES
-(1, 'HOUDIER', 'Yanis', 'Sinsay', 'Sinsay', 'yanis.houdier@gmail.com', 19, 152.3, 1),
-(2, 'RICHARD', 'Nathim', 'Nath', 'Nath', 'nath@gmail.com', 22, 35.5, 0);
+(1, 'HOUDIER', 'Yanis', 'Sinsay', '5cee219187649d473cf8489852a6a8880bdc6744', 'yanis.houdier@gmail.com', 19, 152.3, 1),
+(2, 'RICHARD', 'Nathim', 'Nath', '075fbaa6a593c1261a529d81540c10bbbc12d8b2', 'nath@gmail.com', 22, 35.5, 0);
 
 
 #------------------------------------------------------------
