@@ -3,6 +3,10 @@
         <title>Catalogue</title>
         <script src="assets/js/script.js" type="text/javascript" async></script>
         <link rel="stylesheet" href="assets/css/catalogue.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Spartan:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>CATALOGUE</h1>
@@ -78,15 +82,11 @@
                     foreach ($produits as $produit) {
                         ?>
                         <div class="box_produit">
-                            <div class ="lien_produit">
-                                <a href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
-                            </div>
-                                    <div class ="zoom">
                                         <div class="img_prod">
-                                            <img class="img_prod"src="<?php echo $produit->getImage(); ?>" alt="photo produit"/>
+                                            <a href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
+                                            <img class="img_prod"src="<?php echo $produit->getImage(); ?>" alt="photo produit"/></a>
                                         </div>
-                                    </div>
-                                </a>
+                                    
                             <div class="nom_prod">
                                 <p><?php echo $produit->getNom(); ?></p>
                             </div>

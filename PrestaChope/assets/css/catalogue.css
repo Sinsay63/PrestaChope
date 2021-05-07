@@ -13,6 +13,7 @@ html,body{
     height: 250px;
     text-align : center;
     margin-bottom: 100px;
+    margin-top: 10px;
 
 }
 .img_prod{
@@ -21,31 +22,26 @@ html,body{
     margin-left: 40px;
     margin-top: 50px
 }
-.zoom{
-    width: 200px;
-    height: 200px;
-}
+
 .img_prod img{
-    transition: all 1s ease;
+    transition: all 0.5s ease;
 }
 .img_prod:hover img{
     transform:scale(1.25);
-    filter: brightness(50%);
+    filter: brightness(80%);
     
-}
+}   
 .produits{
     display: flex;
 }
 .nom_prod{
-    margin-top: 40px;
+    margin-top: 80px;
 }
+
 .descri_prod{
+    }
 
-}
-.Prix{
-
-}
 .lien_produit{
-  width: 130px;
-height: 130px;
+    width: -130px;
+    height: -130px;
 }
