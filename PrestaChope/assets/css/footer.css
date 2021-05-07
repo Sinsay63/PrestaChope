@@ -1,17 +1,18 @@
 .footer-container {
     background-color: rgb(234, 223, 208);
-    padding-bottom: 0.5px;
+    padding-bottom: 0px;
 }
 
 .footer {
     width: 80%;
-    height:48vh;
+    height:45vh;
     background-color: rgb(234, 223, 208);
     color: #D93814;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin-top:0px;
+
 }
 
 .footer-heading{
@@ -35,39 +36,13 @@
     transition: 0.3s ease-out;
 }
 
-.footer-email-form h2 {
-    margin-bottom: 2rem;
-}
 
-#footer-email {
-    width: 250px;
-    height: 40px;
-    outline: none;
-    padding-left: 0.5rem;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-#footer-email::placeholder {
-    color: #b1b1b1;
-}
 
 #footer-mess {
     width: 350px;
     height: 40px;
 }
 
-#footer-email-btn {
-    width: 100px;
-    height: 40px;
-    background-color: white;
-}
-
-#footer-email-btn:hover {
-    cursor: pointer;
-    background-color: rgb(230, 126, 34);
-    transition: all 0.4s ease-out;
-}
 
 @media screen and (max-width :1150px){
     .footer {

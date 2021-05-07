@@ -13,7 +13,7 @@
                         <button class="main-btn"><a href="#">C'est parti !</a></button>
                     </div>
                     <div class="main-img-container">
-                       <img src="assets/images/accueil-img.jpg" alt="" id="main-img">
+                       <img src="" alt="" id="main-img">
                     </div>
                 </div>
             </div>
