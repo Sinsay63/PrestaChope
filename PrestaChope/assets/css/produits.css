@@ -1,10 +1,37 @@
 #form1,#form2,#form3,#form4{
     display:none;
 }
-img{
-    height: 150px;
+.img_produit{
+	width: 450px;
+    height: 450px;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 p{
     padding:0px;
     margin:10px;
+}
+.box_produit{
+	display: flex;
+}
+.colonne{
+	display: flex;
+	flex-direction: column;
+}
+.nom_prod{
+	font-family: 'Oxygen', sans-serif;
+	font-size: 50px;
+}
+.stock_prod{
+	margin-top: 30px;
+	color: #6495ED;
+	font-family: 'Oxygen', sans-serif;
+}
+.descri_prod{
+	margin-top: 30px;
+}
+.prix_prod{
+	margin-top: 10px;
+	color:#FFA500;
+	font-family: 'Oxygen', sans-serif;
 }

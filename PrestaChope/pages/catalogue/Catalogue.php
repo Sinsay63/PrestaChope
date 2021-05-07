@@ -4,9 +4,7 @@
         <script src="assets/js/script.js" type="text/javascript" async></script>
         <link rel="stylesheet" href="assets/css/catalogue.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Spartan:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>CATALOGUE</h1>
