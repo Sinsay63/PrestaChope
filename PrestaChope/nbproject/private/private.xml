@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/DAO/CatégoriesDAO.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/header.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/DTO/CatégoriesDTO.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/pages/accueil/Accueil.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/css/accueil.css</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/DAO/ProduitsDAO.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/js/accueil.js</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/css/header.css</file>
+        </group>
     </open-files>
 </project-private>
