@@ -8,30 +8,27 @@
             $panier = ControllerPanier::getPanierByIdUser($_SESSION['ID']);
             if ($panier != null) {
                 if (!empty($_GET['err'])) {
-                    ?>
-
-                    <script type="text/javascript" async>
-                        alert('VOUS N\'AVEZ PAS ASSEZ D\'ARGENT SUR VOTRE COMPTE !!!!! ');
-                    </script>
-                    <?php
+                    //Afficher montant cagnotte insuffisant
                 }
                 $user = UsersDAO::GetUserInfo($_SESSION['ID']);
-                echo 'Votre solde est de ' . $user->getCagnotte() . '€.<br><br>';
-                echo 'Mon panier: <br><br>';
-                foreach ($panier as $key => $value) {
-                    $produit = ProduitsDAO::searchProductsById($value->getIdproduit());
-                    echo 'Article : ' . $produit->getNom() . ' -> quantité : ' . $value->getQuantité() . ' à un prix de ' . $produit->getPrix() . '€ l\'unité.';
-                    ?>
-                    <a href="index.php?page=deletePanier&del=<?php echo $value->getId() ?>">X</a>
-                    <br><br>
-                    <?php
-                }
                 ?>
-                <?php echo 'Le montant total du panier est de ' . ControllerPanier::getMontantPanier($_SESSION['ID']) . '€<br>'; ?>
+                <p>Votre solde est de <?php echo $user->getCagnotte(); ?>€</p>
+                <br>
+                <p>Mon panier:<p> <br><?php
+                    foreach ($panier as $key => $value) {
+                        $produit = ProduitsDAO::searchProductsById($value->getIdproduit());
+                        echo 'Article : ' . $produit->getNom() . ' -> quantité : ' . $value->getQuantité() . ' à un prix de ' . $produit->getPrix() . '€ l\'unité.';
+                        ?>
+                        <a href="index.php?page=deletePanier&del=<?php echo $value->getId() ?>">Supprimer du panier</a>
+                        <br><br>
+          <?php } ?>
+                <p> Le montant total du panier est de <?php echo ControllerPanier::getMontantPanier($_SESSION['ID']) ?>€.</p> <br>
                 <a href="index.php?page=commander">Commander</a>
+            <?php
+            } 
+            else {  ?>
+                <p>Votre panier est vide </p>
                 <?php
-            } else {
-                echo 'Votre panier est vide.';
             }
         }
         ?>

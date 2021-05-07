@@ -44,7 +44,8 @@
             <a href="index.php?page=catégories">Revenir en arrière</a>
             <?php
         } 
-        else if (!empty($_GET['création'])) {  ?>
+        else if (!empty($_GET['création'])) {
+            ?>
             <form action="index.php?page=créationCatégorie">
                 Nom:
                 <input id="nom" type="text" name="nom" ></label>
@@ -52,28 +53,31 @@
                 <textarea id="description" name="name" rows="5" cols="10"></textarea>
                 <input type="submit" value="Créer la catégorie">
             </form>
-            <?php
+        <?php
         } 
         else {
             $allCaté = CatégoriesDAO::SearchAllCatégories_SousCatégories();
             if ($allCaté != null) {
-                foreach ($allCaté as $value) {  ?>
+                foreach ($allCaté as $value) { ?>
+                    
                     <a href="index.php?page=catégories&caté=<?php echo $value->getId(); ?>"> 
+                        
+                        <p>Catégorie : <?php echo $value->getNom(); ?> </p><br>
+                        <p>Description : <?php echo $value->getDescription(); ?></p><br>
+                        <p>Sous catégories:</p>
                         <?php
-                        echo 'Catégorie : ' . $value->getNom() . '<br>';
-                        echo 'Description : ' . $value->getDescription() . '<br>';
-                        echo 'Sous catégories:';
-                        foreach ($value->getSouscatégories() as $souscaté) {
-                            echo '<li>' . $souscaté->getNom() . '</li>';
-                        }  ?>
+                        foreach ($value->getSouscatégories() as $souscaté) { ?>
+                            <li> <?php echo $souscaté->getNom(); ?></li>
+                 <?php  } ?>
                     </a>
                     <br>
                     <a href="index.php?page=deleteCatégorie&id=<?php echo $value->getId(); ?>">Supprimer la catégorie : <?php echo $value->getNom(); ?></a><br><br>
-                    <?php
+                <?php
                 }
-            }
-            else{
-                echo 'Aucune catégorie n\'a été trouvé';
+            } 
+            else { ?>
+                <p>Aucune catégorie n'a été trouvé.</p>
+            <?php
             }
         }
         ?>
