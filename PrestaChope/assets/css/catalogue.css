@@ -36,10 +36,12 @@ html,body{
 }
 .nom_prod{
     margin-top: 80px;
+    font-family: 'Hammersmith One', sans-serif;
 }
 
 .descri_prod{
-    }
+    font-family: 'Hammersmith One', sans-serif;
+}
 
 .lien_produit{
     width: -130px;
