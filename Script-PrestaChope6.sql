@@ -55,14 +55,14 @@ CREATE TABLE produits(
         prix              Float NOT NULL ,
         stock             Int NOT NULL,
     	image			  Varchar (50) NOT NULL,
-        Id_Catégories     Int NOT NULL,
-        Id_SousCatégories INT NOT NULL
+        Id_Categories     Int NOT NULL,
+        Id_SousCategories INT NOT NULL
 	,CONSTRAINT produits_PK PRIMARY KEY (Id)
-        ,CONSTRAINT produits_categories_FK FOREIGN KEY (Id_Catégories) REFERENCES categories(Id)
-        ,CONSTRAINT produits_souscategories_FK FOREIGN KEY (Id_SousCatégories) REFERENCES souscategories(Id)
+        ,CONSTRAINT produits_categories_FK FOREIGN KEY (Id_Categories) REFERENCES categories(Id)
+        ,CONSTRAINT produits_souscategories_FK FOREIGN KEY (Id_SousCategories) REFERENCES souscategories(Id)
 )ENGINE=InnoDB;
 
-INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Catégories`, `Id_SousCatégories`) VALUES
+INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Categories`, `Id_SousCategories`) VALUES
 (1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 2, 2),
 (2, 'Chateauneuf du pâpe', 'bouteille 1L ', 25.5, 20, NULL, 3, 4),
 (3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 3, 3);

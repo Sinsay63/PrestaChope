@@ -9,15 +9,15 @@
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
-                        <img src="assets/images/grimbergen.png" style="width:100%;height:574px">
+                        <img src="assets/images/grimbergen.png" style="width:100%;height:100%">
                 </div>
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
-                        <img src="assets/images/abbaye.jpg" style="width:100%;height:574px">
+                        <img src="assets/images/abbaye.jpg" style="width:100%;height:100%">
                 </div>
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
-                        <img src="assets/images/biere-artisanale-larzac.jpg" style="width:100%;height:574px">
+                        <img src="assets/images/biere-artisanale-larzac.jpg" style="width:100%;height:100%">
                 </div>
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

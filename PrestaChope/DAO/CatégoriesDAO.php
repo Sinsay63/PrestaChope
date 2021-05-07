@@ -105,7 +105,7 @@ Class CatégoriesDAO {
     static function deleteCatégorie($id) {
         $bdd = DataBaseLinker::getConnexion();
 
-        $state = $bdd->prepare('UPDATE produits SET Id_Catégories = 1,Id_SousCatégories = 1 where Id_Catégories = ?');
+        $state = $bdd->prepare('UPDATE produits SET Id_Categories = 1,Id_SousCategories = 1 where Id_Categories = ?');
         $state->execute(array($id));
 
         $stat = $bdd->prepare('delete from souscategories where Id_Categories= ?');
