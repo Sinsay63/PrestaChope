@@ -10,20 +10,29 @@ h1{
     margin: 0;
 }
 
-.header {
+.header{
     display: flex;
-    background-color: rgb(234, 223, 208);
-    justify-content: space-between;
+    background-color: rgb(242, 243, 244);
     align-items: center;
     width: 100%;
     height: 10%;
     flex-direction: row;
-    border-bottom: solid 2px rgb(230, 126, 34);
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    margin-right: 150px;
 }
 
 .logo{
-    width: 18%;
+    width: 20%;
     height: 100%;
+    margin-left: 150px;
 }
 
 #img-logo{
@@ -31,52 +40,82 @@ h1{
     height: 100%;
 }
 
-.titre{
+.bouton-A{
+    height: 60px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(242, 243, 244);
 }
 
-#titre-txt{
-    margin: 10px;
-}
-
-.boutton-log{
-    width: 18%;
-    height: 100%;
+.bouton-Ca{
+    height: 60px;
+    width: 100px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(242, 243, 244);
+}
+
+.bouton-Co{
+    height: 60px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(242, 243, 244);
 }
 
 .bouton-R{
     height: 60px;
     width: 100px;
-    border: 2px solid rgb(230, 126, 34);
-    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(242, 243, 244);
 }
 
 .bouton-L{
     height: 60px;
     width: 100px;
-    background-color: rgb(230, 126, 34);
-    border: 2px solid rgb(230, 126, 34);
-    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(242, 243, 244);
 }
 
-.txt-bouton-log{
-    font-size: 25px;
+.bouton-D{
+    height: 60px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(242, 243, 244);
 }
 
-#connect{
+.txt-bouton{
+    font-size: 20px;
+}
+
+.txt-bouton-A{
+    font-size: 20px;
+    color: rgb(52, 152, 219);
+}
+
+#nav{
     text-decoration: none;
 }
 

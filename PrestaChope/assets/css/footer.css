@@ -1,12 +1,22 @@
 .footer-container {
+<<<<<<< Updated upstream
     background-color: rgb(234, 223, 208);
     padding-bottom: 0px;
+=======
+    background-color: rgb(242, 243, 244);
+    padding-bottom: 0.5px;
+>>>>>>> Stashed changes
 }
 
 .footer {
     width: 80%;
+<<<<<<< Updated upstream
     height:45vh;
     background-color: rgb(234, 223, 208);
+=======
+    height:48vh;
+    background-color: rgb(242, 243, 244);
+>>>>>>> Stashed changes
     color: #D93814;
     display: flex;
     justify-content: center;
