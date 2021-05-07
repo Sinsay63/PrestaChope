@@ -8,7 +8,7 @@ Class ProduitsDAO {
     static function searchAllProducts() {
 
         $bdd = DataBaseLinker::getConnexion();
-        $state = $bdd->prepare('Select * from produits where Id_Catégories > 1 and Id_SousCatégories > 1 order by Id_Catégories ASC');
+        $state = $bdd->prepare('Select * from produits where Id_Categories > 1 and Id_SousCategories > 1 order by Id_Categories ASC');
         $state->execute();
         $products = $state->fetchAll();
 
@@ -58,7 +58,7 @@ Class ProduitsDAO {
     static function searchProductsByIdCatégories($id_catégorie) {
         $bdd = DataBaseLinker::getConnexion();
 
-        $state = $bdd->prepare('Select * from produits where Id_Catégories = ?');
+        $state = $bdd->prepare('Select * from produits where Id_Categories = ?');
         $state->execute(array($id_catégorie));
         $products = $state->fetchAll();
 
@@ -85,7 +85,7 @@ Class ProduitsDAO {
     static function searchProductsByIdSousCatégories($id_souscatégorie) {
         $bdd = DataBaseLinker::getConnexion();
 
-        $state = $bdd->prepare('Select * from produits where Id_SousCatégories = ?');
+        $state = $bdd->prepare('Select * from produits where Id_SousCategories = ?');
         $state->execute(array($id_souscatégorie));
         $products = $state->fetchAll();
 
@@ -160,7 +160,7 @@ Class ProduitsDAO {
 
         $img = self::imgProduit($image);
         if ($img) {
-            $state = $bdd->prepare('INSERT INTO produits(nom,description,prix,stock,image,Id_Catégories,Id_SousCatégories) VALUES(?,?,?,?,?,?,?)');
+            $state = $bdd->prepare('INSERT INTO produits(nom,description,prix,stock,image,Id_Categories,Id_SousCategories) VALUES(?,?,?,?,?,?,?)');
             $state->execute(array($nom, $description, $prix, $stock, $img, 1, 1));
         }
     }
