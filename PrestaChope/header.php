@@ -34,12 +34,20 @@
                 if (!empty($_SESSION['ID'])) {
                     require_once('DAO/UsersDAO.php');
                     require_once('DAO/FacturesDAO.php');
-                    if($_SESSION['IsAdmin']==1){
-                        echo 'Trésorerie : '.FacturesDAO::TotalTresorerie().'€';
+                    if ($_SESSION['IsAdmin'] == 1) {
+                        echo 'Trésorerie : ' . FacturesDAO::TotalTresorerie() . '€';
                     }
-                    $user= new UsersDAO();
-                    $us=$user->GetUserInfo($_SESSION['ID']);
+                    $user = new UsersDAO();
+                    $us = $user->GetUserInfo($_SESSION['ID']);
                     ?>
+                    
+                    <div class="bouton-profil">
+                        <a id="nav" href="index.php?page=profil">           	
+                            <button class="bouton-P" type="button">
+                                <p class="txt-bouton">Profil</p>
+                            </button>
+                        </a>
+                    </div>
                     <div class="bouton-deco">
                         <a id="nav" href="index.php?page=deconnexion">           	
                             <button class="bouton-D" type="button">
@@ -48,8 +56,7 @@
                         </a>
                     </div>
                     <?php
-                } 
-                else {
+                } else {
                     ?>
                     <div class="bouton-register">
                         <a id="nav" href="index.php?page=inscription">           	

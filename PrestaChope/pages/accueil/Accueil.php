@@ -5,24 +5,11 @@
     </head>
     <body>
         <main>
-<<<<<<< Updated upstream
-            <div class="main">
-                <div class="main-container">
-                    <div class="main-content">
-                        <h1> La meilleur shop de bière</h1>
-                        <p>Venez vous laisser tenter par notre délicieuse bière</p>
-                        <button class="main-btn"><a href="#">C'est parti !</a></button>
-                    </div>
-                    <div class="main-img-container">
-                       <img src="" alt="" id="main-img">
-                    </div>
-=======
             <div class="slideshow-container">
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
                         <img src="assets/images/grimbergen.png" style="width:100%;height:574px">
->>>>>>> Stashed changes
                 </div>
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
