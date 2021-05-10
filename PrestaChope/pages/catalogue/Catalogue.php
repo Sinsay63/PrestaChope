@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Catalogue</title>
-        <script src="assets/js/script.js" type="text/javascript" async></script>
+        <script src="assets/js/catalogue.js" type="text/javascript" async></script>
         <link rel="stylesheet" href="assets/css/catalogue.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">

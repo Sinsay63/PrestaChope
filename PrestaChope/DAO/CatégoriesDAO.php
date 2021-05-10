@@ -102,6 +102,18 @@ Class CatégoriesDAO {
         }
     }
 
+    static function créationCatégorie($nom, $description, $sousCaté) {
+        $bdd = DataBaseLinker::getConnexion();
+
+        $state = $bdd->prepare('INSERT INTO categories SET nom = ?, description = ? ');
+        $state->execute(array($nom, $description));
+        $lastid = $bdd->lastInsertId();
+        foreach ($sousCaté as $value) {
+            $state = $bdd->prepare('INSERT INTO souscategories(nom,Id_Categories) VALUES(?,?) ');
+            $state->execute(array($value, $lastid));
+        }
+    }
+
     static function deleteCatégorie($id) {
         $bdd = DataBaseLinker::getConnexion();
 

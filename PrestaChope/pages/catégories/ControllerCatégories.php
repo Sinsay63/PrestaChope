@@ -19,4 +19,17 @@ class ControllerCatégories {
     function deleteCatégorie($id){
         CatégoriesDAO::deleteCatégorie($id);
     }
+    
+    
+    function créationCatégorie($nom, $description,$sousCaté) {
+        CatégoriesDAO::créationCatégorie($nom, $description,$sousCaté);
+    }
+    
+    function includeViewModifCatégorie(){
+        require_once('ModifCatégorie.php');
+    }
+    
+    function includeViewCréationCatégorie(){
+        require_once('CréationCatégorie.php');
+    }
 }

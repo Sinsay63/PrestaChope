@@ -20,12 +20,10 @@ class ControllerProfil {
 
     function deleteUser($id) {
         UsersDAO::deleteUser($id);
-        header('location: index.php?page=accueil');
     }
 
 
     function modifProfil($idUser, $info, $quoi) {
         UsersDAO::modifProfil($idUser, $info, $quoi);
-        header('location: index.php?page=profil');
     }
 }

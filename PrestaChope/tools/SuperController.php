@@ -3,14 +3,16 @@
 Class SuperController {
 
     static function callPage($page) {
+
         switch ($page) {
+
             case 'inscription':
                 require_once('pages/inscription/ControllerInscription.php');
                 $register = new ControllerInscription();
 
                 if (!empty($_POST['nom']) && !empty($_POST['prénom']) && !empty($_POST['pseudo']) && !empty($_POST['password']) && !empty($_POST['confirm_password']) && !empty($_POST['email']) && !empty($_POST['age'])) {
                     $error = $register->registerUser($_POST['nom'], $_POST['prénom'], $_POST['email'], $_POST['age'], $_POST['pseudo'], $_POST['password'], $_POST['confirm_password']);
-                    Rooter::redirectToPage('inscription&err='.$error);
+                    Rooter::redirectToPage('inscription&err=' . $error);
                 } else {
                     $register->includeViewInscription();
                 }
@@ -19,7 +21,6 @@ Class SuperController {
 
             case "connexion" :
                 require_once("pages/connexion/ControllerConnexion.php");
-
                 $connexion = new ControllerConnexion();
 
                 if (!empty($_POST['pseudo']) && !empty($_POST[('password')])) {
@@ -33,8 +34,8 @@ Class SuperController {
 
             case "deconnexion":
                 require_once('pages/déconnexion/ControllerDéconnexion.php');
-
                 $deconnexion = new ControllerDéconnexion();
+
                 $deconnexion->déconnexion();
                 Rooter::redirectToPage('accueil');
                 break;
@@ -43,6 +44,7 @@ Class SuperController {
             case "accueil":
                 require_once('pages/accueil/ControllerAccueil.php');
                 $accueil = new ControllerAccueil();
+
                 $accueil->includeViewAccueil();
                 break;
 
@@ -50,19 +52,20 @@ Class SuperController {
             case "catalogue":
                 require_once('pages/catalogue/ControllerCatalogue.php');
                 $catalogue = new ControllerCatalogue();
+
                 $catalogue->includeViewCatalogue();
                 break;
 
 
             case "contact":
                 require_once('pages/contact/ControllerContact.php');
-
                 $contacter = new ControllerContact();
+
                 $contacter->includeViewContact();
 
                 if (!empty($_POST['contenu']) && !empty($_POST['type']) && !empty($_POST['idclient'])) {
                     $contacter->insertContactDemande($_POST['contenu'], $_POST['type'], $_POST['idclient']);
-                    Rooter::redirectToPage('contact');
+                    Rooter::redirectToPage('accueil');
                 }
                 break;
 
@@ -70,6 +73,7 @@ Class SuperController {
             case 'produits':
                 require_once('pages/produits/ControllerProduits.php');
                 $produits = new ControllerProduits();
+
                 if (!empty($_GET['prod'])) {
                     $produits->includeViewProduits();
                 } else {
@@ -82,6 +86,7 @@ Class SuperController {
             case 'modifProduit':
                 require_once('pages/produits/ControllerProduits.php');
                 $produits = new ControllerProduits();
+
                 if (!empty($_GET['prod'])) {
                     $idprod = $_GET['prod'];
 
@@ -132,18 +137,21 @@ Class SuperController {
 
 
             case 'modifProfil':
-                if (!empty($_POST['info']) && !empty($_POST['quoi'])) {
-                    $profil->modifProfil($id, $_POST['info'], $_POST['quoi']);
+                if (!empty($_POST['info']) && !empty($_POST['type'])) {
+                    require_once('pages/profil/ControllerProfil.php');
+                    $profil = new ControllerProfil();
+
+                    $profil->modifProfil($_SESSION['ID'], $_POST['info'], $_POST['type']);
                     Rooter::redirectToPage('profil');
                 }
                 break;
 
 
             case 'deleteProfil':
-                require_once('pages/profil/ControllerProfil.php');
-                $profil = new ControllerProfil();
-
                 if (!empty($_GET['delete'])) {
+                    require_once('pages/profil/ControllerProfil.php');
+                    $profil = new ControllerProfil();
+
                     $profil->deleteUser($_GET['delete']);
                     Rooter::redirectToPage('profil');
                 }
@@ -156,8 +164,7 @@ Class SuperController {
                     $panier = new ControllerPanier();
 
                     $panier->includePanier();
-                } 
-                else {
+                } else {
                     Rooter::redirectToPage('catalogue');
                 }
                 break;
@@ -203,15 +210,16 @@ Class SuperController {
             case 'listeUtilisateurs':
                 require_once('pages/utilisateurs/ControllerUtilisateurs.php');
                 $listUsers = new ControllerUtilisateurs();
+
                 $listUsers->includeViewUtilisateur();
                 break;
 
 
             case 'deleteUser':
-                require_once('pages/utilisateurs/ControllerUtilisateurs.php');
-                $listUsers = new ControllerUtilisateurs();
-
                 if (!empty($_GET['id'])) {
+                    require_once('pages/utilisateurs/ControllerUtilisateurs.php');
+                    $listUsers = new ControllerUtilisateurs();
+
                     $listUsers->deleteUser($_GET['id']);
                     Rooter::redirectToPage('listeUtilisateurs');
                 }
@@ -223,21 +231,42 @@ Class SuperController {
 
                 $catégories->includeViewCatégories();
                 break;
+
+
             case 'modifCatégorie':
+
+                require_once('pages/catégories/ControllerCatégories.php');
+                $modifCatégories = new ControllerCatégories();
+
+                if (!empty($_GET['caté'])) {
+                    $modifCatégories->includeViewModifCatégorie();
+                }
                 if (!empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['sousCaté']) && !empty($_POST['idCaté']) && !empty($_POST['idSousCaté'])) {
-                    require_once('pages/catégories/ControllerCatégories.php');
-                    $catégories = new ControllerCatégories();
-                    $catégories->modifCatégorie($_POST['nom'], $_POST['description'], $_POST['sousCaté'], $_POST['idCaté'], $_POST['idSousCaté']);
+                    $modifCatégories->modifCatégorie($_POST['nom'], $_POST['description'], $_POST['sousCaté'], $_POST['idCaté'], $_POST['idSousCaté']);
                     Rooter::redirectToPage("catégories");
                 }
                 break;
+
 
             case 'deleteCatégorie':
                 if (!empty($_GET['id'])) {
                     require_once('pages/catégories/ControllerCatégories.php');
                     $catégories = new ControllerCatégories();
-                    
+
                     $catégories->deleteCatégorie($_GET['id']);
+                    Rooter::redirectToPage("catégories");
+                }
+                break;
+
+
+            case 'créationCatégorie':
+                require_once('pages/catégories/ControllerCatégories.php');
+                $créaCatégories = new ControllerCatégories();
+
+                $créaCatégories->includeViewCréationCatégorie();
+
+                if (!empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['sousCaté'])) {
+                    $créaCatégories->créationCatégorie($_POST['nom'], $_POST['description'], $_POST['sousCaté']);
                     Rooter::redirectToPage("catégories");
                 }
                 break;
