@@ -10,8 +10,15 @@
                 ?>
                 <p> MESSAGES RÉCLAMATIONS / SUGGESTIONS :</p>
                 <?php
-                foreach ($messages as $value) {
-                    
+                foreach ($messages as $value) { 
+                    $user= UsersDAO::getInfoClient($value->getIdClients());
+                    ?>
+                <p> Message:<?php $value->getContenu()?></p>
+                <p> Envoyé par :<?php $user->getPseudo()?></p>
+                
+                
+                
+                <?php
                 }
             }
         } else {
