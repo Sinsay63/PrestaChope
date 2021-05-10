@@ -117,10 +117,12 @@ Class UsersDAO {
         if ($quoi == 'adresse') {
             $state = $bdd->prepare("UPDATE clients SET adresse = ?, ville = ?,code_postal =? where Id_Users = ?");
             $state->execute(array($info[0], $info[1], $info[2], $idUser));
-        } else if ($quoi == 'telephone') {
+        } 
+        else if ($quoi == 'telephone') {
             $state = $bdd->prepare("UPDATE clients SET telephone=? where Id_Users = ?");
             $state->execute(array($info, $idUser));
-        } else {
+        } 
+        else {
             $state = $bdd->prepare("UPDATE users SET $quoi = ? where Id = ?");
             $state->execute(array($info, $idUser));
         }

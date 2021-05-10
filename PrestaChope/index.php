@@ -18,9 +18,3 @@ SuperController::callPage($page);
 
 require_once('footer.php');
 ?>
-<style>
-    p{
-        margin:0px;
-        padding:0px;
-    }
-</style>

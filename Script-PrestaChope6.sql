@@ -20,8 +20,8 @@ CREATE TABLE categories(
 )ENGINE=InnoDB;
 
 INSERT INTO `categories` (`Id`, `nom`, `description`) VALUES
-(1, 'NONE', 'Catégorie de base'),
-(2, 'bières', 'description bières'),
+(1, 'NONE', 'CatÃ©gorie de base'),
+(2, 'biÃ¨res', 'description biÃ¨res'),
 (3, 'Vins', 'description vins');
 
 
@@ -42,7 +42,7 @@ INSERT INTO `souscategories` (`Id`, `nom`, `Id_Categories`) VALUES
 (2, 'blonde', 2),
 (3, 'brune', 2),
 (4, 'rouge', 3),
-(5, 'rosé', 3);
+(5, 'rosÃ©', 3);
 
 #------------------------------------------------------------
 # Table: Produits
@@ -64,7 +64,7 @@ CREATE TABLE produits(
 
 INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Categories`, `Id_SousCategories`) VALUES
 (1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 2, 2),
-(2, 'Chateauneuf du pâpe', 'bouteille 1L ', 25.5, 20, NULL, 3, 4),
+(2, 'Chateauneuf du pÃ¢pe', 'bouteille 1L ', 25.5, 20, NULL, 3, 4),
 (3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 3, 3);
 
 
@@ -97,7 +97,7 @@ INSERT INTO `users` (`Id`, `nom`, `prenom`, `pseudo`, `password`, `email`, `age`
 #------------------------------------------------------------
 CREATE TABLE panier(
         Id                Int  Auto_increment  NOT NULL ,
-        quantité        Int NOT NULL,
+        quantite        Int NOT NULL,
         Id_Produits     Int NOT NULL,
         Id_Users        Int NOT NULL
 	,CONSTRAINT panier_PK PRIMARY KEY (Id)
@@ -124,8 +124,8 @@ CREATE TABLE clients(
 )ENGINE=InnoDB;
 
 INSERT INTO `clients` (`Id`, `adresse`,`ville`,`code_postal`, `telephone`, `Id_Users`) VALUES
-(1, '5 allée des jardins Aubière','Aubière' ,'63170', '0750253428', 1),
-(2, '10 rue des prés ','Vichy','03000', '0670303413', 2);
+(1, '5 allÃ©e des jardins AubiÃ¨re','AubiÃ¨re' ,'63170', '0750253428', 1),
+(2, '10 rue des prÃ© ','Vichy','03000', '0670303413', 2);
 
 
 
