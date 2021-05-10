@@ -1,0 +1,57 @@
+html{
+    margin: 0;
+}
+
+body{
+    background-color: rgb(215, 219, 221);
+}
+
+main{
+    padding-right: 150px; 
+    padding-left: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.titre_register{
+    color: rgb(93, 173, 226);
+    font-size: 20px;
+}
+
+.login{
+    background-color: white;
+    width: 40%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 10px 10px;
+    margin: 10%;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.form_login{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 20px;
+    padding-right: 70px;
+    padding-left: 70px;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=submit], input[type=search]{
+    border: none;
+    border-bottom: 2px solid rgb(93, 173, 226);
+    background-color: white;
+    width: 100%;
+    font-size: 20px;
+}
+
+.lien_form_login{
+    text-decoration: none underline;
+    color: black;
+}
