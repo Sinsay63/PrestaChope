@@ -1,0 +1,60 @@
+.centrage_titre{
+	text-align:center;
+	margin-bottom: 10px;
+	font-size: 25px;
+	color: white;
+
+}
+.centrage_descri{
+	text-align:center;
+	font-size: 20px;
+	font-family: 'Inter', sans-serif;
+	color: white;
+
+}
+
+ form{
+ 	margin-left :740px;
+ 	margin-top: 100px;
+
+ }
+ #contact_btn{
+ 	color: ;
+ 	margin-top: 50px;
+ 	width:150px;
+ 	height: 40px;
+ 	margin-left: 350px;
+ 	background-color: #7CB9E8;
+ 	margin-bottom: 100px;
+ 	
+ }
+ #contact_btn:hover{
+ 	color: black;
+ 	transition: 0.3s ease-out;
+ }
+ #contact_area{
+ 	width: 500px;
+ 	height: 300px;
+ 	border-color: #7CB9E8;
+ 	border-width:3px;
+
+ }
+  #contact_area::placeholder{
+  	font-size: 20px;
+  }
+ .align{
+ 	font-size: 10px;
+ 	display: flex;
+ 	flex-direction: column;
+
+ }
+.container{
+	background-image: url('../../assets/images/font_brique.jpg');
+}
+#type::	{
+	color: red;
+	background-color: black;
+}
+.select-selected{
+	background-color: red;
+}

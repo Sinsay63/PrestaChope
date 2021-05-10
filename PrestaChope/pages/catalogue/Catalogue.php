@@ -7,7 +7,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class ="titre">
         <h1>CATALOGUE</h1>
+        </div>
         <div class="cata_container">
             <?php
             if (!empty($_SESSION['ID'])) {

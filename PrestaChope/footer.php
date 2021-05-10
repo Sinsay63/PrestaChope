@@ -11,7 +11,7 @@
             <div class= "footer">
                 <div class="footer-heading footer-1">
                     <h2> A propos de nous </h2>
-                    <a href="#"> Histoire de notre site</a>
+                    <a href="#w"> Histoire de notre site</a>
                     <a href="#"> Adresse</a>
                     <a href="#"> Horaires</a>
                     <a href="#"> </a>
