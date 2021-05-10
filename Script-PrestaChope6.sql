@@ -20,7 +20,7 @@ CREATE TABLE categories(
 )ENGINE=InnoDB;
 
 INSERT INTO `categories` (`Id`, `nom`, `description`) VALUES
-(1, 'NONE', 'Cat?orie de base'),
+(1, 'NONE', 'Catégorie de base'),
 (2, 'bières', 'description bières'),
 (3, 'Vins', 'description vins');
 
@@ -64,7 +64,7 @@ CREATE TABLE produits(
 
 INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Categories`, `Id_SousCategories`) VALUES
 (1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 2, 2),
-(2, 'Chateauneuf du p?e', 'bouteille 1L ', 25.5, 20, NULL, 3, 4),
+(2, 'Chateauneuf du pâpe', 'bouteille 1L ', 25.5, 20, NULL, 3, 4),
 (3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 3, 3);
 
 
@@ -124,8 +124,8 @@ CREATE TABLE clients(
 )ENGINE=InnoDB;
 
 INSERT INTO `clients` (`Id`, `adresse`,`ville`,`code_postal`, `telephone`, `Id_Users`) VALUES
-(1, '5 all? des jardins Aubi?e','Aubi?e' ,'63170', '0750253428', 1),
-(2, '10 rue des pr? ','Vichy','03000', '0670303413', 2);
+(1, '5 allée des jardins Aubière','Aubière' ,'63170', '0750253428', 1),
+(2, '10 rue des pré ','Vichy','03000', '0670303413', 2);
 
 
 
