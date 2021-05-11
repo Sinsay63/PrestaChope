@@ -65,12 +65,16 @@ Class SuperController {
                     require_once('pages/contact/ControllerContact.php');
                     $contacter = new ControllerContact();
 
-                    $contacter->includeViewContact();
-
                     if (!empty($_POST['contenu']) && !empty($_POST['type']) && !empty($_POST['idclient'])) {
                         $contacter->insertContactDemande($_POST['contenu'], $_POST['type'], $_POST['idclient']);
                         Rooter::redirectToPage('accueil');
                     }
+                    else{
+                    $contacter->includeViewContact();
+                }
+
+
+                    
                 } else {
                     Rooter::redirectToPage("accueil");
                 }
