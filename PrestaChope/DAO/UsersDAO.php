@@ -19,6 +19,12 @@ Class UsersDAO {
         $state2->execute(array($email));
         $mail = $state2->fetch();
         $error = 0;
+
+        if (!preg_match(" /^.+@.+.[a-zA-Z]{2,}$/ ", $email)) {
+            $error++;
+            return 1;
+        }
+
         if ($mail) {
             $error++;
             return 2;
@@ -34,7 +40,7 @@ Class UsersDAO {
         }
         if ($error == 0) {
             $reponse = $bdd->prepare("INSERT INTO users(nom,prenom,pseudo,password,email,age,cagnotte,IsAdmin) VALUES(?,?,?,?,?,?,?,?) ");
-            $reponse->execute(array($nom, $prénom, $pseudo, sha1($password), $email, $age,0,0));
+            $reponse->execute(array($nom, $prénom, $pseudo, sha1($password), $email, $age, 0, 0));
             return 0;
         }
     }
@@ -49,13 +55,12 @@ Class UsersDAO {
 
         if ($users) {
             $user = new UsersDTO();
-            
+
             $user->setId($users['Id']);
             $user->setIsAdmin($users['isAdmin']);
 
             return $user;
-        } 
-        else {
+        } else {
             return null;
         }
     }
@@ -123,16 +128,30 @@ Class UsersDAO {
             $state->execute(array($info, $idUser));
         } 
         else {
+            if ($quoi == 'password') {
+                if ($info[0] != $info[1]) {
+                    return false;
+                }
+                $info = sha1($info[0]);
+            }
+            if ($quoi == 'email') {
+                if (!preg_match(" /^.+@.+.[a-zA-Z]{2,}$/ ", $info)) {
+                    return false;
+                }
+            }
             $state = $bdd->prepare("UPDATE users SET $quoi = ? where Id = ?");
             $state->execute(array($info, $idUser));
         }
+        return true;
     }
 
     static function getAllUsers() {
         $bdd = DataBaseLinker::getConnexion();
+        
         $state = $bdd->prepare('SELECT *from users ');
         $state->execute();
         $users = $state->fetchAll();
+        
         $tab = [];
         foreach ($users as $value) {
             $user = new UsersDTO();
@@ -141,12 +160,13 @@ Class UsersDAO {
             $user->setNom($value['nom']);
             $user->setPseudo($value['pseudo']);
             $user->setId($value['Id']);
-            
+
             $stat = $bdd->prepare('SELECT COUNT(Id_Clients) from commandes where Id_Clients = ?');
             $stat->execute(array($value['Id']));
             $cmd = $stat->fetchAll();
-            if($cmd==null){
-                $cmd[0]=0;
+            
+            if ($cmd == null) {
+                $cmd[0] = 0;
             }
             $tabi = [$user, $cmd[0]];
             $tab[] = $tabi;

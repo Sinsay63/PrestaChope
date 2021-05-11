@@ -19,7 +19,7 @@
 
  }
  #contact_btn{
- 	color: ;
+/* 	color: ;*/
  	margin-top: 50px;
  	width:150px;
  	height: 40px;
@@ -51,10 +51,10 @@
 .container{
 	background-image: url('../../assets/images/font_brique.jpg');
 }
-#type::	{
+/*#type::	{
 	color: red;
 	background-color: black;
-}
+}*/
 .select-selected{
 	background-color: red;
 }

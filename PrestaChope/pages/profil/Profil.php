@@ -46,6 +46,16 @@
                     </form>
                     <input type="button" id="btn4" value="Modifier" onclick="hideThis('form4', 'btn4', 'pseudos')" />
                 </div>
+                <div class="password">
+                    Votre mot de passe:<p>
+                    <form id="form5" method="post" action="index.php?page=modifProfil">
+                        <input type="password" name="info[]" placeholder="Nouveau mot de passe"/>
+                        <input type="password" name="info[]" placeholder="Retapez mot de passe" />
+                        <input type="hidden" name="type" value="password">
+                        <input type="submit" value="Modifier" />
+                    </form>
+                    <input type="button" id="btn5" value="Modifier" onclick="hideThis('form5', 'btn5', 'password')" />
+                </div>
 
                 <?php
                 if ($_SESSION['IsAdmin'] == 0) {

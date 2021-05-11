@@ -20,8 +20,8 @@ CREATE TABLE categories(
 )ENGINE=InnoDB;
 
 INSERT INTO `categories` (`Id`, `nom`, `description`) VALUES
-(1, 'NONE', 'Cat√©gorie de base'),
-(2, 'bi√®res', 'description bi√®res'),
+(1, 'NONE', 'CatÈgorie de base'),
+(2, 'biËres', 'description biËres'),
 (3, 'Vins', 'description vins');
 
 
@@ -42,7 +42,7 @@ INSERT INTO `souscategories` (`Id`, `nom`, `Id_Categories`) VALUES
 (2, 'blonde', 2),
 (3, 'brune', 2),
 (4, 'rouge', 3),
-(5, 'ros√©', 3);
+(5, 'rosÈ', 3);
 
 #------------------------------------------------------------
 # Table: Produits
@@ -64,8 +64,8 @@ CREATE TABLE produits(
 
 INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Categories`, `Id_SousCategories`) VALUES
 (1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 2, 2),
-(2, 'Chateauneuf du p√¢pe', 'bouteille 1L ', 25.5, 20, NULL, 3, 4),
-(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 3, 3);
+(2, 'Chateauneuf du pape', 'bouteille 1L ', 25.5, 20, NULL, 3, 4),
+(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 3, 5);
 
 
 
@@ -124,8 +124,8 @@ CREATE TABLE clients(
 )ENGINE=InnoDB;
 
 INSERT INTO `clients` (`Id`, `adresse`,`ville`,`code_postal`, `telephone`, `Id_Users`) VALUES
-(1, '5 all√©e des jardins Aubi√®re','Aubi√®re' ,'63170', '0750253428', 1),
-(2, '10 rue des pr√© ','Vichy','03000', '0670303413', 2);
+(1, '5 all√©e des jardins AubiËre','AubiËre' ,'63170', '0750253428', 1),
+(2, '10 rue des prÈ ','Vichy','03000', '0670303413', 2);
 
 
 
@@ -134,9 +134,10 @@ INSERT INTO `clients` (`Id`, `adresse`,`ville`,`code_postal`, `telephone`, `Id_U
 #------------------------------------------------------------
 
 CREATE TABLE contact(
-        Id          Int Auto_increment NOT NULL , 
-        contenu    longtext NOT NULL,
-        type_demande Varchar (30) NOT NULL,
+        Id         Int Auto_increment NOT NULL , 
+        contenu    longtext,
+        date       DATETIME, 
+        type_demande Varchar (30),
         is_viewed Int NOT NULL,
         Id_Clients Int NOT NULL
         ,CONSTRAINT contact_PK PRIMARY KEY(Id)

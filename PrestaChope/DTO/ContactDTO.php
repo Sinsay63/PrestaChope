@@ -1,19 +1,24 @@
 <?php
 
-class ContactDTO{
+class ContactDTO {
+
     private $id;
     private $contenu;
+    private $date;
     private $typeDemande;
     private $isViewed;
     private $idClients;
-    
-    
+
     function getId() {
         return $this->id;
     }
 
     function getContenu() {
         return $this->contenu;
+    }
+
+    function getDate() {
+        return $this->date;
     }
 
     function getTypeDemande() {
@@ -28,12 +33,17 @@ class ContactDTO{
         return $this->idClients;
     }
 
+    
     function setId($id): void {
         $this->id = $id;
     }
 
     function setContenu($contenu): void {
         $this->contenu = $contenu;
+    }
+
+    function setDate($date): void {
+        $this->date = $date;
     }
 
     function setTypeDemande($typeDemande): void {
@@ -48,15 +58,4 @@ class ContactDTO{
         $this->idClients = $idClients;
     }
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
-

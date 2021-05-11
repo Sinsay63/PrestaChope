@@ -4,12 +4,10 @@ require_once('DAO/ContactDAO.php');
 
 class ControllerMessages {
 
-    function viewMessages() {
-        require_once('pages/messages/Messages.php');
+    function includeViewMessages() {
+        require_once('Messages.php');
     }
-
-    function GetAllMessages() {
-        
+    function changeStatutMessage($id,$statut){
+        ContactDAO::changeStatusMessage($id, $statut);
     }
-
 }

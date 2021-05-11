@@ -24,6 +24,6 @@ class ControllerProfil {
 
 
     function modifProfil($idUser, $info, $quoi) {
-        UsersDAO::modifProfil($idUser, $info, $quoi);
+        return UsersDAO::modifProfil($idUser, $info, $quoi);
     }
 }
