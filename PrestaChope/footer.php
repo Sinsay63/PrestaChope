@@ -11,8 +11,8 @@
             <div class="footer-container">
                 <div class= "footer">
                     <div class="footer-heading-1">
-                        <h3> A PROPOS DE PRESTACHOPE </h3>
-                        <p class="">Retrouvez ici notre sélections de bières d'ici et d'ailleurs, livrables sur toute la France. Découvrez des bières de brasseries locales comme des plus grandes brasseries !</p>
+                        <h3>A PROPOS DE PRESTACHOPE6</h3>
+                        <p>Retrouvez ici notre sélections de bières d'ici et d'ailleurs, livrables sur toute la France. Découvrez des bières de brasseries locales comme des plus grandes brasseries !</p>
                         <h4> Paiement sécurisé </h4>
                         <img id="img-paiement" src="assets/images/paiement.png" alt="image paiement"/>
                     </div>
