@@ -3,9 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/tools/SuperController.php</file>
-            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/pages/messages/Messages.php</file>
-            <file>file:/C:/xampp/htdocs/PrestaChope6/PrestaChope/DAO/ContactDAO.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/footer.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/pages/catalogue/Catalogue.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/css/footer.css</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/pages/contact/Contact.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/header.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/pages/accueil/Accueil.php</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/css/catalogue.css</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/css/accueil.css</file>
+            <file>file:/Applications/MAMP/htdocs/PrestaChope6/PrestaChope/assets/css/header.css</file>
         </group>
     </open-files>
 </project-private>

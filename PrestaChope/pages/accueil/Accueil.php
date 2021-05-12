@@ -36,6 +36,9 @@
                     </p>
                 </div>
             </div>
+            <div class="horraire">
+                <h1>NOS HORRAIRES</h1>
+            </div>
             <div class="nouveauté">
                 <h1>NOS NOUVEAUTÉS</h1>
             </div>
