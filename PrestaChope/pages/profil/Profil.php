@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Profil</title>
-        <script type="text/javascript" src="assets/js/Profil.js" async></script>
+        <script type="text/javascript" src="assets/js/display.js" async></script>
         
         <link rel="stylesheet" href="assets/css/profil.css"/>
     <body>
@@ -48,13 +48,13 @@
                 </div>
                 <div class="password">
                     Votre mot de passe:<p>
-                    <form id="form5" method="post" action="index.php?page=modifProfil">
+                    <form id="form9" method="post" action="index.php?page=modifProfil">
                         <input type="password" name="info[]" placeholder="Nouveau mot de passe"/>
                         <input type="password" name="info[]" placeholder="Retapez mot de passe" />
                         <input type="hidden" name="type" value="password">
                         <input type="submit" value="Modifier" />
                     </form>
-                    <input type="button" id="btn5" value="Modifier" onclick="hideThis('form5', 'btn5', 'password')" />
+                    <input type="button" id="btn9" value="Modifier" onclick="hideThis('form9', 'btn9', 'password')" />
                 </div>
 
                 <?php

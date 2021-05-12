@@ -53,7 +53,8 @@
                     <?php if ($value->getIsViewed() == 1) { ?>
                         <p> Votre message a été pris en compte par l'équipe. Merci de votre retour!</p>
                         <?php
-                    } else {
+                    } 
+                    else {
                         ?>
                         <p> Votre message n'a pas encore été vu. Merci tout de même de votre retour!</p>
                         <?php

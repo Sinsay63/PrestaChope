@@ -2,7 +2,7 @@
     <head>
         <title>page d'un produit</title>
         <link rel="stylesheet" href="assets/css/produits.css"/>
-        <script src="assets/js/script.js" type="text/javascript" async></script>
+         <script type="text/javascript" src="assets/js/display.js" async></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
     </head>
@@ -91,7 +91,7 @@
                                         if ($_SESSION['IsAdmin'] == 1) {
                                             ?>
                                         <form id="form2" method="post" action="index.php?page=modifProduit&prod=<?php echo $_GET['prod']; ?>">
-                                            <textarea type="text" name="info" placeholder="<?php echo $produit->getDescription(); ?>" cols="25" rows="3" required> </textarea>
+                                            <textarea type="text" name="info" placeholder="<?php echo $produit->getDescription(); ?>" cols="25" rows="3" required></textarea>
                                             <input type="hidden" name="quoi" value="description" >
                                             <input type="submit" value="Modifier" />
                                         </form>

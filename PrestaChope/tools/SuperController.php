@@ -327,16 +327,16 @@ Class SuperController {
                         $messages->changeStatutMessage($_GET['id'], $_GET['viewed']);
                         Rooter::redirectToPage('messages');
                     } 
-                    else {
                         $messages->includeViewMessages();
-                    }
                 } 
                 else {
                     Rooter::redirectToPage('accueil');
                 }
                 break;
 
+                
             default:
+                
                 Rooter::redirectToPage("accueil");
                 break;
         }
