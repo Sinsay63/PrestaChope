@@ -9,7 +9,7 @@ class ContactDAO {
 
         $bdd = DataBaseLinker::getConnexion();
         $state = $bdd->prepare('INSERT INTO contact(date,contenu,type_demande,is_viewed,Id_Clients) VALUES (CURRENT_TIMESTAMP,?,?,?,?)');
-        $state->execute(array($contenu,0, $type, $idclient));
+        $state->execute(array($contenu, $type,0, $idclient));
     }
 
     static function getAllMessages() {
