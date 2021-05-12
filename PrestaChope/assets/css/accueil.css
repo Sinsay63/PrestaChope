@@ -34,7 +34,7 @@ main{
 .txt-centre-blanc{
     text-align: center;
     color: #fff;
-    font-size: 15px
+    font-size: 15px;
 }
 
 .banniere{
@@ -49,6 +49,8 @@ main{
 .bold-blanc{
     color: #fff;
     font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 10px;
 }
 
 .banniere-contact{
@@ -57,9 +59,7 @@ main{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 20px;
 }
 
 .banniere-livraison{
@@ -69,9 +69,7 @@ main{
     flex-direction: column;
     align-items: center;
     border-right: solid 1px #28c0c5;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 20px;
 }
 
 .banniere-paiement{
@@ -81,24 +79,18 @@ main{
     flex-direction: column;
     align-items: center;
     border-right: solid 1px #28c0c5;
-    padding-bottom: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding: 20px;
 }
 
-.banniere-contact p{
+.txt-centre-blanc-no-margin{
     margin: 0;
-}
-
-.banniere-livraison p{
-    margin: 0;
-}
-
-.banniere-paiement p{
-    margin: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
 }
 
 .img-banniere{
     width: 19%;
     height: auto;
+    margin: 0;
 }

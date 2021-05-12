@@ -9,17 +9,17 @@
                 <div class="banniere-livraison">
                     <img class="img-banniere" src="assets/images/logo-livraison.svg" alt="image livraison"/>
                     <p class="bold-blanc">LIVRAISON 48-72H & EMBALLAGE</p>
-                    <p class="txt-centre-blanc">Produits livrés en France (& Corse), Belgique et Suisse</p>
+                    <p class="txt-centre-blanc-no-margin">Produits livrés en France (& Corse), Belgique et Suisse</p>
                 </div>
                 <div class="banniere-paiement">
                     <img class="img-banniere" src="assets/images/logo-cadenas.svg" alt="image cadenas"/>
                     <p class="bold-blanc">PAIEMENT SÉCURISÉ</p>
-                    <p class="txt-centre-blanc">Transactions par carte bancaire sécurisées</p>
+                    <p class="txt-centre-blanc-no-margin">Transactions par carte bancaire sécurisées</p>
                 </div>
                 <div class="banniere-contact">
                     <img class="img-banniere" src="assets/images/logo-casque.svg" alt="image casque"/>
                     <p class="bold-blanc">À VOTRE ÉCOUTE</p>
-                    <p class="txt-centre-blanc">Une question, un conseil ? Contactez-nous !</p>
+                    <p class="txt-centre-blanc-no-margin">Une question, un conseil ? Contactez-nous !</p>
                 </div>
             </div>
             <div class="a-propos">
