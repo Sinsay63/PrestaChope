@@ -6,13 +6,13 @@
     <body>
         <div class="header">
             <div class="logo">
-                <img id="img-logo" src="assets/images/prestaLogo.png" alt="alt"/>
+                <img id="img-logo" src="assets/images/prestaLogo.png" alt="logo"/>
             </div>
             <div class="nav">
                 <div class="bouton-accueil">
                     <a id="nav" href="index.php?page=accueil">           	
                         <button class="bouton-A" type="button">
-                            <p class="txt-bouton-A">Acceuil</p>
+                            <p class="txt-bouton-A">Accueil</p>
                         </button>
                     </a>
                 </div>
@@ -23,16 +23,16 @@
                         </button>
                     </a>
                 </div>
-                <div class="bouton-contact">
-                    <a id="nav" href="index.php?page=contact">           	
-                        <button class="bouton-Co" type="button">
-                            <p class="txt-bouton">Contact</p>
-                        </button>
-                    </a>
-                </div>
                 <?php
                 if (!empty($_SESSION['ID'])) {
                     ?>
+                    <div class="bouton-contact">
+                        <a id="nav" href="index.php?page=contact">           	
+                            <button class="bouton-Co" type="button">
+                                <p class="txt-bouton">Contact</p>
+                            </button>
+                        </a>
+                    </div>
                     <div class="bouton-profil">
                         <a id="nav" href="index.php?page=profil">           	
                             <button class="bouton-P" type="button">
@@ -51,7 +51,7 @@
                     require_once('DAO/UsersDAO.php');
                     require_once('DAO/FacturesDAO.php');
                     if ($_SESSION['IsAdmin'] == 1) {
-                        echo 'Trésorerie : ' . FacturesDAO::TotalTresorerie() . '€';
+                        echo "<p class='txt-bouton-A'>Trésorerie : ". FacturesDAO::TotalTresorerie(). "€</p>";
                     }
                     $user = new UsersDAO();
                     $us = $user->GetUserInfo($_SESSION['ID']);

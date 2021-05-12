@@ -1,43 +1,109 @@
-.footer-container {
-    background-color: rgb(234, 223, 208);
-    padding-bottom: 0px;
-    background-color: rgb(242, 243, 244);
-    padding-bottom: 0.5px;
+.background{
+    background-color: rgb(38, 38, 38);
 }
 
-.footer {
-    width: 80%;
-    height:45vh;
-    background-color: rgb(234, 223, 208);
-    height:48vh;
-    background-color: rgb(242, 243, 244);
-    color: #D93814;
+.footer-container{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    margin-top:0px;
+    flex-direction: column;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-top: 20px;
+}
 
+.footer-container p{
+    color: #666;
+}
+
+.footer-container h3{
+    color: #fff;
+}
+
+.footer-container h4{
+    color: #fff;
+}
+
+.footer-container a{
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .footer-heading{
     display: flex;
     flex-direction: column;
-    margin-right: 4rem;
 }
 
-.footer-heading h2 {
-    margin-bottom: 2rem;
-}
-
-.footer-heading a {
-    color: #D93814;
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-}
-
-.footer-heading a:hover {
-    color:black;
+.footer-container a:hover{
+    color: #28c0c5;
     transition: 0.3s ease-out;
+}
+
+.footer-heading-1{
+    width: 30%;
+    text-align: justify;
+}
+
+.footer-heading-2{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-heading-3{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-heading-4{
+    display: flex;
+    flex-direction: column;
+}
+
+.sociaux{
+    display: flex;
+    flex-direction: row;
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.txt-copyright{
+    margin: 0;
+}
+
+.txt-copyright-I{
+    margin: 0;
+    font-weight: bold;
+}
+
+.txt-copyright-C{
+    margin-top: 20px;
+}
+
+#img-paiement{
+    width: 70%;
+    height: auto;
+}
+
+.img-sociaux{
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
 }
 
 
