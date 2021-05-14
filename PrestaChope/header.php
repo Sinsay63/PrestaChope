@@ -25,14 +25,14 @@
                 </div>
                 <?php
                 if (!empty($_SESSION['ID'])) {
-                    ?>
-                    <div class="bouton-contact">
-                        <a id="nav" href="index.php?page=contact">           	
-                            <button class="bouton-Co" type="button">
-                                <p class="txt-bouton">Contact</p>
-                            </button>
-                        </a>
-                    </div>
+                        ?>
+                        <div class="bouton-contact">
+                            <a id="nav" href="index.php?page=contact">           	
+                                <button class="bouton-Co" type="button">
+                                    <p class="txt-bouton">Contact</p>
+                                </button>
+                            </a>
+                        </div>
                     <div class="bouton-profil">
                         <a id="nav" href="index.php?page=profil">           	
                             <button class="bouton-P" type="button">
@@ -47,7 +47,7 @@
                             </button>
                         </a>
                     </div>
-                    <?php
+                        <?php
                     require_once('DAO/UsersDAO.php');
                     require_once('DAO/FacturesDAO.php');
                     if ($_SESSION['IsAdmin'] == 1) {

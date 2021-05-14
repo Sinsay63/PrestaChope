@@ -9,3 +9,7 @@ body,p{
 #btn{
     display: block;
 }
+
+.profil_container{
+    display:flex;
+}

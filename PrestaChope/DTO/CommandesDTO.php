@@ -1,26 +1,50 @@
 <?php
 
-CLass CommandesDTO{
-    
-    private $id;
+CLass CommandesDTO {
+
+    private $idFacture;
+    private $listeProduits;
+    private $montant;
+    private $date;
     private $idClients;
-    
-    
-    function getId() {
-        return $this->id;
+
+    function getIdFacture() {
+        return $this->idFacture;
+    }
+
+    function getListeProduits() {
+        return $this->listeProduits;
+    }
+
+    function getMontant() {
+        return $this->montant;
+    }
+
+    function getDate() {
+        return $this->date;
     }
 
     function getIdClients() {
         return $this->idClients;
     }
 
+    function setIdFacture($idFacture): void {
+        $this->idFacture = $idFacture;
+    }
 
-    function setId($id): void {
-        $this->id = $id;
+    function setListeProduits($listeProduits): void {
+        $this->listeProduits = $listeProduits;
+    }
+
+    function setMontant($montant): void {
+        $this->montant = $montant;
+    }
+
+    function setDate($date): void {
+        $this->date = $date;
     }
 
     function setIdClients($idClients): void {
         $this->idClients = $idClients;
     }
-
 }

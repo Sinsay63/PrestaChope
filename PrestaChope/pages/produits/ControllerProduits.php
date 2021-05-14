@@ -21,7 +21,7 @@ class ControllerProduits {
     function deleteProduit($id) {
         ProduitsDAO::deleteProduit($id);
     }
-    function addProduit($image,$nom, $description, $prix, $stock){
-        ProduitsDAO::addProduit($image, $nom, $description, $prix, $stock);
+    function addProduit($image,$nom, $description, $prix, $stock,$idcaté,$idsouscaté){
+        ProduitsDAO::addProduit($image, $nom, $description, $prix, $stock,$idcaté,$idsouscaté);
     }
 }

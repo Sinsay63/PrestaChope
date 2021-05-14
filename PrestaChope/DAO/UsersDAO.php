@@ -122,17 +122,21 @@ Class UsersDAO {
         if ($quoi == 'adresse') {
             $state = $bdd->prepare("UPDATE clients SET adresse = ?, ville = ?,code_postal =? where Id_Users = ?");
             $state->execute(array($info[0], $info[1], $info[2], $idUser));
-        } 
-        else if ($quoi == 'telephone') {
+        } else if ($quoi == 'telephone') {
             $state = $bdd->prepare("UPDATE clients SET telephone=? where Id_Users = ?");
             $state->execute(array($info, $idUser));
-        } 
-        else {
+        } else {
             if ($quoi == 'password') {
-                if ($info[0] != $info[1]) {
-                    return false;
+                $state = $bdd->prepare('SELECT password from users where Id = ?');
+                $state->execute(array($idUser));
+                $passwd = $state->fetch();
+
+                if ($passwd['password'] != $info[0]) {
+                    if ($info[1] != $info[2]) {
+                        return false;
+                    }
+                    $info = sha1($info[1]);
                 }
-                $info = sha1($info[0]);
             }
             if ($quoi == 'email') {
                 if (!preg_match(" /^.+@.+.[a-zA-Z]{2,}$/ ", $info)) {
@@ -147,11 +151,11 @@ Class UsersDAO {
 
     static function getAllUsers() {
         $bdd = DataBaseLinker::getConnexion();
-        
-        $state = $bdd->prepare('SELECT *from users ');
-        $state->execute();
+
+        $state = $bdd->prepare('SELECT * from users where Id != ?');
+        $state->execute(array($_SESSION['ID']));
         $users = $state->fetchAll();
-        
+
         $tab = [];
         foreach ($users as $value) {
             $user = new UsersDTO();
@@ -164,7 +168,7 @@ Class UsersDAO {
             $stat = $bdd->prepare('SELECT COUNT(Id_Clients) from commandes where Id_Clients = ?');
             $stat->execute(array($value['Id']));
             $cmd = $stat->fetchAll();
-            
+
             if ($cmd == null) {
                 $cmd[0] = 0;
             }

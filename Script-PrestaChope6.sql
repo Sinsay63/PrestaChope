@@ -124,7 +124,7 @@ CREATE TABLE clients(
 )ENGINE=InnoDB;
 
 INSERT INTO `clients` (`Id`, `adresse`,`ville`,`code_postal`, `telephone`, `Id_Users`) VALUES
-(1, '5 allÃ©e des jardins Aubière','Aubière' ,'63170', '0750253428', 1),
+(1, '5 allée des jardins Aubière','Aubière' ,'63170', '0750253428', 1),
 (2, '10 rue des pré ','Vichy','03000', '0670303413', 2);
 
 
@@ -160,7 +160,8 @@ CREATE TABLE commandes(
 CREATE TABLE factures(
         Id            Int  Auto_increment  NOT NULL ,
         Id_Commandes  Int NOT NULL,
-        montant       Int NOT NULL  
+        montant       Int NOT NULL,
+        date            DATETIME NOT NULL
 	,CONSTRAINT factures_PK PRIMARY KEY (Id)
         ,CONSTRAINT factures_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
 )ENGINE=InnoDB;

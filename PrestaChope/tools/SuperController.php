@@ -61,20 +61,16 @@ Class SuperController {
 
 
             case "contact":
-                if (!empty($_SESSION['ID'])) {
+                if (!empty($_SESSION['ID']) && $_SESSION['IsAdmin'] == 0) {
                     require_once('pages/contact/ControllerContact.php');
                     $contacter = new ControllerContact();
 
                     if (!empty($_POST['contenu']) && !empty($_POST['type']) && !empty($_POST['idclient'])) {
                         $contacter->insertContactDemande($_POST['contenu'], $_POST['type'], $_POST['idclient']);
                         Rooter::redirectToPage('accueil');
+                    } else {
+                        $contacter->includeViewContact();
                     }
-                    else{
-                    $contacter->includeViewContact();
-                }
-
-
-                    
                 } else {
                     Rooter::redirectToPage("accueil");
                 }
@@ -131,13 +127,16 @@ Class SuperController {
                 if (!empty($_SESSION['ID']) && $_SESSION['IsAdmin'] == 1) {
                     require_once('pages/produits/ControllerProduits.php');
                     $produits = new ControllerProduits();
-
-                    $produits->includeViewCréaProduit();
-                    if (!empty($_FILES['image']) && !empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['prix']) && !empty($_POST['stock'])) {
-                        $produits->addProduit($_FILES['image'], $_POST['nom'], $_POST['description'], $_POST['prix'], $_POST['stock']);
-                        Rooter::redirectToPage('catalogue');
+                    
+                    if (!empty($_FILES['image']) && !empty($_POST['nom']) && !empty($_POST['description']) && !empty($_POST['prix']) && !empty($_POST['stock']) && !empty($_POST['catégorie']) && !empty($_POST['sousCatégorie'])) {
+                        $produits->addProduit($_FILES['image'], $_POST['nom'], $_POST['description'], $_POST['prix'], $_POST['stock'],$_POST['catégorie'],$_POST['sousCatégorie']);
+                        Rooter::redirectToPage("catalogue");
                     }
-                } else {
+                    else{
+                         $produits->includeViewCréaProduit();
+                    }
+                } 
+                else {
                     Rooter::redirectToPage("catalogue");
                 }
                 break;
@@ -326,17 +325,16 @@ Class SuperController {
                     if (!empty($_GET['viewed']) && !empty($_GET['id'])) {
                         $messages->changeStatutMessage($_GET['id'], $_GET['viewed']);
                         Rooter::redirectToPage('messages');
-                    } 
-                        $messages->includeViewMessages();
-                } 
-                else {
+                    }
+                    $messages->includeViewMessages();
+                } else {
                     Rooter::redirectToPage('accueil');
                 }
                 break;
 
-                
+
             default:
-                
+
                 Rooter::redirectToPage("accueil");
                 break;
         }
