@@ -4,57 +4,72 @@
         <script type="text/javascript" src="assets/js/display.js" async></script>
         
         <link rel="stylesheet" href="assets/css/profil.css"/>
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <body>
+    
         <?php
         if (!empty($_SESSION['ID'])) {
             $user = ControllerProfil::getInfoUser($_SESSION['ID']);
             ?>
-            <div class="user_profil">
-                <div class="prénom">
-                    Votre prénom:<p id="prénoms"><?php echo $user->getPrénom(); ?><p>
-                    <form id="form1" method="post" action="index.php?page=modifProfil">
-                        <input type="text" name="info" placeholder="<?php echo $user->getPrénom(); ?>"/>
-                        <input type="hidden" name="type" value="prenom">
-                        <input type="submit" value="Modifier" />
-                    </form>
-                    <input type="button" id="btn1" value="Modifier" onclick="hideThis('form1', 'btn1', 'prénoms')" />
+            <div class="row profile">
+            <div class="col-md-3">
+            <div class="profile-sidebar">
+            <div class ="tout">
+                <div class="profile-userpic">
+                    <img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
                 </div>
-                <div class="nom">
-                    Votre nom:<p id="noms"><?php echo $user->getNom(); ?><p>
-                    <form id="form2" method="post" action="index.php?page=modifProfil">
-                        <input type="text" name="info" placeholder="<?php echo $user->getNom(); ?>"/>
-                        <input type="hidden" name="type" value="nom">
-                        <input type="submit" value="Modifier" />
-                    </form>
-                    <input type="button" id="btn2" value="Modifier" onclick="hideThis('form2', 'btn2', 'noms')" />
+            <div class="user_info">
+                <div class="user_profil">
+                    <div class="prénom">
+                        Votre prénom:<p id="prénoms"><?php echo $user->getPrénom(); ?><p>
+                        <form id="form1" method="post" action="index.php?page=modifProfil">
+                            <input type="text" name="info" placeholder="<?php echo $user->getPrénom(); ?>"/>
+                            <input type="hidden" name="type" value="prenom">
+                            <input type="submit" value="Modifier" />
+                        </form>
+                        <input type="button" id="btn1" value="Modifier" onclick="hideThis('form1', 'btn1', 'prénoms')" />
+                    </div>
+                    <div class="nom">
+                        Votre nom:<p id="noms"><?php echo $user->getNom(); ?><p>
+                        <form id="form2" method="post" action="index.php?page=modifProfil">
+                            <input type="text" name="info" placeholder="<?php echo $user->getNom(); ?>"/>
+                            <input type="hidden" name="type" value="nom">
+                            <input type="submit" value="Modifier" />
+                        </form>
+                        <input type="button" id="btn2" value="Modifier" onclick="hideThis('form2', 'btn2', 'noms')" />
+                    </div>
                 </div>
-                <div class="email">
-                    Votre email:<p id="emails"><?php echo $user->getEmail(); ?><p>
-                    <form id="form3" method="post" action="index.php?page=modifProfil">
-                        <input type="text" name="info" placeholder="<?php echo $user->getEmail(); ?>"/>
-                        <input type="hidden" name="type" value="email">
-                        <input type="submit" value="Modifier" />
-                    </form>
-                    <input type="button" id="btn3" value="Modifier" onclick="hideThis('form3', 'btn3', 'emails')" />
-                </div>
-                <div class="pseudo">
-                    Votre pseudo:<p id="pseudos"><?php echo $user->getPseudo(); ?><p>
-                    <form id="form4" method="post" action="index.php?page=modifProfil">
-                        <input type="text" name="info" placeholder="<?php echo $user->getPseudo(); ?>"/>
-                        <input type="hidden" name="type" value="pseudo">
-                        <input type="submit" value="Modifier" />
-                    </form>
-                    <input type="button" id="btn4" value="Modifier" onclick="hideThis('form4', 'btn4', 'pseudos')" />
-                </div>
-                <div class="password">
-                    Votre mot de passe:<p>
-                    <form id="form9" method="post" action="index.php?page=modifProfil">
-                        <input type="password" name="info[]" placeholder="Nouveau mot de passe"/>
-                        <input type="password" name="info[]" placeholder="Retapez mot de passe" />
-                        <input type="hidden" name="type" value="password">
-                        <input type="submit" value="Modifier" />
-                    </form>
-                    <input type="button" id="btn9" value="Modifier" onclick="hideThis('form9', 'btn9', 'password')" />
+
+
+                    <div class="email">
+                        Votre email:<p id="emails"><?php echo $user->getEmail(); ?><p>
+                        <form id="form3" method="post" action="index.php?page=modifProfil">
+                            <input type="text" name="info" placeholder="<?php echo $user->getEmail(); ?>"/>
+                            <input type="hidden" name="type" value="email">
+                            <input type="submit" value="Modifier" />
+                        </form>
+                        <input type="button" id="btn3" value="Modifier" onclick="hideThis('form3', 'btn3', 'emails')" />
+                    </div>
+                    <div class="pseudo">
+                        Votre pseudo:<p id="pseudos"><?php echo $user->getPseudo(); ?><p>
+                        <form id="form4" method="post" action="index.php?page=modifProfil">
+                            <input type="text" name="info" placeholder="<?php echo $user->getPseudo(); ?>"/>
+                            <input type="hidden" name="type" value="pseudo">
+                            <input type="submit" value="Modifier" />
+                        </form>
+                        <input type="button" id="btn4" value="Modifier" onclick="hideThis('form4', 'btn4', 'pseudos')" />
+                    </div>
+                    <div class="password">
+                        Votre mot de passe:<p id="passwords"><p>
+                        <form id="form9" method="post" action="index.php?page=modifProfil">
+                            <input type="password" name="info[]" placeholder="Nouveau mot de passe"/>
+                            <input type="password" name="info[]" placeholder="Retapez mot de passe" />
+                            <input type="hidden" name="type" value="password">
+                            <input type="submit" value="Modifier" />
+                        </form>
+                        <input type="button" id="btn9" value="Modifier" onclick="hideThis('form9', 'btn9', 'password')" />
+                    </div>
                 </div>
 
                 <?php
@@ -106,6 +121,8 @@
                             </form>
                             <input type="button" id="btn8" value="Ajouter" onclick="hideThis('form8', 'btn8', '')" />
                         </div>
+                   </div>
+                   </div>
                         <?php
                     }
                 }

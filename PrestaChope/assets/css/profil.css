@@ -9,3 +9,88 @@ body,p{
 #btn{
     display: block;
 }
+
+.prénom{
+	display: flex;
+	margin-bottom: 20px;
+	font-family: 'Inter', sans-serif;
+}
+
+.nom{
+	display: flex;
+	margin-bottom: 20px;
+	font-family: 'Inter', sans-serif;
+}
+
+.email{
+	display: flex;
+	margin-bottom: 20px;
+	font-family: 'Inter', sans-serif;
+}
+
+.pseudo{
+	display: flex;
+	margin-bottom: 20px;
+	font-family: 'Inter', sans-serif;
+}
+
+.password{
+	display: flex;
+	margin-bottom: 20px;
+	font-family: 'Inter', sans-serif;
+}
+
+/* Profile container */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background-color: rgb(242, 243, 244);
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 80%;
+  height: 80%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  margin-left:50px;
+  margin-top: 20px;
+}
+
+.tout{
+	display: flex;
+}
+.user_info{
+	margin-top: 30px;
+	margin-left: 60px;
+	margin-right: 20px;
+}
+.delete_user{
+	margin-left: 100px;
+}
+
+#prénoms{
+	margin-right: 20px;
+}
+
+#noms{
+	margin-right: 20px;
+}
+
+#emails{
+	margin-right: 20px;
+}
+
+#pseudos{
+	margin-right: 20px;
+}
+
+#passwords{
+	margin-right: 20px;
+}

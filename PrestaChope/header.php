@@ -47,6 +47,7 @@
                             </button>
                         </a>
                     </div>
+                    
                     <?php
                     require_once('DAO/UsersDAO.php');
                     require_once('DAO/FacturesDAO.php');
