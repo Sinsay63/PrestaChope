@@ -43,7 +43,7 @@
                 <?php
                 foreach ($messages as $value) {
                     $dates = new DateTime($value->getDate());
-                    $date = $dates->format('d-m-Y');
+                    $date = $dates->format('d/m/Y');
                     $heures = $dates->format('H');
                     $minutes = $dates->format('i');
                     ?>

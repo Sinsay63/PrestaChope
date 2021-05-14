@@ -64,8 +64,8 @@ CREATE TABLE produits(
 
 INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Categories`, `Id_SousCategories`) VALUES
 (1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 2, 2),
-(2, 'Chateauneuf du pape', 'bouteille 1L ', 25.5, 20, NULL, 3, 4),
-(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, NULL, 3, 5);
+(2, 'Chateauneuf du pape', 'bouteille 1L ', 25.5, 20, 'assets/images/heineken.png', 3, 4),
+(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, 'assets/images/heineken.png', 3, 5);
 
 
 
@@ -181,3 +181,4 @@ CREATE TABLE produits_commandes(
         ,CONSTRAINT produits_commandes_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
 	
 )ENGINE=InnoDB;
+
