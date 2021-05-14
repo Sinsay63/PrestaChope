@@ -2,7 +2,7 @@
     <head>
         <title>Profil</title>
         <script type="text/javascript" src="assets/js/display.js" async></script>
-        
+
         <link rel="stylesheet" href="assets/css/profil.css"/>
          <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -12,6 +12,7 @@
         if (!empty($_SESSION['ID'])) {
             $user = ControllerProfil::getInfoUser($_SESSION['ID']);
             ?>
+<<<<<<< HEAD
             <div class="row profile">
             <div class="col-md-3">
             <div class="profile-sidebar">
@@ -20,6 +21,9 @@
                     <img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive" alt="">
                 </div>
             <div class="user_info">
+=======
+            <div class="profil_container">
+>>>>>>> b555eb1ad7ba0c567a182d51181eeef78e669573
                 <div class="user_profil">
                     <div class="prénom">
                         Votre prénom:<p id="prénoms"><?php echo $user->getPrénom(); ?><p>
@@ -39,9 +43,12 @@
                         </form>
                         <input type="button" id="btn2" value="Modifier" onclick="hideThis('form2', 'btn2', 'noms')" />
                     </div>
+<<<<<<< HEAD
                 </div>
 
 
+=======
+>>>>>>> b555eb1ad7ba0c567a182d51181eeef78e669573
                     <div class="email">
                         Votre email:<p id="emails"><?php echo $user->getEmail(); ?><p>
                         <form id="form3" method="post" action="index.php?page=modifProfil">
@@ -61,8 +68,14 @@
                         <input type="button" id="btn4" value="Modifier" onclick="hideThis('form4', 'btn4', 'pseudos')" />
                     </div>
                     <div class="password">
+<<<<<<< HEAD
                         Votre mot de passe:<p id="passwords"><p>
                         <form id="form9" method="post" action="index.php?page=modifProfil">
+=======
+                        Votre mot de passe:<p>
+                        <form id="form9" method="post" action="index.php?page=modifProfil">
+                            <input type="password" name="info[]" placeholder="Mot de passe actuel"/>
+>>>>>>> b555eb1ad7ba0c567a182d51181eeef78e669573
                             <input type="password" name="info[]" placeholder="Nouveau mot de passe"/>
                             <input type="password" name="info[]" placeholder="Retapez mot de passe" />
                             <input type="hidden" name="type" value="password">
@@ -70,48 +83,52 @@
                         </form>
                         <input type="button" id="btn9" value="Modifier" onclick="hideThis('form9', 'btn9', 'password')" />
                     </div>
+<<<<<<< HEAD
                 </div>
+=======
+>>>>>>> b555eb1ad7ba0c567a182d51181eeef78e669573
 
-                <?php
-                if ($_SESSION['IsAdmin'] == 0) {
-                    $client = ControllerProfil::getInfoClient($_SESSION['ID']);
-                    if (!empty($client)) {
-                        ?>
-                        <div class="adresse">
-                            Votre adresse:<p id="adresses"><?php echo $client->getAdresse() . ' - ' . $client->getVille() . ' - ' . $client->getCp(); ?><p>
-                            <form id="form5" method="post" action="index.php?page=modifProfil">
-                                <input type="text" name="info[]" placeholder="<?php echo $client->getAdresse(); ?>"/>
-                                <input type="text" name="info[]" placeholder="<?php echo $client->getVille(); ?>"/>
-                                <input type="text" name="info[]" placeholder="<?php echo $client->getCp(); ?>"/>
-                                <input type="hidden" name="type" value="adresse">
-                                <input type="submit" value="Modifier" />
-                            </form>
-                            <input type="button" id="btn5" value="Modifier" onclick="hideThis('form5', 'btn5', 'adresses')" />
-                        </div>
-                        <div class="téléphone">
-                            Votre numéro de téléphone:<p id="telephones"><?php echo $client->getTelephone(); ?><p>
-                            <form id="form6" method="post" action="index.php?page=modifProfil">
-                                <input type="text" name="info" placeholder="<?php echo $client->getTelephone(); ?>"/>
-                                <input type="hidden" name="type" value="telephone">
-                                <input type="submit" value="Modifier" />
-                            </form>
-                            <input type="button" id="btn6" value="Modifier" onclick="hideThis('form6', 'btn6', 'telephones')" />
-                        </div>
-                        <?php
-                    } else {
-                        ?>
-                        <div class="adresse">
-                            Votre adresse:
-                            <form id="form7" method="post" action="index.php?page=modifProfil">
-                                <input type="text" name="info[]" placeholder="Adresse"/>
-                                <input type="text" name="info[]" placeholder="Ville"/>
-                                <input type="text" name="info[]" placeholder="Code postal"/>
-                                <input type="hidden" name="type" value="adresse">
-                                <input type="submit" value="Ajouter" />
-                            </form>
-                            <input type="button" id="btn7" value="Ajouter" onclick="hideThis('form7', 'btn7', '')" />
-                        </div>
+                    <?php
+                    if ($_SESSION['IsAdmin'] == 0) {
+                        $client = ControllerProfil::getInfoClient($_SESSION['ID']);
+                        if (!empty($client)) {
+                            ?>
+                            <div class="adresse">
+                                Votre adresse:<p id="adresses"><?php echo $client->getAdresse() . ' - ' . $client->getVille() . ' - ' . $client->getCp(); ?><p>
+                                <form id="form5" method="post" action="index.php?page=modifProfil">
+                                    <input type="text" name="info[]" placeholder="<?php echo $client->getAdresse(); ?>"/>
+                                    <input type="text" name="info[]" placeholder="<?php echo $client->getVille(); ?>"/>
+                                    <input type="text" name="info[]" placeholder="<?php echo $client->getCp(); ?>"/>
+                                    <input type="hidden" name="type" value="adresse">
+                                    <input type="submit" value="Modifier" />
+                                </form>
+                                <input type="button" id="btn5" value="Modifier" onclick="hideThis('form5', 'btn5', 'adresses')" />
+                            </div>
+                            <div class="téléphone">
+                                Votre numéro de téléphone:<p id="telephones"><?php echo $client->getTelephone(); ?><p>
+                                <form id="form6" method="post" action="index.php?page=modifProfil">
+                                    <input type="text" name="info" placeholder="<?php echo $client->getTelephone(); ?>"/>
+                                    <input type="hidden" name="type" value="telephone">
+                                    <input type="submit" value="Modifier" />
+                                </form>
+                                <input type="button" id="btn6" value="Modifier" onclick="hideThis('form6', 'btn6', 'telephones')" />
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="adresse">
+                                Votre adresse:
+                                <form id="form7" method="post" action="index.php?page=modifProfil">
+                                    <input type="text" name="info[]" placeholder="Adresse"/>
+                                    <input type="text" name="info[]" placeholder="Ville"/>
+                                    <input type="text" name="info[]" placeholder="Code postal"/>
+                                    <input type="hidden" name="type" value="adresse">
+                                    <input type="submit" value="Ajouter" />
+                                </form>
+                                <input type="button" id="btn7" value="Ajouter" onclick="hideThis('form7', 'btn7', '')" />
+                            </div>
 
+<<<<<<< HEAD
                         <div class="téléphone">
                             Votre numéro de téléphone:
                             <form id="form8" method="post" action="index.php?page=modifProfil">
@@ -124,13 +141,63 @@
                    </div>
                    </div>
                         <?php
+=======
+                            <div class="téléphone">
+                                Votre numéro de téléphone:
+                                <form id="form8" method="post" action="index.php?page=modifProfil">
+                                    <input type="text" name="info" placeholder="Votre numéro de téléphone"/>
+                                    <input type="hidden" name="type" value="telephone">
+                                    <input type="submit" value="Ajouter" />
+                                </form>
+                                <input type="button" id="btn8" value="Ajouter" onclick="hideThis('form8', 'btn8', '')" />
+                            </div>
+                            <?php
+                        }
                     }
-                }
-                ?>
-                <div class="delete_user">
-                    <a href="index.php?page=deleteProfil&delete=<?php echo $_SESSION['ID']; ?>">Supprimer le compte</a>
+                    ?>
+                    <div class="delete_user">
+                        <a href="index.php?page=deleteProfil&delete=<?php echo $_SESSION['ID']; ?>">Supprimer le compte</a>
+                    </div>
+                </div>
+                <div class="commandes">
+                    <?php
+                    if ($_SESSION['IsAdmin'] == 0) {
+                        require_once('DAO/CommandesDAO.php');
+                        $commandes = CommandesDAO::getAllCommandesByIdClient($_SESSION['ID']);
+                        if ($commandes != null) { ?>
+                            <h1>VOTRE HISTORIQUE DE COMMANDES:</h1>
+                            <?php
+                            foreach ($commandes as $cmd) {
+                                $dates = new DateTime($cmd->getDate());
+                                $date = $dates->format('d/m/Y');
+                                $heures = $dates->format('H');
+                                $minutes = $dates->format('i');
+                                ?>
+                                <div class="commande">
+                                    <p>Commande faite le <?php echo $date . ' à ' . $heures . 'h' . $minutes; ?></p>
+                                    <p>Liste des produits commandés:</p>
+                                    <?php
+                                    foreach ($cmd->getListeProduits() as $produit) {
+                                        $prixProduit = $produit->getPrix() * $produit->getStock();
+                                        ?>
+                                        <li><?php echo $produit->getStock() . 'x ' . $produit->getNom() . ' à ' . $produit->getPrix() . '€ soit ' . $prixProduit . '€.'; ?></li>
+                                        <?php
+                                    }
+                                    ?>
+                                    <p>Montant total de la commande : <?php echo $cmd->getMontant(); ?>€</p>
+                                </div>
+                                <br><br>
+                                <?php
+                            }
+                        } else {
+                            echo "Vous n'avez toujours pas effectué de commmande.";
+                        }
+>>>>>>> b555eb1ad7ba0c567a182d51181eeef78e669573
+                    }
+                    ?>
+
                 </div>
             </div>
-  <?php } ?>
+        <?php } ?>
     </body>
 </html>

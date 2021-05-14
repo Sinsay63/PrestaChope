@@ -10,6 +10,7 @@ body,p{
     display: block;
 }
 
+<<<<<<< HEAD
 .prénom{
 	display: flex;
 	margin-bottom: 20px;
@@ -93,4 +94,8 @@ body,p{
 
 #passwords{
 	margin-right: 20px;
+=======
+.profil_container{
+    display:flex;
+>>>>>>> b555eb1ad7ba0c567a182d51181eeef78e669573
 }

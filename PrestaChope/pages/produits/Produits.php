@@ -57,7 +57,7 @@
                                         if ($_SESSION['IsAdmin'] == 1) {
                                             ?>
                                         <form id="form4" method="post" action="index.php?page=modifProduit&prod=<?php echo $_GET['prod']; ?>">
-                                            <input type="number" name="info" placeholder="<?php echo $produit->getStock() . '€'; ?>" required min="0"/>
+                                            <input type="number" name="info" placeholder="<?php echo $produit->getStock().' exemplaires'; ?>" required min="0"/>
                                             <input type="hidden"  name="quoi" value="stock" >
                                             <input type="submit" value="Modifier" />
                                         </form>
@@ -74,7 +74,7 @@
                                         if ($_SESSION['IsAdmin'] == 1) {
                                             ?>
                                         <form id="form3" method="post" action="index.php?page=modifProduit&prod=<?php echo $_GET['prod']; ?>">
-                                            <input type="number" name="info" placeholder="<?php echo $produit->getPrix() . '€'; ?>" required min="1"/>
+                                            <input type="number" name="info" placeholder="<?php echo $produit->getPrix() . ' €'; ?>" required min="1"/>
                                             <input type="hidden"  name="quoi" value="prix" >
                                             <input type="submit" value="Modifier" />
                                         </form>

@@ -155,13 +155,13 @@ Class ProduitsDAO {
         $state->execute(array($idProduit));
     }
 
-    static function addProduit($image, $nom, $description, $prix, $stock) {
+    static function addProduit($image, $nom, $description, $prix, $stock,$idcaté,$idsouscaté) {
         $bdd = DataBaseLinker::getConnexion();
 
         $img = self::imgProduit($image);
         if ($img) {
             $state = $bdd->prepare('INSERT INTO produits(nom,description,prix,stock,image,Id_Categories,Id_SousCategories) VALUES(?,?,?,?,?,?,?)');
-            $state->execute(array($nom, $description, $prix, $stock, $img, 1, 1));
+            $state->execute(array($nom, $description, $prix, $stock, $img, $idcaté, $idsouscaté));
         }
     }
 
