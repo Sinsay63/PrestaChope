@@ -1,0 +1,25 @@
+.text_solde{
+	text-align:center;
+	font-size: 30px;
+	font-family: 'Inter', sans-serif;
+}
+
+.text_panier{
+	font-size: 25px;
+	font-family: 'Inter', sans-serif;
+}
+
+.text_article{
+	font-size: 20px;
+	font-family: 'Inter', sans-serif;
+}
+.text_montant{
+	font-size: 20px;
+	font-family: 'Inter', sans-serif;
+}
+
+.text_commander{
+	text-align:center;
+	font-size: 30px;
+	margin-bottom: 50px;
+}
