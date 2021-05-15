@@ -25,9 +25,10 @@
  	margin-left: 350px;
  	background-color: rgb(242, 243, 244);
  	margin-bottom: 100px;
+  cursor: pointer;
  	
  }
- .contact_btn:hover{
+ #contact_btn:hover{
  	color: black;
  	transition: 0.3s ease-out;
  }
