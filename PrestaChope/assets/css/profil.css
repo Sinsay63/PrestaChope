@@ -144,7 +144,7 @@ body,p{
 	margin-bottom: 0px;
 }
 
-#btn1{
+.btn1{
 	border: none;
   	color: white;
   	text-align: center;
@@ -159,12 +159,12 @@ body,p{
   	border: 2px solid #555555;
 }
 
-#btn1:hover{
+.btn1:hover{
 	background-color: #555555;
 	color:white;
 	}
 
-#btn2{
+.btn2{
 	border: none;
   	color: white;
   	text-align: center;
@@ -179,13 +179,13 @@ body,p{
   	border: 2px solid #555555;
 }
 
-#btn2:hover{
+.btn2:hover{
 	background-color: #555555;
 	color:white;
 }
 
 
-#btn3{
+.btn3{
 	border: none;
   	color: white;
   	text-align: center;
@@ -200,12 +200,12 @@ body,p{
   	border: 2px solid #555555;
 }
 
-#btn3:hover{
+.btn3:hover{
 	background-color: #555555;
 	color:white;
 }
 
-#btn4{
+.btn4{
 	border: none;
   	color: white;
   	text-align: center;
@@ -220,12 +220,12 @@ body,p{
   	border: 2px solid #555555;
 }
 
-#btn4:hover{
+.btn4:hover{
 	background-color: #555555;
 	color:white;
 }
 
-#btn5{
+.btn5{
 	border: none;
   	color: white;
   	text-align: center;
@@ -240,12 +240,12 @@ body,p{
   	border: 2px solid #555555;
 }
 
-#btn5:hover{
+.btn5:hover{
 	background-color: #555555;
 	color:white;
 }
 
-#btn6{
+.btn6{
 	border: none;
   	color: white;
   	text-align: center;
@@ -260,12 +260,12 @@ body,p{
   	border: 2px solid #555555;
 }
 
-#btn6:hover{
+.btn6:hover{
 	background-color: #555555;
 	color:white;
 }
 
-#btn7{
+.btn7{
 	border: none;
   	color: white;
   	text-align: center;
@@ -280,12 +280,12 @@ body,p{
   	border: 2px solid #555555;
 }
 
-#btn7:hover{
+.btn7:hover{
 	background-color: #555555;
 	color:white;
 }
 
-#btn8{
+.btn8{
 	border: none;
   	color: white;
   	text-align: center;
@@ -300,12 +300,12 @@ body,p{
   	border: 2px solid #555555;
 }
 
-#btn8:hover{
+.btn8:hover{
 	background-color: #555555;
 	color:white;
 }
 
-#btn9{
+.btn9{
 	border: none;
   	color: white;
   	text-align: center;
@@ -320,11 +320,28 @@ body,p{
   	border: 2px solid #555555;
 }
 
-#btn9:hover{
+.btn9:hover{
 	background-color: #555555;
 	color:white;
 }
 
+#espace1{
+	padding: 3px 15px;
+	font-size: 16px;
+
+}
+
+#espace2{
+	padding: 3px 5px;
+	font-size: 25px;
+	width: 100px;
+}
+
+#espace3{
+	padding: 3px 5px;
+	font-size: 25px;
+	width: 150px;
+}
 
 
 
