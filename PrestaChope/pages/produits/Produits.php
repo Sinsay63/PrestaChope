@@ -34,7 +34,7 @@
                         ?>  
                         <div class="colonne">
                             <div class="nom_prod">
-                                <p id="nom"><?php echo 'Nom du produit :' . $produit->getNom(); ?><p>
+                                <p id="nom"><?php echo $produit->getNom(); ?><p>
                                     <?php
                                     if (!empty($_SESSION['ID'])) {
                                         if ($_SESSION['IsAdmin'] == 1) {
@@ -51,7 +51,7 @@
                                 ?>
                             </div>
                              <div class="stock_prod">
-                                <p id="stock"><?php echo 'Stock: ' . $produit->getStock() . " exemplaire(s) restants"; ?><p>
+                                <p id="stock"><?php echo $produit->getStock() . " exemplaire(s) restants"; ?><p>
                                     <?php
                                     if (!empty($_SESSION['ID'])) {
                                         if ($_SESSION['IsAdmin'] == 1) {
@@ -68,7 +68,7 @@
                                 ?>
                             </div>
                             <div class="prix_prod">
-                                <p id="prix"><?php echo 'Prix:' . $produit->getPrix() . '€'; ?><p>
+                                <p id="prix"><?php echo 'Prix : ' . $produit->getPrix() . '€'; ?><p>
                                     <?php
                                     if (!empty($_SESSION['ID'])) {
                                         if ($_SESSION['IsAdmin'] == 1) {
@@ -85,7 +85,7 @@
                                 ?>
                             </div>
                             <div class="descri_prod">
-                                <p id="description"><?php echo 'Description:' . $produit->getDescription(); ?><p>
+                                <p id="description"><?php echo 'Description : ' . $produit->getDescription(); ?><p>
                                     <?php
                                     if (!empty($_SESSION['ID'])) {
                                         if ($_SESSION['IsAdmin'] == 1) {
@@ -116,12 +116,14 @@
                                     echo 'Ce produit est en rupture de stock. Il sera restocker sous peu. Merci de votre patience.';
                                 }else{
                                 ?>
+                                <div class="quant">
                                 <form action="index.php?page=ajoutPanier" method="post">
-                                    Quantité:
+                                    <p>Quantité:<p>
                                     <input type="number" name="quantité" max="<?php echo $produit->getStock(); ?>" min="1">
                                     <input type="hidden" name="produit" value="<?php echo $produit->getId(); ?>">
                                     <input type="submit" value="Ajouter au panier">
                                 </form>
+                            </div>
                                 <?php
                                 }
                             }

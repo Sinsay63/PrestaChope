@@ -2,7 +2,7 @@
     display:none;
 }
 .img_produit{
-	width: 450px;
+	width: 300px;
     height: 450px;
     margin-top: 30px;
     margin-bottom: 50px;
@@ -34,4 +34,13 @@ p{
 	margin-top: 10px;
 	color:#FFA500;
 	font-family: 'Oxygen', sans-serif;
+}
+
+.quant{
+	margin-top: 350px;
+	margin-right: 
+}
+
+.quantité{
+	margin-right: 800px;
 }

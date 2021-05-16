@@ -2,6 +2,7 @@
     <head>
         <title>Création d'un produit</title>
         <link rel="stylesheet" href="assets/css/produits.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/creationproduit.css">
         <script src="assets/js/produits.js" type="text/javascript" async></script>
     </head>
     <body>
