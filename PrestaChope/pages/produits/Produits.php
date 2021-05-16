@@ -2,9 +2,9 @@
     <head>
         <title>page d'un produit</title>
         <link rel="stylesheet" href="assets/css/produits.css"/>
-         <script type="text/javascript" src="assets/js/display.js" async></script>
+        <script type="text/javascript" src="assets/js/display.js" async></script>
         <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>Produits</h1>
@@ -50,14 +50,14 @@
                                 }
                                 ?>
                             </div>
-                             <div class="stock_prod">
+                            <div class="stock_prod">
                                 <p id="stock"><?php echo 'Stock: ' . $produit->getStock() . " exemplaire(s) restants"; ?><p>
                                     <?php
                                     if (!empty($_SESSION['ID'])) {
                                         if ($_SESSION['IsAdmin'] == 1) {
                                             ?>
                                         <form id="form4" method="post" action="index.php?page=modifProduit&prod=<?php echo $_GET['prod']; ?>">
-                                            <input type="number" name="info" placeholder="<?php echo $produit->getStock().' exemplaires'; ?>" required min="0"/>
+                                            <input type="number" name="info" placeholder="<?php echo $produit->getStock() . ' exemplaires'; ?>" required min="0"/>
                                             <input type="hidden"  name="quoi" value="stock" >
                                             <input type="submit" value="Modifier" />
                                         </form>
@@ -101,8 +101,6 @@
                                 }
                                 ?>
                             </div>
-                            
-                           
                         </div>
                         <?php
                         if (!empty($_SESSION['ID'])) {
@@ -112,24 +110,24 @@
                                 <?php
                             }
                             if ($_SESSION['IsAdmin'] == 0) {
-                                if($produit->getStock()==0){
+                                if ($produit->getStock() == 0) {
                                     echo 'Ce produit est en rupture de stock. Il sera restocker sous peu. Merci de votre patience.';
-                                }else{
-                                ?>
-                                <form action="index.php?page=ajoutPanier" method="post">
-                                    Quantité:
-                                    <input type="number" name="quantité" max="<?php echo $produit->getStock(); ?>" min="1">
-                                    <input type="hidden" name="produit" value="<?php echo $produit->getId(); ?>">
-                                    <input type="submit" value="Ajouter au panier">
-                                </form>
-                                <?php
+                                } else {
+                                    ?>
+                                    <form action="index.php?page=ajoutPanier" method="post">
+                                        Quantité:
+                                        <input type="number" name="quantité" max="<?php echo $produit->getStock(); ?>" min="1">
+                                        <input type="hidden" name="produit" value="<?php echo $produit->getId(); ?>">
+                                        <input type="submit" value="Ajouter au panier">
+                                    </form>
+                                    <?php
                                 }
                             }
-                        }
-                        ?>
+                        } ?>
                     </div>
                     <?php
-                } else {
+                } 
+                else {
                     echo 'Aucun produit n\'a été trouvé.';
                 }
                 ?>
