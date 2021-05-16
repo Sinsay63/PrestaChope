@@ -1,0 +1,125 @@
+body{
+    background-color: rgb(215, 219, 221);
+}
+
+form {
+    width:100%;
+    height: 425px;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin: 
+}
+
+#container{
+    width:600px;
+    height: 600px;
+    margin:0 auto;
+    margin-top:70px;
+    font-family: 'Inter', sans-serif;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;	
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;	
+
+}
+
+input[type=submit] {
+    background-color: rgb(93, 173, 226);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    margin-left: 60px;
+    transition: all 0.3s ease 0s;
+}
+input[type=submit]:hover{
+	background-color: #1E90FF;
+}
+.nom{
+	display: flex;
+	flex-direction: column;
+	margin-right: 80px;
+	margin-left: 60px;
+	font-family: 'Inter', sans-serif;
+}
+
+.prenom{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Inter', sans-serif;
+}
+
+.email{
+	display: flex;
+	flex-direction: column;
+	margin-right: 80px;
+	margin-left: 60px;
+	font-family: 'Inter', sans-serif;
+}
+
+.age{
+	display: flex;
+	flex-direction: column;
+	margin-left: 60px;
+	font-family: 'Inter', sans-serif;
+	margin-bottom: 10px;
+}
+
+.pseudo{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Inter', sans-serif;
+}
+
+.mot_de_passe{
+	display: flex;
+	flex-direction: column;	
+	margin-right: 80px;
+	margin-left: 60px;
+	font-family: 'Inter', sans-serif;
+}
+
+.nomprenom{
+	display: flex;
+}
+
+.emailpseudo{
+	display: flex;
+}
+
+.mdp{
+	display: flex;
+}
+
+.confmdp{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Inter', sans-serif;
+	font-weight: bold;	 
+}
+
+.mdpconf{
+	display: flex;
+}
+
+.inscr{
+	text-align: center;
+	color: rgb(93, 173, 226);
+    font-size: 30px;
+    font-weight: bold;	
+}
+
+.erreur{
+	text-align: center;
+	font-family: 'Inter', sans-serif;
+	margin-left: 60px;
+}
