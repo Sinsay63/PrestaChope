@@ -160,12 +160,11 @@ Class SuperController {
                     $profil = new ControllerProfil();
 
                     $modif = $profil->modifProfil($_SESSION['ID'], $_POST['info'], $_POST['type']);
-                    if ($modif) {
-                        Rooter::redirectToPage('profil');
-                    } else {
-                        Rooter::redirectToPage('profil&err=1');
+                    if ($modif>0) {
+                         Rooter::redirectToPage('profil&err='.$modif);
                     }
                 }
+                Rooter::redirectToPage('profil');
                 break;
 
 
@@ -176,7 +175,8 @@ Class SuperController {
 
                     $profil->deleteUser($_GET['delete']);
                     Rooter::redirectToPage('profil');
-                } else {
+                }
+                else {
                     Rooter::redirectToPage('accueil');
                 }
                 break;

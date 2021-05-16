@@ -12,20 +12,21 @@
             <input id="nom" type="text" name="nom" value="<?php echo $caté->getNom(); ?>"><br>
             <label for="#description">Description: </label>
             <textarea id="description" name="description" rows="3" cols="30"><?php echo $caté->getDescription(); ?></textarea><br>
-            <?php 
-            if ($caté->getSouscatégories() != null) { ?>
-                Sous-Catégories : (5 max) <br>
-                <div id="sousCaté">
-                    <?php
-                    foreach ($caté->getSouscatégories() as $souscaté) { ?>
+            Sous-Catégories : (5 max) <br>
+            <div id="sousCaté">
+                <?php
+                if ($caté->getSouscatégories() != null) {
+                    foreach ($caté->getSouscatégories() as $souscaté) {
+                        ?>
                         <input type="text" name="sousCaté[]" value="<?php echo $souscaté->getNom(); ?>" >
                         <input type="hidden" name="idSousCaté[]" value="<?php echo $souscaté->getId(); ?>">
-                    <?php
-                    } ?>
-                </div>
-                <input id="btnAdd" type="button" value="Ajouter une sous-catégorie" >
-                <br>
-            <?php } ?>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+            <br>
+            <input id="btnAdd" type="button" value="Ajouter une sous-catégorie" >
             <br><br>
             <input type="hidden" name="idCaté" value="<?php echo $_GET['caté']; ?>" >
             <input type="submit" value="Modifier"> 

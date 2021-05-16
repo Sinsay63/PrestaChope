@@ -120,11 +120,19 @@ Class UsersDAO {
     static function modifProfil($idUser, $info, $quoi) {
         $bdd = DataBaseLinker::getConnexion();
         if ($quoi == 'adresse') {
-            $state = $bdd->prepare("UPDATE clients SET adresse = ?, ville = ?,code_postal =? where Id_Users = ?");
-            $state->execute(array($info[0], $info[1], $info[2], $idUser));
+            if (!is_numeric($info[1]) && is_numeric($info[2])) {
+                $state = $bdd->prepare("UPDATE clients SET adresse = ?, ville = ?,code_postal =? where Id_Users = ?");
+                $state->execute(array($info[0], $info[1], $info[2], $idUser));
+            } else {
+                return 2;
+            }
         } else if ($quoi == 'telephone') {
-            $state = $bdd->prepare("UPDATE clients SET telephone=? where Id_Users = ?");
-            $state->execute(array($info, $idUser));
+            if (is_numeric($info)) {
+                $state = $bdd->prepare("UPDATE clients SET telephone=? where Id_Users = ?");
+                $state->execute(array($info, $idUser));
+            } else {
+                return 3;
+            }
         } else {
             if ($quoi == 'password') {
                 $state = $bdd->prepare('SELECT password from users where Id = ?');
@@ -133,20 +141,26 @@ Class UsersDAO {
 
                 if ($passwd['password'] != $info[0]) {
                     if ($info[1] != $info[2]) {
-                        return false;
+                        return 4;
                     }
                     $info = sha1($info[1]);
                 }
             }
+
             if ($quoi == 'email') {
                 if (!preg_match(" /^.+@.+.[a-zA-Z]{2,}$/ ", $info)) {
-                    return false;
+                    return 1;
                 }
             }
+
             $state = $bdd->prepare("UPDATE users SET $quoi = ? where Id = ?");
             $state->execute(array($info, $idUser));
+            $insert = $state->fetchAll();
+            if ($insert == false) {
+                return 5;
+            }
         }
-        return true;
+        return 0;
     }
 
     static function getAllUsers() {

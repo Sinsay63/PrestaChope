@@ -24,10 +24,8 @@
                         <p> Message : <?php echo $value->getContenu() ?></p>
                         <p> Ecrit par  <?php echo $user->getPseudo() ?></p>
                         <p> Envoyé le  <?php echo $date . ' à ' . $heures . 'h' . $minutes; ?></p>
-                        <form action="" method="post">
-                            <label>Vu</label>
-                            <input type="checkbox" class="checkbox" name="viewed" <?php if ($value->getIsViewed() == 1) { ?> checked <?php } ?> value="<?php echo $value->getId(); ?>">
-                        </form>
+                        <label>Vu</label>
+                        <input type="checkbox" class="checkbox" name="viewed" <?php if ($value->getIsViewed() == 1) { ?> checked <?php } ?> value="<?php echo $value->getId(); ?>">
                     </div>
                     <br><br>
                     <?php
@@ -53,8 +51,7 @@
                     <?php if ($value->getIsViewed() == 1) { ?>
                         <p> Votre message a été pris en compte par l'équipe. Merci de votre retour!</p>
                         <?php
-                    } 
-                    else {
+                    } else {
                         ?>
                         <p> Votre message n'a pas encore été vu. Merci tout de même de votre retour!</p>
                         <?php

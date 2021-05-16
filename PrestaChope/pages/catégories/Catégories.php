@@ -19,9 +19,16 @@
                     <p>Catégorie : <?php echo $value->getNom(); ?> </p><br>
                     <p>Description : <?php echo $value->getDescription(); ?></p><br>
                     <p>Sous catégories:</p>
-                    <?php foreach ($value->getSouscatégories() as $souscaté) { ?>
+                    <?php 
+                    if(!empty($value->getSouscatégories())){
+                        
+                    foreach ($value->getSouscatégories() as $souscaté) { ?>
                         <li> <?php echo $souscaté->getNom(); ?></li>
-                    <?php } ?>
+                    <?php }
+                    } 
+                    else{
+                        echo 'Cette catégorie n\'a pas de sous-catégorie';
+                    } ?>
                 </a>
                 <br>
                 <a href="index.php?page=deleteCatégorie&id=<?php echo $value->getId(); ?>">Supprimer la catégorie : <?php echo $value->getNom(); ?></a><br><br>

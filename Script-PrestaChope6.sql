@@ -173,8 +173,8 @@ CREATE TABLE factures(
 #------------------------------------------------------------
 
 CREATE TABLE produits_commandes(
-        Id_Produits  Int NOT NULL ,
         Id_Commandes Int NOT NULL,
+        Id_Produits  Int NOT NULL ,
         quantites    INT NOT NULL
 	,CONSTRAINT produits_PK PRIMARY KEY (Id_Produits,Id_Commandes)
         ,CONSTRAINT produits_commandes_produits_FK FOREIGN KEY (Id_Produits) REFERENCES produits(Id)
