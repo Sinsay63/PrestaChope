@@ -74,10 +74,13 @@ main{
     font-size: 25px;
 }
 
+<<<<<<< HEAD
+=======
 .lien-article{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
+>>>>>>> 1a30af61e17f8124a368728e76186009b532ec04
 

@@ -1,8 +1,10 @@
 <html>
     <head>
         <title>Création d'un produit</title>
-        <link rel="stylesheet" href="assets/css/produits.css"/>
+        
         <link rel="stylesheet" type="text/css" href="assets/css/creationproduit.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <script src="assets/js/produits.js" type="text/javascript" async></script>
     </head>
     <body>
@@ -13,8 +15,11 @@
                 echo $_GET['cat'];
             }
             ?>
+            <div class="title">
             CHOIX DE LA CATÉGORIE ET DE LA SOUS-CATÉGORIE:
+            </div>
             <br><br>
+            <div class="opt">
             <input type="hidden" name="catégorie" value="<?php echo $_GET['cat']; ?>">
             <select onChange="redirige(this.value)"  > <?php
                 if (!empty($_GET['cat'])) {
@@ -24,7 +29,9 @@
                     <?php
                 } else {
                     ?>
+                    
                     <option value="" hidden>Recherche de catégories</option>
+                        
                     <?php }
                 ?>
                 <?php if (!empty($_GET['cat'])) { ?>
@@ -41,16 +48,19 @@
                 }
                 ?>
             </select>
+        </div>  
             <?php
             if (!empty($_GET['cat'])) {
                 $scat = CatégoriesDAO::searchSousCatégories($_GET['cat']);
                 if ($scat != null) {
                     ?>
+                    <div class="opt2">
                     <select name="sousCatégorie" required>
                         <?php
                         if (!empty($_GET['souscat'])) {
                             $souscaté = CatégoriesDAO::SearchSousCatégorieById($_GET['souscat']);
                             ?>
+                            
                             <option value="" hidden><?php echo $souscaté->getNom(); ?></option>
                             <?php
                         } else {
@@ -62,30 +72,42 @@
                             ?>
                             <option value="<?php echo $sous_caté->getId(); ?>"><?php echo $sous_caté->getNom(); ?></option>
                     <?php } ?>
+                    </div>
                     </select>
+
                 <?php }
             }
             ?>
             <br><br>
+            <div class="all">
             <div class="nom_prod">
+                <div class="nom">
                 Nom :
+                </div>
                 <input type="text" name="nom" />
             </div>
             <div class="descri_prod">
+                <div class="descri">
                 Description:
+            </div>
                 <textarea type="text" name="description" cols="25" rows="3" required> </textarea>
             </div>
             <div class="prix_prod">
+                <div class="prix">
                 Prix:
+            </div>
                 <input type="number" name="prix" required min="1"/>
             </div>
             <div class="stock_prod">
+                <div class="stock">
                 Stock:
+            </div>
                 <input type="number" name="stock" required min="0"/>
             </div>
             <br>
-            <input type="file" name="image" required/><br><br>
-            <input type="submit" value="Créer le produit">
+            <input type="file" name="image" required/ id=btn_ajproduit><br><br>
+            <input type="submit" value="Créer le produit" id=btn_creprod>
+        </div>
         </form>
     </body>
 </html>

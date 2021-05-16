@@ -3,13 +3,14 @@
     <head>
         <title>Connexion</title>
         <link rel="stylesheet" type="text/css" href="assets/css/connexion.css">
-     
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <script src="assets/js/connexion.js" async></script>
     </head>
     <body>
         <main>
+            
             <div class="login">
                 <div class="titre_register">
                     <h1>Connexion</h1>
