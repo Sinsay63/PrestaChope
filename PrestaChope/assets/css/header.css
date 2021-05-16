@@ -73,6 +73,17 @@ h1{
     background-color: rgb(242, 243, 244);
 }
 
+.bouton-U{
+    height: 60px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(242, 243, 244);
+}
+
 .bouton-R{
     height: 60px;
     width: 100px;
