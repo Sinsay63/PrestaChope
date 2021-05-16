@@ -34,7 +34,8 @@
                                 </button>
                             </a>
                         </div>
-                    <?php }
+                    <?php
+                    }
                     if ($_SESSION['IsAdmin'] == 1) {
                         ?>
                         <div class="bouton-uti">
@@ -44,49 +45,56 @@
                                 </button>
                             </a>
                         </div>
-        <?php } ?>
-                        <div class="bouton-profil">
-                            <a id="nav" href="index.php?page=profil">           	
-                                <button class="bouton-P" type="button">
-                                    <p class="txt-bouton">Profil</p>
+                        <div class="bouton-uti">
+                            <a id="nav" href="index.php?page=messages">           	
+                                <button class="bouton-U" type="button">
+                                    <p class="txt-bouton">Messages</p>
                                 </button>
                             </a>
                         </div>
-                        <div class="bouton-deco">
-                            <a id="nav" href="index.php?page=deconnexion">           	
-                                <button class="bouton-D" type="button">
-                                    <p class="txt-bouton">Log Out</p>
-                                </button>
-                            </a>
-                        </div>
+    <?php } ?>
+                    <div class="bouton-profil">
+                        <a id="nav" href="index.php?page=profil">           	
+                            <button class="bouton-P" type="button">
+                                <p class="txt-bouton">Profil</p>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="bouton-deco">
+                        <a id="nav" href="index.php?page=deconnexion">           	
+                            <button class="bouton-D" type="button">
+                                <p class="txt-bouton">Log Out</p>
+                            </button>
+                        </a>
+                    </div>
 
-                        <?php
-                        require_once('DAO/UsersDAO.php');
-                        require_once('DAO/FacturesDAO.php');
-                        if ($_SESSION['IsAdmin'] == 1) {
-                            echo "<p class='txt-bouton-A'>Trésorerie : " . FacturesDAO::TotalTresorerie() . "€</p>";
-                        }
-                        $user = new UsersDAO();
-                        $us = $user->GetUserInfo($_SESSION['ID']);
-                    } else {
-                        ?>
-                        <div class="bouton-register">
-                            <a id="nav" href="index.php?page=inscription">           	
-                                <button class="bouton-R" type="button">
-                                    <p class="txt-bouton">Register</p>
-                                </button>
-                            </a>
-                        </div>
-                        <div class="bouton-login">
-                            <a id="nav" href="index.php?page=connexion">         
-                                <button class="bouton-L" type="button">
-                                    <p class="txt-bouton">Log In</p>
-                                </button>
-                            </a>
-                        </div>	
-                        <?php
+                    <?php
+                    require_once('DAO/UsersDAO.php');
+                    require_once('DAO/FacturesDAO.php');
+                    if ($_SESSION['IsAdmin'] == 1) {
+                        echo "<p class='txt-bouton-A'>Trésorerie : " . FacturesDAO::TotalTresorerie() . "€</p>";
                     }
+                    $user = new UsersDAO();
+                    $us = $user->GetUserInfo($_SESSION['ID']);
+                } else {
                     ?>
+                    <div class="bouton-register">
+                        <a id="nav" href="index.php?page=inscription">           	
+                            <button class="bouton-R" type="button">
+                                <p class="txt-bouton">Register</p>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="bouton-login">
+                        <a id="nav" href="index.php?page=connexion">         
+                            <button class="bouton-L" type="button">
+                                <p class="txt-bouton">Log In</p>
+                            </button>
+                        </a>
+                    </div>	
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </body>
