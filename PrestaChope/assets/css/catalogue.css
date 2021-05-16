@@ -3,6 +3,11 @@ html,body{
     padding: 0;
 }
 
+main{
+    padding-right: 150px; 
+    padding-left: 150px; 
+}
+
 .box_produit{
     padding-top: 25px;
     display: flex;
