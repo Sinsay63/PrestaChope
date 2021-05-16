@@ -48,7 +48,7 @@
                     <div class="article">
                         <div class="container-article">
                             <div class="img-article">
-                                <a class="lien-article" href="">
+                                <a class="lien-article" href="index.php?page=produits&prod=5">
                                     <img class="img-article2" src="assets/images/fut-desperados.png" alt="image fut desperados"/>
                                 </a>
                             </div>    
@@ -57,12 +57,12 @@
                             </div>
                             <div class="descri-prod">
                                 <p class="txt-centre-blanc"> Fût de 5L </p>
-                                <p class="txt-centre-blanc"> Prix : 25.9 € </p>
+                                <p class="txt-centre-blanc"> Prix : 21.99€ </p>
                             </div>
                         </div>
                         <div class="container-article">
                             <div class="img-article">
-                                <a class="lien-article" href="">
+                                <a class="lien-article" href="index.php?page=produits&prod=4">
                                     <img class="img-article2" src="assets/images/fut-heineken.png" alt="image fut heineken"/>
                                 </a>
                             </div>
@@ -71,12 +71,12 @@
                             </div>
                             <div class="descri-prod">
                                 <p class="txt-centre-blanc"> Fût de 5L </p>
-                                <p class="txt-centre-blanc"> Prix : 20.5 € </p>
+                                <p class="txt-centre-blanc"> Prix : 19.99€ </p>
                             </div>
                         </div>
                         <div class="container-article">
                             <div class="img-article">
-                                <a class="lien-article" href="">
+                                <a class="lien-article" href="index.php?page=produits&prod=6">
                                     <img class="img-article2" src="assets/images/fut-affli.png" alt="image fut affligem"/>
                                 </a>
                             </div>    
@@ -85,7 +85,7 @@
                             </div>
                             <div class="descri-prod">
                                 <p class="txt-centre-blanc"> Fût de 5L </p>
-                                <p class="txt-centre-blanc"> Prix : 23.5 € </p>
+                                <p class="txt-centre-blanc"> Prix : 19.99€ </p>
                             </div>
                         </div>
                     </div>

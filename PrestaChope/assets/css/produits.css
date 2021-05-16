@@ -41,26 +41,26 @@ main{
 
 .stock_prod{
     margin-top: 30px;
+    margin-bottom: 30px;
     color: #6495ED;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.quant{
+    color:#FFA500;
     font-family: 'Oxygen', sans-serif;
 }
 
 .descri_prod{
     margin-top: 30px;
-}
-
-.prix_prod{
-    margin-top: 10px;
-    color:#FFA500;
+    margin-bottom: 30px;
+    color: #6495ED;
     font-family: 'Oxygen', sans-serif;
 }
 
-.quant{
-    margin-top: 350px;
-}
-
-.quantité{
-    margin-right: 800px;
+.prix_prod{
+    color:#FFA500;
+    font-family: 'Oxygen', sans-serif;
 }
 
 .titre{

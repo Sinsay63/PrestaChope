@@ -37,7 +37,7 @@
                             ?>  
                             <div class="colonne">
                                 <div class="nom_prod">
-                                    <p id="nom"><?php echo 'Nom du produit :' . $produit->getNom(); ?><p>
+                                    <p id="nom"><?php echo 'Nom du produit : ' . $produit->getNom(); ?><p>
                                         <?php
                                         if (!empty($_SESSION['ID'])) {
                                             if ($_SESSION['IsAdmin'] == 1) {
@@ -116,12 +116,14 @@
                                             echo 'Ce produit est en rupture de stock. Il sera restocker sous peu. Merci de votre patience.';
                                         } else {
                                             ?>
-                                            <form action="index.php?page=ajoutPanier" method="post">
-                                                Quantité:
-                                                <input type="number" name="quantité" max="<?php echo $produit->getStock(); ?>" min="1">
-                                                <input type="hidden" name="produit" value="<?php echo $produit->getId(); ?>">
-                                                <input type="submit" value="Ajouter au panier">
-                                            </form>
+                                            <div class="quant">
+                                                <form action="index.php?page=ajoutPanier" method="post">
+                                                    Quantité:
+                                                    <input type="number" name="quantité" max="<?php echo $produit->getStock(); ?>" min="1">
+                                                    <input type="hidden" name="produit" value="<?php echo $produit->getId(); ?>">
+                                                    <input type="submit" value="Ajouter au panier">
+                                                </form>
+                                            </div>
                                             <?php
                                         }
                                     }

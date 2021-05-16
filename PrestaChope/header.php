@@ -34,7 +34,7 @@
                                 </button>
                             </a>
                         </div>
-                    <?php
+                        <?php
                     }
                     if ($_SESSION['IsAdmin'] == 1) {
                         ?>
@@ -52,7 +52,7 @@
                                 </button>
                             </a>
                         </div>
-    <?php } ?>
+                    <?php } ?>
                     <div class="bouton-profil">
                         <a id="nav" href="index.php?page=profil">           	
                             <button class="bouton-P" type="button">
@@ -67,8 +67,17 @@
                             </button>
                         </a>
                     </div>
-
                     <?php
+                    if ($_SESSION['IsAdmin'] == 0) {
+                    ?>
+                    <div class="bouton-panier">
+                        <a id="nav" href="index.php?page=panier">           	
+                            <img id="img-panier" src="assets/images/panier.png" alt="logo panier"/>
+                        </a>
+                    </div>
+                    <?php
+                    }
+                    
                     require_once('DAO/UsersDAO.php');
                     require_once('DAO/FacturesDAO.php');
                     if ($_SESSION['IsAdmin'] == 1) {

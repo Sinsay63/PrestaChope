@@ -72,13 +72,13 @@ CREATE TABLE produits(
 )ENGINE=InnoDB;
 
 INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Categories`, `Id_SousCategories`) VALUES
-(1, 'Heineken', 'bouteille de 33cl', 1.5, 500, 'assets/images/heineken-0.jpg', 2, 2),
-(2, 'Desperados', '330ml 5.9%', 2.5, 200, 'assets/images/desperados.png', 3, 4),
-(3, 'Kronembourg', 'Canette 330ml 4.2%', 1.75, 150, 'assets/images/kronembourg.jpg', 3, 5),
-(4, 'Fût heineken', 'Fût 5L heineken ', 19.99, 125, 'assets/images/fut-heineken.png', 3, 4),
-(5, 'Fût desperados', 'Fût 5L desperados', 21.99, 20, 'assets/images/fut-desperados.png', 3, 4),
-(6, 'Fût affligem', 'Fût 5L affligem ', 19.99, 20, 'assets/images/fut-affli.png', 3, 4),
-(7, 'Chateauneuf du pape', 'bouteille 1L ', 25.5, 50, 'assets/images/Chateauneuf-du-pape.jpg', 3, 6);
+(1, 'Heineken', 'bouteille de 33cl', 1.5, 500, 'assets/images/heineken.png', 2, 2),
+(2, 'Desperados', '330ml 5.9%', 2.5, 200, 'assets/images/desperados.png', 2, 4),
+(3, 'Kronembourg', 'Canette 330ml 4.2%', 1.75, 150, 'assets/images/kro.png', 2, 3),
+(4, 'Fût heineken', 'Fût 5L heineken ', 19.99, 125, 'assets/images/fut-heineken.png', 2, 5),
+(5, 'Fût desperados', 'Fût 5L desperados', 21.99, 20, 'assets/images/fut-desperados.png', 2, 5),
+(6, 'Fût affligem', 'Fût 5L affligem ', 19.99, 20, 'assets/images/fut-affli.png', 2, 5),
+(7, 'Chateauneuf du pape', 'bouteille 1L ', 25.5, 50, 'assets/images/c9p.png', 3, 6);
 
 
 

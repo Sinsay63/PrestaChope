@@ -7,9 +7,15 @@ body,p{
     padding: 0;
 }
 
+main{
+    padding-right: 150px; 
+    padding-left: 150px; 
+}
+
 #form1,#form2,#form3,#form4,#form5,#form6,#form7,#form8,#form9{
     display:none;
 }
+
 #btn{
     display: block;
 }
@@ -95,6 +101,7 @@ body,p{
     margin-left: 60px;
     margin-right: 20px;
 }
+
 .delete_user{
     margin-left: 175px;
     margin-bottom: 50px;
@@ -126,12 +133,9 @@ body,p{
     margin-right: 20px;
 }
 
-
-
 #telephones{
     margin-right: 20px;	
 }
-
 
 .profil_left{
     display: flex;
@@ -143,6 +147,7 @@ body,p{
     display: flex;
 
 }
+
 .center{
     margin-bottom: 0px;
 }
