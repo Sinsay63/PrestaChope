@@ -104,30 +104,30 @@
                                     }
                                     ?>
                                 </div>
-                            </div>
-                            <?php
-                            if (!empty($_SESSION['ID'])) {
-                                if ($_SESSION['IsAdmin'] == 1) {
-                                    ?>
-                                    <a href="index.php?page=deleteProduit&prod=<?php echo $_GET['prod']; ?>">Supprimer le produit</a>
-                                    <?php
-                                }
-                                if ($_SESSION['IsAdmin'] == 0) {
-                                    if ($produit->getStock() == 0) {
-                                        echo 'Ce produit est en rupture de stock. Il sera restocker sous peu. Merci de votre patience.';
-                                    } else {
+                                <?php
+                                if (!empty($_SESSION['ID'])) {
+                                    if ($_SESSION['IsAdmin'] == 1) {
                                         ?>
-                                        <form action="index.php?page=ajoutPanier" method="post">
-                                            Quantité:
-                                            <input type="number" name="quantité" max="<?php echo $produit->getStock(); ?>" min="1">
-                                            <input type="hidden" name="produit" value="<?php echo $produit->getId(); ?>">
-                                            <input type="submit" value="Ajouter au panier">
-                                        </form>
+                                        <a href="index.php?page=deleteProduit&prod=<?php echo $_GET['prod']; ?>">Supprimer le produit</a>
                                         <?php
                                     }
+                                    if ($_SESSION['IsAdmin'] == 0) {
+                                        if ($produit->getStock() == 0) {
+                                            echo 'Ce produit est en rupture de stock. Il sera restocker sous peu. Merci de votre patience.';
+                                        } else {
+                                            ?>
+                                            <form action="index.php?page=ajoutPanier" method="post">
+                                                Quantité:
+                                                <input type="number" name="quantité" max="<?php echo $produit->getStock(); ?>" min="1">
+                                                <input type="hidden" name="produit" value="<?php echo $produit->getId(); ?>">
+                                                <input type="submit" value="Ajouter au panier">
+                                            </form>
+                                            <?php
+                                        }
+                                    }
                                 }
-                            }
-                            ?>
+                                ?>
+                            </div>
                         </div>
                         <?php
                     } else {

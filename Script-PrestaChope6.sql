@@ -21,8 +21,10 @@ CREATE TABLE categories(
 
 INSERT INTO `categories` (`Id`, `nom`, `description`) VALUES
 (1, 'NONE', 'Catégorie de base'),
-(2, 'bières', 'description bières'),
-(3, 'Vins', 'description vins');
+(2, 'Bières', 'boisson alcoolisée obtenue par fermentation alcoolique d un moût de produits végétaux amylacés tels que l orge, le maïs, le riz, la banane, le manioc...'),
+(3, 'Vins', 'boisson alcoolisée obtenue par la fermentation du raisin, fruit de la vigne viticole.'),
+(4, 'Apéro', 'Tout ce qui à l apéro.'),
+(5, 'Accessoires', 'Tout ce qui touche le domaine de la brasserie.');
 
 
 #------------------------------------------------------------
@@ -39,10 +41,17 @@ CREATE TABLE souscategories(
 
 INSERT INTO `souscategories` (`Id`, `nom`, `Id_Categories`) VALUES
 (1, 'NONE', 1),
-(2, 'blonde', 2),
-(3, 'brune', 2),
-(4, 'rouge', 3),
-(5, 'rosé', 3);
+(2, 'Blonde', 2),
+(3, 'Brune', 2),
+(4, 'Ambrée', 2),
+(5, 'Fûts', 2),
+(6, 'Rouge', 3),
+(7, 'Rosé', 3),
+(8, 'Blanc', 3);
+
+
+
+
 
 #------------------------------------------------------------
 # Table: Produits
@@ -63,9 +72,14 @@ CREATE TABLE produits(
 )ENGINE=InnoDB;
 
 INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Categories`, `Id_SousCategories`) VALUES
-(1, 'Heineken', 'bouteille de 33cl', 1.5, 50, 'assets/images/heineken.png', 2, 2),
-(2, 'Chateauneuf du pape', 'bouteille 1L ', 25.5, 20, 'assets/images/heineken.png', 3, 4),
-(3, 'Kronembourg', 'bouteille de 33cl', 2, 25, 'assets/images/heineken.png', 3, 5);
+(1, 'Heineken', 'bouteille de 33cl', 1.5, 500, 'assets/images/heineken-0.jpg', 2, 2),
+(2, 'Desperados', '330ml 5.9%', 2.5, 200, 'assets/images/desperados.png', 3, 4),
+(3, 'Kronembourg', 'Canette 330ml 4.2%', 1.75, 150, 'assets/images/kronembourg.jpg', 3, 5),
+(4, 'Fût heineken', 'Fût 5L heineken ', 19.99, 125, 'assets/images/fut-heineken.png', 3, 4),
+(5, 'Fût desperados', 'Fût 5L desperados', 21.99, 20, 'assets/images/fut-desperados.png', 3, 4),
+(6, 'Fût affligem', 'Fût 5L affligem ', 19.99, 20, 'assets/images/fut-affli.png', 3, 4),
+(7, 'Chateauneuf du pape', 'bouteille 1L ', 25.5, 50, 'assets/images/Chateauneuf-du-pape.jpg', 3, 6);
+
 
 
 
@@ -82,7 +96,7 @@ CREATE TABLE users(
         password Varchar (50) NOT NULL ,
         email    Varchar (50) NOT NULL ,
         age      Int NOT NULL ,
-        cagnotte Float NOT NULL DEFAULT 0,
+        cagnotte Float NOT NULL DEFAULT 325,
         isAdmin  Int NOT NULL DEFAULT 0
 	,CONSTRAINT users_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
