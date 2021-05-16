@@ -90,8 +90,8 @@
                             ?>
                             <div class="box_produit">
                                 <div class="img_prod">
-                                    <a href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
-                                        <img class="img_prod"src="<?php echo $produit->getImage(); ?>" alt="photo produit"/>
+                                    <a class="lien-article" href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
+                                        <img class="img_prod2" src="<?php echo $produit->getImage(); ?>" alt="photo produit"/>
                                     </a>
                                 </div>
                                 <div class="nom_prod">
