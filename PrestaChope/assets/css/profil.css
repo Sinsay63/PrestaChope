@@ -11,336 +11,335 @@ body,p{
 }
 
 .prénom{
-	display: flex;
-	margin-bottom: 20px;
-	font-family: 'Inter', sans-serif;
-	margin-left: 120px;
-	font-size: 25px;
+    display: flex;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    margin-left: 120px;
+    font-size: 25px;
 }
 
 .nom{
-	display: flex;
-	margin-bottom: 40px;
-	font-family: 'Inter', sans-serif;
-	margin-left: 110px;
-	font-size: 25px;
+    display: flex;
+    margin-bottom: 40px;
+    font-family: 'Inter', sans-serif;
+    margin-left: 110px;
+    font-size: 25px;
 }
 
 .email{
-	display: flex;
-	margin-bottom: 45px;
-	font-family: 'Inter', sans-serif;
-	margin-top: 5px;
-	font-size: 20px;
+    display: flex;
+    margin-bottom: 45px;
+    font-family: 'Inter', sans-serif;
+    margin-top: 5px;
+    font-size: 20px;
 
 }
 
 .pseudo{
-	display: flex;
-	margin-bottom: 45px;
-	font-family: 'Inter', sans-serif;
-	font-size: 20px;
+    display: flex;
+    margin-bottom: 45px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
 }
 
 .password{
-	display: flex;
-	margin-bottom: 45px;
-	font-family: 'Inter', sans-serif;
-	font-size: 20px;
+    display: flex;
+    margin-bottom: 45px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
 }
 
 .adresse{
-	display: flex;
-	margin-bottom: 45px;
-	font-family: 'Inter', sans-serif;
-	font-size: 20px;
+    display: flex;
+    margin-bottom: 45px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
 }
 
 .téléphone{
-	display: flex;
-	margin-bottom: 45px;
-	font-family: 'Inter', sans-serif;
-	font-size: 20px;
+    display: flex;
+    margin-bottom: 45px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
 }
 
 /* Profile container */
 .profile {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
 /* Profile sidebar */
 .profile-sidebar {
-  padding: 20px 0 10px 0;
-  background-color: rgb(242, 243, 244);
+    padding: 20px 0 10px 0;
 }
 
 .profile-userpic img {
-  float: none;
-  margin: 0 auto;
-  width: 70%;
-  height: 70%;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
-  margin-left:50px;
-  margin-top: 0px;
+    float: none;
+    margin: 0 auto;
+    width: 70%;
+    height: 70%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+    margin-left:50px;
+    margin-top: 0px;
 }
 
 
 .user_info{
-	margin-top: 30px;
-	margin-left: 60px;
-	margin-right: 20px;
+    margin-top: 30px;
+    margin-left: 60px;
+    margin-right: 20px;
 }
 .delete_user{
-	margin-left: 175px;
-	margin-bottom: 50px;
+    margin-left: 175px;
+    margin-bottom: 50px;
 
 }
 
 #prénoms{
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 #noms{
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 #emails{
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 #pseudos{
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 #passwords{
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 
 #adresses{
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 
 
 #telephones{
-	margin-right: 20px;	
+    margin-right: 20px;	
 }
 
 
 .profil_left{
-	display: flex;
-	flex-direction: column;
-	margin-right: 225px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 225px;
 }
 
 .profil_center{
-	display: flex;
+    display: flex;
 
 }
 .center{
-	margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .btn1{
-	border: none;
-  	color: white;
-  	text-align: center;
-  	text-decoration: none;
-  	display: inline-block;
- 	font-size: 16px;
- 	padding: 3px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 3px 15px;
     cursor: pointer;
-	transition: all 0.3s ease 0s;
-	background-color: white;
-  	color: black;
-  	border: 2px solid #555555;
+    transition: all 0.3s ease 0s;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
 }
 
 .btn1:hover{
-	background-color: #555555;
-	color:white;
-	}
+    background-color: #555555;
+    color:white;
+}
 
 .btn2{
-	border: none;
-  	color: white;
-  	text-align: center;
-  	text-decoration: none;
-  	display: inline-block;
- 	font-size: 16px;
- 	padding: 3px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 3px 15px;
     cursor: pointer;
-	transition: all 0.3s ease 0s;
-	background-color: white;
-  	color: black;
-  	border: 2px solid #555555;
+    transition: all 0.3s ease 0s;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
 }
 
 .btn2:hover{
-	background-color: #555555;
-	color:white;
+    background-color: #555555;
+    color:white;
 }
 
 
 .btn3{
-	border: none;
-  	color: white;
-  	text-align: center;
-  	text-decoration: none;
-  	display: inline-block;
- 	font-size: 13px;
- 	padding: 3px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    padding: 3px 15px;
     cursor: pointer;
-	transition: all 0.3s ease 0s;
-	background-color: white;
-  	color: black;
-  	border: 2px solid #555555;
+    transition: all 0.3s ease 0s;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
 }
 
 .btn3:hover{
-	background-color: #555555;
-	color:white;
+    background-color: #555555;
+    color:white;
 }
 
 .btn4{
-	border: none;
-  	color: white;
-  	text-align: center;
-  	text-decoration: none;
-  	display: inline-block;
- 	font-size: 13px;
- 	padding: 3px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    padding: 3px 15px;
     cursor: pointer;
-	transition: all 0.3s ease 0s;
-	background-color: white;
-  	color: black;
-  	border: 2px solid #555555;
+    transition: all 0.3s ease 0s;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
 }
 
 .btn4:hover{
-	background-color: #555555;
-	color:white;
+    background-color: #555555;
+    color:white;
 }
 
 .btn5{
-	border: none;
-  	color: white;
-  	text-align: center;
-  	text-decoration: none;
-  	display: inline-block;
- 	font-size: 13px;
- 	padding: 3px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    padding: 3px 15px;
     cursor: pointer;
-	transition: all 0.3s ease 0s;
-	background-color: white;
-  	color: black;
-  	border: 2px solid #555555;
+    transition: all 0.3s ease 0s;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
 }
 
 .btn5:hover{
-	background-color: #555555;
-	color:white;
+    background-color: #555555;
+    color:white;
 }
 
 .btn6{
-	border: none;
-  	color: white;
-  	text-align: center;
-  	text-decoration: none;
-  	display: inline-block;
- 	font-size: 13px;
- 	padding: 3px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    padding: 3px 15px;
     cursor: pointer;
-	transition: all 0.3s ease 0s;
-	background-color: white;
-  	color: black;
-  	border: 2px solid #555555;
+    transition: all 0.3s ease 0s;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
 }
 
 .btn6:hover{
-	background-color: #555555;
-	color:white;
+    background-color: #555555;
+    color:white;
 }
 
 .btn7{
-	border: none;
-  	color: white;
-  	text-align: center;
-  	text-decoration: none;
-  	display: inline-block;
- 	font-size: 13px;
- 	padding: 3px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    padding: 3px 15px;
     cursor: pointer;
-	transition: all 0.3s ease 0s;
-	background-color: white;
-  	color: black;
-  	border: 2px solid #555555;
+    transition: all 0.3s ease 0s;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
 }
 
 .btn7:hover{
-	background-color: #555555;
-	color:white;
+    background-color: #555555;
+    color:white;
 }
 
 .btn8{
-	border: none;
-  	color: white;
-  	text-align: center;
-  	text-decoration: none;
-  	display: inline-block;
- 	font-size: 13px;
- 	padding: 3px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    padding: 3px 15px;
     cursor: pointer;
-	transition: all 0.3s ease 0s;
-	background-color: white;
-  	color: black;
-  	border: 2px solid #555555;
+    transition: all 0.3s ease 0s;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
 }
 
 .btn8:hover{
-	background-color: #555555;
-	color:white;
+    background-color: #555555;
+    color:white;
 }
 
 .btn9{
-	border: none;
-  	color: white;
-  	text-align: center;
-  	text-decoration: none;
-  	display: inline-block;
- 	font-size: 13px;
- 	padding: 3px 15px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    padding: 3px 15px;
     cursor: pointer;
-	transition: all 0.3s ease 0s;
-	background-color: white;
-  	color: black;
-  	border: 2px solid #555555;
+    transition: all 0.3s ease 0s;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
 }
 
 .btn9:hover{
-	background-color: #555555;
-	color:white;
+    background-color: #555555;
+    color:white;
 }
 
 #espace1{
-	padding: 3px 15px;
-	font-size: 16px;
+    padding: 3px 15px;
+    font-size: 16px;
 
 }
 
 #espace2{
-	padding: 3px 5px;
-	font-size: 25px;
-	width: 100px;
+    padding: 3px 5px;
+    font-size: 25px;
+    width: 100px;
 }
 
 #espace3{
-	padding: 3px 5px;
-	font-size: 25px;
-	width: 150px;
+    padding: 3px 5px;
+    font-size: 25px;
+    width: 150px;
 }
 
 
