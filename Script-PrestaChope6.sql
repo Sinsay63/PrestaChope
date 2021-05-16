@@ -47,8 +47,10 @@ INSERT INTO `souscategories` (`Id`, `nom`, `Id_Categories`) VALUES
 (5, 'Fûts', 2),
 (6, 'Rouge', 3),
 (7, 'Rosé', 3),
-(8, 'Blanc', 3);
-
+(8, 'Blanc', 3),
+(9,'Kits',5),
+(10,'Verres',5),
+(11,'Charcuterie',5);
 
 
 
@@ -72,14 +74,18 @@ CREATE TABLE produits(
 )ENGINE=InnoDB;
 
 INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Categories`, `Id_SousCategories`) VALUES
-(1, 'Heineken', 'bouteille de 33cl', 1.5, 500, 'assets/images/heineken.png', 2, 2),
-(2, 'Desperados', '330ml 5.9%', 2.5, 200, 'assets/images/desperados.png', 2, 4),
-(3, 'Kronembourg', 'Canette 330ml 4.2%', 1.75, 150, 'assets/images/kro.png', 2, 3),
+(1, 'Heineken', 'bouteille de 33cl', 1.5, 500, 'assets/images/heineken-0.jpg', 2, 2),
+(2, 'Desperados', '330ml 5.9%', 2.5, 200, 'assets/images/desperados.png', 2, 3),
+(3, 'Kronembourg', 'Canette 330ml 4.2%', 1.75, 150, 'assets/images/kro.png', 2, 2),
 (4, 'Fût heineken', 'Fût 5L heineken ', 19.99, 125, 'assets/images/fut-heineken.png', 2, 5),
 (5, 'Fût desperados', 'Fût 5L desperados', 21.99, 20, 'assets/images/fut-desperados.png', 2, 5),
 (6, 'Fût affligem', 'Fût 5L affligem ', 19.99, 20, 'assets/images/fut-affli.png', 2, 5),
-(7, 'Chateauneuf du pape', 'bouteille 1L ', 25.5, 50, 'assets/images/c9p.png', 3, 6);
-
+(7, 'Rosé schiste', 'bouteille 1L de Schiste', 12, 100, 'assets/images/rose.jpg', 3, 7),
+(8, 'Kit de brassage ', 'Kit pour brasser sa propre bière ', 70, 20, 'assets/images/kit.jpg', 5, 9),
+(9, 'Kit de brassage 2 ', 'Kit pour brasser sa propre bière 2 ', 75, 15, 'assets/images/kit2.jpg', 5, 9),
+(10, 'Montazac', 'bouteille 1L de Monbazillac ', 25.5, 50, 'assets/images/blanc.jpg', 3, 8),
+(11, 'Chope bière', 'Une chope pour remplir sa bière ', 3.6, 150, 'assets/images/chope.jpg', 5, 10),
+(12, 'Grimbergen', '330ml grimbergen ', 2.25, 300, 'assets/images/grim.png', 2, 4);
 
 
 
@@ -104,6 +110,7 @@ CREATE TABLE users(
 INSERT INTO `users` (`Id`, `nom`, `prenom`, `pseudo`, `password`, `email`, `age`, `cagnotte`, `isAdmin`) VALUES
 (1, 'HOUDIER', 'Yanis', 'Sinsay', '5cee219187649d473cf8489852a6a8880bdc6744', 'yanis.houdier@gmail.com', 19, 152.3, 1),
 (2, 'RICHARD', 'Nathim', 'Nath', '075fbaa6a593c1261a529d81540c10bbbc12d8b2', 'nath@gmail.com', 22, 35.5, 0);
+
 
 
 #------------------------------------------------------------
@@ -195,4 +202,3 @@ CREATE TABLE produits_commandes(
         ,CONSTRAINT produits_commandes_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
 	
 )ENGINE=InnoDB;
-
