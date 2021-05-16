@@ -25,14 +25,34 @@
                 </div>
                 <?php
                 if (!empty($_SESSION['ID'])) {
-                    ?>
-                    <div class="bouton-contact">
-                        <a id="nav" href="index.php?page=contact">           	
-                            <button class="bouton-Co" type="button">
-                                <p class="txt-bouton">Contact</p>
-                            </button>
-                        </a>
-                    </div>
+                    if ($_SESSION['IsAdmin'] == 0) {
+                        ?>
+                        <div class="bouton-contact">
+                            <a id="nav" href="index.php?page=contact">           	
+                                <button class="bouton-Co" type="button">
+                                    <p class="txt-bouton">Contact</p>
+                                </button>
+                            </a>
+                        </div>
+                    <?php
+                    }
+                    if ($_SESSION['IsAdmin'] == 1) {
+                        ?>
+                        <div class="bouton-uti">
+                            <a id="nav" href="index.php?page=listeUtilisateurs">           	
+                                <button class="bouton-U" type="button">
+                                    <p class="txt-bouton">Utilisateurs</p>
+                                </button>
+                            </a>
+                        </div>
+                        <div class="bouton-uti">
+                            <a id="nav" href="index.php?page=messages">           	
+                                <button class="bouton-U" type="button">
+                                    <p class="txt-bouton">Messages</p>
+                                </button>
+                            </a>
+                        </div>
+    <?php } ?>
                     <div class="bouton-profil">
                         <a id="nav" href="index.php?page=profil">           	
                             <button class="bouton-P" type="button">
@@ -47,12 +67,12 @@
                             </button>
                         </a>
                     </div>
-                    
+
                     <?php
                     require_once('DAO/UsersDAO.php');
                     require_once('DAO/FacturesDAO.php');
                     if ($_SESSION['IsAdmin'] == 1) {
-                        echo "<p class='txt-bouton-A'>Trésorerie : ". FacturesDAO::TotalTresorerie(). "€</p>";
+                        echo "<p class='txt-bouton-A'>Trésorerie : " . FacturesDAO::TotalTresorerie() . "€</p>";
                     }
                     $user = new UsersDAO();
                     $us = $user->GetUserInfo($_SESSION['ID']);

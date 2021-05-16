@@ -7,7 +7,15 @@ main{
     padding-left: 150px; 
 }
 
-.page_messages_container{
+h1{
+    margin: 20px;
+}
+
+a{
+    margin: 10px;
+}
+
+.page_users_container{
     display: flex;
     justify-content: center;
     flex-direction: column;
