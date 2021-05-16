@@ -1,3 +1,81 @@
 text{
 	font-size: 10px;
+
+}
+.nom_prod{
+	margin-bottom: 30px;
+	font-family: 'Inter', sans-serif;
+
+}
+
+.nom{
+
+}
+
+.descri_prod{
+	margin-bottom: 30px;
+	font-family: 'Inter', sans-serif;	
+}
+
+.prix_prod{
+	margin-bottom: 30px;
+	font-family: 'Inter', sans-serif;		
+}
+
+.stock_prod{
+	margin-bottom: 30px;
+	font-family: 'Inter', sans-serif;
+}
+
+input[type=text]{
+	width: 200px;
+	height: 30px;	
+}
+
+input[type=number]{
+	width: 200px;
+	height: 30px;
+}
+
+
+.all{
+	align-items: center;
+	text-align: center;
+}
+
+.opt{
+	text-align: center;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.opt2{
+	text-align: center;
+	align-items: center;
+}
+
+
+
+#btn_creprod{
+	background-color: rgb(93, 173, 226);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+    margin-left: 10px;
+    transition: all 0.3s ease 0s;
+    margin-bottom: 40px;
+}
+
+#btn_creprod:hover{
+	background-color: #1E90FF;
+}
+
+.title{
+	text-align: center;
+	font-family: 'Inter', sans-serif;
+	margin-top: 30px;
+	font-size:30px;
 }
