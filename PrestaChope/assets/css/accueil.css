@@ -19,7 +19,7 @@ main{
 }
 
 .border{
-    border: solid 2px #fff;
+    border: solid 2px #28c0c5;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -29,6 +29,11 @@ main{
 
 .a-propos h1{
     color: #fff;
+}
+
+.a-propos h3{
+    color: #fff;
+    margin-bottom: 0;
 }
 
 .txt-centre-blanc{
@@ -94,3 +99,105 @@ main{
     height: auto;
     margin: 0;
 }
+
+.horraire{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.border-top{
+    border-top: solid 2px #28c0c5;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.txt-centre-noir{
+    text-align: center;
+    font-size: 15px;
+}
+
+.nouveauté{
+    background-color: rgb(38, 38, 38);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.article{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+.container-article{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 33%;
+    height: auto;
+    padding: 50px;
+}
+
+.img-article{
+    width: 100%;
+    height: auto;
+}
+
+.img-article2{
+    width: 60%;
+    height: auto;
+}
+
+.nouveauté h1{
+    color: #fff;
+}
+
+.lien-article{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nom-prod{
+    font-family: 'Hammersmith One', sans-serif;
+    margin-top: 20px;
+}
+
+.descri-prod{
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+.img-article img{
+    transition: all 0.5s ease;
+}
+
+.img-article:hover img{
+    transform:scale(1.25);
+    filter: brightness(80%);
+} 
+
+
+
+
+
+
+
+
