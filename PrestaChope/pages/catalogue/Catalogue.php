@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class ="titre">
-        <h1>CATALOGUE</h1>
+            <h1>CATALOGUE</h1>
         </div>
         <div class="cata_container">
             <?php
@@ -17,9 +17,10 @@
                     ?>
                     <a href="index.php?page=créationProduit">Ajouter un produit</a><br>
                     <a href="index.php?page=catégories">Gestion des catégories</a>
-                <?php
+                    <?php
                 }
-            } ?>
+            }
+            ?>
             <div class="choix_cat">
                 <select class="cat_menu" name="cat_menu" onChange="redirige(this.value)" > <?php
                     if (!empty($_GET['cat'])) {
@@ -39,35 +40,39 @@
                         foreach ($cat as $caté) {
                             ?>
                             <option value="<?php echo $caté->getId(); ?>"><?php echo $caté->getNom(); ?></option>
-                    <?php }
-                }
-                ?>
+                        <?php
+                        }
+                    }
+                    ?>
                 </select>
                 <?php
                 if (!empty($_GET['cat'])) {
                     $scat = ControllerCatalogue::searchSousCatégories($_GET['cat']);
-                    if ($scat != null) { ?>
+                    if ($scat != null) {
+                        ?>
                         <script>
                             let vars = <?php echo json_encode($_GET['cat']); ?>;
                         </script>
                         <select onChange="redirige2(this.value, vars)">
                             <?php
-                            if (!empty($_GET['souscat'])) { 
-                            $souscaté= ControllerCatalogue::SearchSousCatégorieById($_GET['souscat']); ?>
-                            <option value="" hidden><?php echo $souscaté->getNom()  ; ?></option>
-                            <?php
-                            } 
-                            else { ?>
+                            if (!empty($_GET['souscat'])) {
+                                $souscaté = ControllerCatalogue::SearchSousCatégorieById($_GET['souscat']);
+                                ?>
+                                <option value="" hidden><?php echo $souscaté->getNom(); ?></option>
+                                <?php
+                            } else {
+                                ?>
                                 <option value="" hidden>Recherche de sous catégories</option>
-                            <?php
+                                <?php
                             }
                             foreach ($scat as $sous_caté) {
                                 ?>
                                 <option value="<?php echo $sous_caté->getId(); ?>"><?php echo $sous_caté->getNom(); ?></option>
-                      <?php } ?>
+        <?php } ?>
                         </select>
-            <?php   }
-                } ?>
+                    <?php }
+                }
+                ?>
             </div>
             <div class="produits">
                 <?php
@@ -82,11 +87,11 @@
                     foreach ($produits as $produit) {
                         ?>
                         <div class="box_produit">
-                                        <div class="img_prod">
-                                            <a href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
-                                            <img class="img_prod"src="<?php echo $produit->getImage(); ?>" alt="photo produit"/></a>
-                                        </div>
-                                    
+                            <div class="img_prod">
+                                <a href="index.php?page=produits&prod=<?php echo $produit->getId(); ?>">
+                                    <img class="img_prod"src="<?php echo $produit->getImage(); ?>" alt="photo produit"/>
+                                </a>
+                            </div>
                             <div class="nom_prod">
                                 <p><?php echo $produit->getNom(); ?></p>
                             </div>

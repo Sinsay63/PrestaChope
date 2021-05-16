@@ -2,6 +2,8 @@
     <head>
         <title>Accueil</title>
         <link rel="stylesheet" type="text/css" href="assets/css/accueil.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
     </head>
     <body>
         <main>
@@ -34,17 +36,61 @@
                     <p class="txt-centre-blanc">
                         Que ce soit via notre site internet de vente en ligne ou par le biais de notre point de vente physique, PrestaChope6 est un véritable pôle de la boisson, permettant à tous nos amateurs de se procurer des produits de qualités.
                     </p>
+                    <h3>NOS HORRAIRES</h3>
+                    <p class="txt-centre-blanc">
+                        Nous sommes ouvert du lundi au samedi, de 9h à 17h.
+                    </p>
                 </div>
             </div>
-            <div class="horraire">
-                <h1>NOS HORRAIRES</h1>
-            </div>
             <div class="nouveauté">
-                <h1>NOS NOUVEAUTÉS</h1>
+                <div class="border">
+                    <h1>NOS NOUVEAUTÉS</h1>
+                    <div class="article">
+                        <div class="container-article">
+                            <div class="img-article">
+                                <a class="lien-article" href="">
+                                    <img class="img-article2" src="assets/images/fut-desperados.png" alt="image fut desperados"/>
+                                </a>
+                            </div>    
+                            <div class="nom-prod">
+                                <p class="txt-centre-blanc">Fût de Desperados</p>
+                            </div>
+                            <div class="descri-prod">
+                                <p class="txt-centre-blanc"> Fût de 5L </p>
+                                <p class="txt-centre-blanc"> Prix : 25.9 € </p>
+                            </div>
+                        </div>
+                        <div class="container-article">
+                            <div class="img-article">
+                                <a class="lien-article" href="">
+                                    <img class="img-article2" src="assets/images/fut-heineken.png" alt="image fut heineken"/>
+                                </a>
+                            </div>
+                            <div class="nom-prod">
+                                <p class="txt-centre-blanc">Fût de Heineken</p>
+                            </div>
+                            <div class="descri-prod">
+                                <p class="txt-centre-blanc"> Fût de 5L </p>
+                                <p class="txt-centre-blanc"> Prix : 20.5 € </p>
+                            </div>
+                        </div>
+                        <div class="container-article">
+                            <div class="img-article">
+                                <a class="lien-article" href="">
+                                    <img class="img-article2" src="assets/images/fut-affli.png" alt="image fut affligem"/>
+                                </a>
+                            </div>    
+                            <div class="nom-prod">
+                                <p class="txt-centre-blanc">Fût de Affligem</p>
+                            </div>
+                            <div class="descri-prod">
+                                <p class="txt-centre-blanc"> Fût de 5L </p>
+                                <p class="txt-centre-blanc"> Prix : 23.5 € </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="suggestion">
-                <h1>NOS SUGGESTIONS</h1>
-            </div>    
         </main>
     </body>
 </html>
