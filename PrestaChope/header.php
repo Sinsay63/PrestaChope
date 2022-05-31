@@ -45,14 +45,14 @@
                                 </button>
                             </a>
                         </div>
-                        <div class="bouton-uti">
-                            <a id="nav" href="index.php?page=messages">           	
-                                <button class="bouton-U" type="button">
-                                    <p class="txt-bouton">Messages</p>
-                                </button>
-                            </a>
-                        </div>
                     <?php } ?>
+                    <div class="bouton-uti">
+                        <a id="nav" href="index.php?page=messages">           	
+                            <button class="bouton-U" type="button">
+                                <p class="txt-bouton">Messages</p>
+                            </button>
+                        </a>
+                    </div>
                     <div class="bouton-profil">
                         <a id="nav" href="index.php?page=profil">           	
                             <button class="bouton-P" type="button">
@@ -60,24 +60,25 @@
                             </button>
                         </a>
                     </div>
+                    <?php
+                    if ($_SESSION['IsAdmin'] == 0) {
+                        ?>
+                        <div class="bouton-panier">
+                            <a id="nav" href="index.php?page=panier">           	
+                                <img id="img-panier" src="assets/images/panier.png" alt="logo panier"/>
+                            </a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                     <div class="bouton-deco">
                         <a id="nav" href="index.php?page=deconnexion">           	
                             <button class="bouton-D" type="button">
-                                <p class="txt-bouton">Log Out</p>
+                                <p class="txt-bouton">Déconnexion</p>
                             </button>
                         </a>
                     </div>
                     <?php
-                    if ($_SESSION['IsAdmin'] == 0) {
-                    ?>
-                    <div class="bouton-panier">
-                        <a id="nav" href="index.php?page=panier">           	
-                            <img id="img-panier" src="assets/images/panier.png" alt="logo panier"/>
-                        </a>
-                    </div>
-                    <?php
-                    }
-                    
                     require_once('DAO/UsersDAO.php');
                     require_once('DAO/FacturesDAO.php');
                     if ($_SESSION['IsAdmin'] == 1) {
@@ -85,19 +86,20 @@
                     }
                     $user = new UsersDAO();
                     $us = $user->GetUserInfo($_SESSION['ID']);
-                } else {
+                }
+                else {
                     ?>
                     <div class="bouton-register">
                         <a id="nav" href="index.php?page=inscription">           	
                             <button class="bouton-R" type="button">
-                                <p class="txt-bouton">Register</p>
+                                <p class="txt-bouton">S'enregister</p>
                             </button>
                         </a>
                     </div>
                     <div class="bouton-login">
                         <a id="nav" href="index.php?page=connexion">         
                             <button class="bouton-L" type="button">
-                                <p class="txt-bouton">Log In</p>
+                                <p class="txt-bouton">Se connecter</p>
                             </button>
                         </a>
                     </div>	

@@ -1,8 +1,15 @@
 <?php
+
 class Rooter {
 
     public static function redirectToPage($pageName) {
-        header("location: index.php?page=" . $pageName);
-        exit;
+        ?>
+        <script language="Javascript">
+            <!--
+                document.location.replace("index.php?page=<?php echo $pageName; ?>");
+            // -->
+        </script>
+        <?php
     }
+
 }

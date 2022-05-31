@@ -8,27 +8,37 @@ main{
 }
 
 .text_solde{
-	text-align:center;
-	font-size: 30px;
-	font-family: 'Inter', sans-serif;
+    margin-top: 20px;
+    text-align:center;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
 }
 
-.text_panier{
-	font-size: 25px;
-	font-family: 'Inter', sans-serif;
+h1{
+    margin-top: 20px;
 }
 
 .text_article{
-	font-size: 20px;
-	font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
 }
 .text_montant{
-	font-size: 20px;
-	font-family: 'Inter', sans-serif;
+    font-size: 25px;
+    font-family: 'Inter', sans-serif;
 }
 
-.text_commander{
-	text-align:center;
-	font-size: 30px;
-	margin-bottom: 50px;
+.text_commander button{
+    font-size: 30px;
+    margin-bottom: 50px;
+
+}
+.panier{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.produit{
+    border-top: dotted 1px;
+    padding:10px 0 10px 0;
+    text-align: center;
 }

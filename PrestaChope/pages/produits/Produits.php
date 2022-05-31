@@ -9,7 +9,7 @@
     <body>
         <main>
             <div class="titre">
-                <h1>Produits</h1>
+                <h1>PRODUIT</h1>
             </div>
             <?php
             if (!empty($_GET['prod'])) {
@@ -37,7 +37,7 @@
                             ?>  
                             <div class="colonne">
                                 <div class="nom_prod">
-                                    <p id="nom"><?php echo 'Nom du produit : ' . $produit->getNom(); ?><p>
+                                    <p id="nom"><?php echo 'Libelle : ' . $produit->getNom(); ?><p>
                                         <?php
                                         if (!empty($_SESSION['ID'])) {
                                             if ($_SESSION['IsAdmin'] == 1) {
@@ -54,7 +54,7 @@
                                     ?>
                                 </div>
                                 <div class="stock_prod">
-                                    <p id="stock"><?php echo 'Stock: ' . $produit->getStock() . " exemplaire(s) restants"; ?><p>
+                                    <p id="stock"><?php echo 'Stock : ' . $produit->getStock() . " exemplaire(s) restants"; ?><p>
                                         <?php
                                         if (!empty($_SESSION['ID'])) {
                                             if ($_SESSION['IsAdmin'] == 1) {
@@ -71,7 +71,7 @@
                                     ?>
                                 </div>
                                 <div class="prix_prod">
-                                    <p id="prix"><?php echo 'Prix:' . $produit->getPrix() . '€'; ?><p>
+                                    <p id="prix"><?php echo 'Prix : ' . $produit->getPrix() . '€'; ?><p>
                                         <?php
                                         if (!empty($_SESSION['ID'])) {
                                             if ($_SESSION['IsAdmin'] == 1) {
@@ -88,7 +88,7 @@
                                     ?>
                                 </div>
                                 <div class="descri_prod">
-                                    <p id="description"><?php echo 'Description:' . $produit->getDescription(); ?><p>
+                                    <p id="description"><?php echo 'Description : ' . $produit->getDescription(); ?><p>
                                         <?php
                                         if (!empty($_SESSION['ID'])) {
                                             if ($_SESSION['IsAdmin'] == 1) {
@@ -108,7 +108,7 @@
                                 if (!empty($_SESSION['ID'])) {
                                     if ($_SESSION['IsAdmin'] == 1) {
                                         ?>
-                                        <a href="index.php?page=deleteProduit&prod=<?php echo $_GET['prod']; ?>">Supprimer le produit</a>
+                                <a href="index.php?page=deleteProduit&prod=<?php echo $_GET['prod']; ?>"><button style="color:red;">Supprimer le produit</button></a>
                                         <?php
                                     }
                                     if ($_SESSION['IsAdmin'] == 0) {

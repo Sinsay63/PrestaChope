@@ -1,0 +1,33 @@
+body{
+    font-family: 'Inter', sans-serif;
+}
+
+.divFormCrea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+.contentForm{
+    align-items: center;
+    text-align: center;
+}
+.description, .nom, .inputBtn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description, .nom, .souscategorie{
+    margin: 10px 0 10px 0;
+}
+.description span, .nom span, .souscategorie span{
+    font-size: 18px;
+}
+.inputBtn input{
+    margin: 10px 0 5px 0;
+}

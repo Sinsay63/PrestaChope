@@ -185,14 +185,6 @@ main{
     font-family: 'Hammersmith One', sans-serif;
 }
 
-.img-article img{
-    transition: all 0.5s ease;
-}
-
-.img-article:hover img{
-    transform:scale(1.25);
-    filter: brightness(80%);
-} 
 
 
 

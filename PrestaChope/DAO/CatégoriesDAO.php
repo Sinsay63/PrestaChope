@@ -26,7 +26,8 @@ Class CatégoriesDAO {
                 $tab[] = $cate;
             }
             return $tab;
-        } else {
+        }
+        else {
             return null;
         }
     }
@@ -48,7 +49,8 @@ Class CatégoriesDAO {
                 $tab[] = $souscat;
             }
             return $tab;
-        } else {
+        }
+        else {
             return null;
         }
     }
@@ -95,15 +97,15 @@ Class CatégoriesDAO {
             if ($idsouscaté[$i] == 0 && $souscaté[$i] != '') {
                 $state = $bdd->prepare('INSERT INTO souscategories(nom,Id_Categories) VALUES(?,?) ');
                 $state->execute(array($souscaté[$i], $idcaté));
-            } 
+            }
             else if ($idsouscaté[$i] != 0 && $souscaté[$i] != '') {
                 $state = $bdd->prepare('UPDATE souscategories SET nom = ? where Id = ? ');
                 $state->execute(array($souscaté[$i], $idsouscaté[$i]));
-            } 
+            }
             else if ($souscaté[$i] == '' && $idsouscaté[$i] != 0) {
                 $state = $bdd->prepare('UPDATE produits SET Id_SousCategories = 1 where Id_SousCategories = ?');
                 $state->execute(array($idsouscaté[$i]));
-                
+
                 $stat = $bdd->prepare('DELETE from souscategories where Id = ?');
                 $stat->execute(array($idsouscaté[$i]));
             }
@@ -116,9 +118,13 @@ Class CatégoriesDAO {
         $state = $bdd->prepare('INSERT INTO categories SET nom = ?, description = ? ');
         $state->execute(array($nom, $description));
         $lastid = $bdd->lastInsertId();
-        foreach ($sousCaté as $value) {
-            $state = $bdd->prepare('INSERT INTO souscategories(nom,Id_Categories) VALUES(?,?) ');
-            $state->execute(array($value, $lastid));
+        if (sizeof($sousCaté) > 0) {
+            foreach ($sousCaté as $value) {
+                if ($value != "") {
+                    $state = $bdd->prepare('INSERT INTO souscategories(nom,Id_Categories) VALUES(?,?) ');
+                    $state->execute(array($value, $lastid));
+                }
+            }
         }
     }
 

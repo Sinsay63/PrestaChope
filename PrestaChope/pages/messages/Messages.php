@@ -12,7 +12,7 @@
                     $messages = ContactDAO::getAllMessages();
                     if ($messages != null) {
                         ?>
-                        <p> MESSAGES RÉCLAMATIONS / SUGGESTIONS :</p>
+                        <h1> MESSAGES RÉCLAMATIONS / SUGGESTIONS :</h1>
                         <?php
                         foreach ($messages as $value) {
                             $user = UsersDAO::getUserInfo($value->getIdClients());
@@ -32,33 +32,44 @@
                             <br><br>
                             <?php
                         }
-                    } else {
+                    }
+                    else {
                         echo 'Aucun message n\'a été trouvé.';
                     }
-                } else {
+                }
+                else {
                     $messages = ContactDAO::getMessagesByIdClients($_SESSION['ID']);
+                    ?>
+                    <h1 style="margin-bottom: 20px;">VOS MESSAGES ENVOYÉS :</h1>
+                    <?php
                     if ($messages != null) {
-                        ?>
-                        <p>VOS MESSAGES ENVOYÉS :</p>
-                        <?php
                         foreach ($messages as $value) {
                             $dates = new DateTime($value->getDate());
                             $date = $dates->format('d/m/Y');
                             $heures = $dates->format('H');
                             $minutes = $dates->format('i');
                             ?>
-                            <p> Type:<?php echo $value->getTypeDemande(); ?> </p>
-                            <p> Message : <?php echo $value->getContenu() ?></p>
-                            <p> Envoyé le  <?php echo $date . ' à ' . $heures . 'h' . $minutes; ?></p>
-                            <?php if ($value->getIsViewed() == 1) { ?>
-                                <p> Votre message a été pris en compte par l'équipe. Merci de votre retour!</p>
-                                <?php
-                            } else {
+                            <div class="messages">
+                                <p> Type:<?php echo $value->getTypeDemande(); ?> </p>
+                                <p> Message : <?php echo $value->getContenu() ?></p>
+                                <p> Envoyé le  <?php echo $date . ' à ' . $heures . 'h' . $minutes; ?></p>
+                                <?php if ($value->getIsViewed() == 1) { ?>
+                                    <p> Votre message a été pris en compte par l'équipe. Merci de votre retour!</p>
+                                    <?php
+                                }
+                                else {
+                                    ?>
+                                    <p> Votre message n'a pas encore été vu. Merci tout de même de votre retour!</p>
+                                <?php }
                                 ?>
-                                <p> Votre message n'a pas encore été vu. Merci tout de même de votre retour!</p>
-                                <?php
-                            }
+                            </div>
+                            <?php
                         }
+                    }
+                    else {
+                        ?>
+                    <p>Vous n'avez envoyé aucun message pour le moment.</p>
+                        <?php
                     }
                 }
                 ?>

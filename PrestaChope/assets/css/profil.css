@@ -24,7 +24,6 @@ main{
     display: flex;
     margin-bottom: 20px;
     font-family: 'Inter', sans-serif;
-    margin-left: 120px;
     font-size: 25px;
 }
 
@@ -32,7 +31,6 @@ main{
     display: flex;
     margin-bottom: 40px;
     font-family: 'Inter', sans-serif;
-    margin-left: 110px;
     font-size: 25px;
 }
 
@@ -91,7 +89,6 @@ main{
     -webkit-border-radius: 50% !important;
     -moz-border-radius: 50% !important;
     border-radius: 50% !important;
-    margin-left:50px;
     margin-top: 0px;
 }
 
@@ -103,9 +100,11 @@ main{
 }
 
 .delete_user{
-    margin-left: 175px;
     margin-bottom: 50px;
 
+}
+#btnDelUser{
+    color:red;
 }
 
 #prénoms{
@@ -350,7 +349,7 @@ main{
     font-size: 25px;
     width: 150px;
 }
-
-
-
-
+.commande{
+    border-top: dotted 1px;
+    padding-top:5px;
+}

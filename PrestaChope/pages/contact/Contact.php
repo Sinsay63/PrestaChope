@@ -11,7 +11,7 @@
     <body>
         <div class="container">
             <div class="centrage_titre">
-                <h1>Contactez-nous !</h1>
+                <h1>CONTACTEZ-NOUS !</h1>
             </div> 
             <?php
             if (!empty($_GET['sent'])) {
@@ -40,7 +40,7 @@
                     </select>
                 </div>      
                 <div class="align">
-                    <textarea  name="contenu" rows="5" cols="30" placeholder="Saississez votre demande..." id="contact_area"></textarea>
+                    <textarea  name="contenu" rows="5" cols="30" placeholder="Saississez votre message..." id="contact_area"></textarea>
                     <input type="hidden" name="idclient" value="<?php echo $_SESSION['ID']; ?>">
                     <input type="submit" value="Envoyer" id="contact_btn" >
                 </div>

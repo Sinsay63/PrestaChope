@@ -15,7 +15,7 @@
                     echo ' Utilisateur -> ' . $value[0]->getPseudo() . '<br>';
                     echo $value[1][0] . ' commande(s) effectuée(s).';
                     ?>
-                    <a href="index.php?page=deleteUser&id=<?php echo $value[0]->getId(); ?>">Supprimer l'utilisateur</a>
+                <a href="index.php?page=deleteUser&id=<?php echo $value[0]->getId(); ?>"><button style="color:red;">Supprimer l'utilisateur</button></a>
                     <br><br>
                     <?php
                 }

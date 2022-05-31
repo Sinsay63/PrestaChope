@@ -16,8 +16,12 @@
                 if (!empty($_SESSION['ID'])) {
                     if ($_SESSION['IsAdmin'] == 1) {
                         ?>
-                        <a href="index.php?page=créationProduit">Ajouter un produit</a><br>
-                        <a href="index.php?page=catégories">Gestion des catégories</a>
+                        <a href="index.php?page=créationProduit"> 
+                            <button class="btnGestAdmin">Ajouter un produit</button>
+                        </a><br>
+                        <a href="index.php?page=catégories"> 
+                            <button class="btnGestAdmin">Gestion des catégories</button>
+                        </a>
                         <?php
                     }
                 }
@@ -28,7 +32,8 @@
                             $cat = ControllerCatalogue::SearchCatégoriesByIdAndSousCatégories($_GET['cat']);
                             ?>
                             <option value="" hidden><?php echo $cat->getNom(); ?></option>
-                        <?php } else {
+                        <?php }
+                        else {
                             ?>
                             <option value="" hidden>Recherche de catégories</option>
                         <?php } ?>
@@ -61,7 +66,8 @@
                                     ?>
                                     <option value="" hidden><?php echo $souscaté->getNom(); ?></option>
                                     <?php
-                                } else {
+                                }
+                                else {
                                     ?>
                                     <option value="" hidden>Recherche de sous catégories</option>
                                     <?php
@@ -69,9 +75,9 @@
                                 foreach ($scat as $sous_caté) {
                                     ?>
                                     <option value="<?php echo $sous_caté->getId(); ?>"><?php echo $sous_caté->getNom(); ?></option>
-                                <?php } ?>
+                            <?php } ?>
                             </select>
-                        <?php
+                            <?php
                         }
                     }
                     ?>
@@ -104,7 +110,8 @@
                             </div>
                             <?php
                         }
-                    } else {
+                    }
+                    else {
                         echo 'Aucun produit n\'a été trouvé.';
                     }
                     ?>

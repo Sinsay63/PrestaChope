@@ -15,7 +15,7 @@ USE prestachope_bdd6;
 CREATE TABLE categories(
         Id          Int  Auto_increment  NOT NULL ,
         nom         Varchar (50) NOT NULL ,
-        description Varchar (50) NOT NULL
+        description Varchar (100) NOT NULL
 	,CONSTRAINT categories_PK PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
@@ -74,17 +74,17 @@ CREATE TABLE produits(
 )ENGINE=InnoDB;
 
 INSERT INTO `produits` (`Id`, `nom`, `description`, `prix`, `stock`, `image`, `Id_Categories`, `Id_SousCategories`) VALUES
-(1, 'Heineken', 'bouteille de 33cl', 1.5, 500, 'assets/images/heineken-0.jpg', 2, 2),
+(1, 'Heineken', 'bouteille de 33cl', 1.5, 500, 'assets/images/heineken.png', 2, 2),
 (2, 'Desperados', '330ml 5.9%', 2.5, 200, 'assets/images/desperados.png', 2, 3),
 (3, 'Kronembourg', 'Canette 330ml 4.2%', 1.75, 150, 'assets/images/kro.png', 2, 2),
 (4, 'Fût heineken', 'Fût 5L heineken ', 19.99, 125, 'assets/images/fut-heineken.png', 2, 5),
 (5, 'Fût desperados', 'Fût 5L desperados', 21.99, 20, 'assets/images/fut-desperados.png', 2, 5),
 (6, 'Fût affligem', 'Fût 5L affligem ', 19.99, 20, 'assets/images/fut-affli.png', 2, 5),
-(7, 'Rosé schiste', 'bouteille 1L de Schiste', 12, 100, 'assets/images/rose.jpg', 3, 7),
-(8, 'Kit de brassage ', 'Kit pour brasser sa propre bière ', 70, 20, 'assets/images/kit.jpg', 5, 9),
-(9, 'Kit de brassage 2 ', 'Kit pour brasser sa propre bière 2 ', 75, 15, 'assets/images/kit2.jpg', 5, 9),
-(10, 'Montazac', 'bouteille 1L de Monbazillac ', 25.5, 50, 'assets/images/blanc.jpg', 3, 8),
-(11, 'Chope bière', 'Une chope pour remplir sa bière ', 3.6, 150, 'assets/images/chope.jpg', 5, 10),
+(7, 'Rosé schiste', 'bouteille 1L de Schiste', 12, 100, 'assets/images/rose.png', 3, 7),
+(8, 'Kit de brassage ', 'Kit pour brasser sa propre bière ', 70, 20, 'assets/images/kit.png', 5, 9),
+(9, 'Kit de brassage 2 ', 'Kit pour brasser sa propre bière 2 ', 75, 15, 'assets/images/kit2.png', 5, 9),
+(10, 'Montazac', 'bouteille 1L de Monbazillac ', 25.5, 50, 'assets/images/blanc.png', 3, 8),
+(11, 'Chope bière', 'Une chope pour remplir sa bière ', 3.6, 150, 'assets/images/chope.png', 5, 10),
 (12, 'Grimbergen', '330ml grimbergen ', 2.25, 300, 'assets/images/grim.png', 2, 4);
 
 
@@ -181,7 +181,7 @@ CREATE TABLE commandes(
 CREATE TABLE factures(
         Id            Int  Auto_increment  NOT NULL ,
         Id_Commandes  Int NOT NULL,
-        montant       Int NOT NULL,
+        montant       Double NOT NULL,
         date            DATETIME NOT NULL
 	,CONSTRAINT factures_PK PRIMARY KEY (Id)
         ,CONSTRAINT factures_commandes_FK FOREIGN KEY (Id_Commandes) REFERENCES commandes(Id)
